@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Colouring">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792358431"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792361502"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -127,118 +127,7 @@ function sha256(s){const K=[],H=[];let p=2,n=0;const f=x=>(x-Math.floor(x))*4294
  if(LS.omUnlock===PWH){L.classList.add("hide");return}
  const go=()=>{if(sha256(I.value.trim().toLowerCase())===PWH){LS.omUnlock=PWH;I.blur();L.classList.add("hide")}else{L.classList.add("bad");I.value="";setTimeout(()=>L.classList.remove("bad"),900)}};
  document.getElementById("pwgo").onclick=go;I.addEventListener("keydown",e=>{if(e.key==="Enter")go()})})();
-const A=[
-{n:"kočička",p:[["M330 360Q440 365 425 270Q420 238 445 228Q465 245 455 285Q448 395 330 392Z","#f2b27a"],[E(250,340,100,78),"#f2b27a"],[E(205,410,30,17),"#fff"],[E(295,410,30,17),"#fff"],
- ["M160 160L170 72Q174 58 188 66L238 112Z","#f2b27a"],["M340 160L330 72Q326 58 312 66L262 112Z","#f2b27a"],[E(250,192,112,92),"#f2b27a"]],
- d:()=>eye(208,190)+eye(292,190)+blush(178,228)+blush(322,228)+`<path d="M242 214h16l-8 9z" fill="#e88a9a"/>`+smile(250,226,9)+ln("M150 205l-40-6M150 220l-38 8M350 205l40-6M350 220l38 8")},
-{n:"pejsek",p:[["M335 335Q390 295 398 250Q412 242 414 262Q405 325 348 360Z","#c9a27e"],[E(250,345,95,75),"#c9a27e"],[E(205,410,30,17),"#fff"],[E(295,410,30,17),"#fff"],
- [E(250,190,108,96),"#e6c9a8"],[E(250,236,46,32),"#fff"],["M158 140Q112 150 116 235Q120 282 156 270Q182 230 190 160Z","#a87f5f"],["M342 140Q388 150 384 235Q380 282 344 270Q318 230 310 160Z","#a87f5f"]],
- d:()=>eye(210,180)+eye(290,180)+blush(182,222)+blush(318,222)+`<ellipse cx="250" cy="222" rx="15" ry="10" fill="${INK}"/>`+smile(250,238,9)+`<path d="M244 248q6 16 12 0z" fill="#ef8f9c"/>`},
-{n:"rybička",p:[["M330 225L432 150Q452 142 448 170L425 225L448 280Q452 308 432 300Z","#f2b27a"],["M165 145Q225 62 300 145Z","#f2b27a"],["M195 305Q235 365 275 305Z","#f2b27a"],
- [E(230,225,135,95),"#f4dc7d"],["M215 245Q258 222 272 262Q244 290 215 245Z","#f2b27a"]],
- d:()=>eye(160,208,1.2)+blush(170,252)+smile(115,240,8)+`<g fill="none" stroke="#a8c8e4" stroke-width="4"><circle cx="70" cy="120" r="14"/><circle cx="95" cy="70" r="9"/><circle cx="60" cy="40" r="6"/></g>`},
-{n:"slon",p:[[E(250,345,105,75),"#aab8c8"],[E(195,408,32,20),"#aab8c8"],[E(305,408,32,20),"#aab8c8"],[E(148,195,82,92),"#c4cfdb"],[E(352,195,82,92),"#c4cfdb"],
- [E(148,200,50,60),"#f2b8cf"],[E(352,200,50,60),"#f2b8cf"],[E(250,200,100,90),"#aab8c8"],["M226 252Q216 335 255 350Q292 356 296 322Q272 330 268 298L274 252Z","#aab8c8"]],
- d:()=>eye(207,190)+eye(293,190)+blush(178,232)+blush(322,232)+ln("M255 280q8 -4 14 0M257 300q7 -4 13 0")},
-{n:"sova",p:[["M165 125L150 52L220 88Z","#b8957a"],["M335 125L350 52L280 88Z","#b8957a"],["M250 72Q148 72 140 200Q132 340 172 390Q250 432 328 390Q368 340 360 200Q352 72 250 72Z","#b8957a"],
- [E(250,302,72,80),"#f2dcc0"],["M148 215Q100 292 162 362Q186 300 170 228Z","#9a7a62"],["M352 215Q400 292 338 362Q314 300 330 228Z","#9a7a62"],
- [E(200,180,50),"#fff"],[E(300,180,50),"#fff"],["M234 218Q250 212 266 218L250 246Z","#f2b27a"],[E(220,408,22,12),"#f2b27a"],[E(280,408,22,12),"#f2b27a"]],
- d:()=>eye(200,182,1.4)+eye(300,182,1.4)+blush(165,232)+blush(335,232)+ln("M225 300q12 8 24 0q12 8 24 0M225 330q12 8 24 0q12 8 24 0")},
-{n:"zajíček",p:[[E(345,362,26),"#fff"],[E(250,345,95,75),"#ece3da"],[E(198,410,36,18),"#fff"],[E(302,410,36,18),"#fff"],
- [E(205,105,30,76),"#ece3da"],[E(295,105,30,76),"#ece3da"],[E(205,112,14,52),"#f2b8cf"],[E(295,112,14,52),"#f2b8cf"],[E(250,215,102,86),"#ece3da"]],
- d:()=>eye(212,210)+eye(288,210)+blush(182,248)+blush(318,248)+`<path d="M243 232h14l-7 8z" fill="#e88a9a"/>`+smile(250,242,8)},
-{n:"dinosaurus",p:[["M150 258L165 212L192 246Z","#f2b27a"],["M196 242L216 196L240 236Z","#f2b27a"],["M150 335Q62 345 38 292Q90 302 158 280Z","#9fcf98"],[E(230,322,110,80),"#9fcf98"],
- [E(235,340,62,42),"#f4dc7d"],[E(178,395,30,22),"#9fcf98"],[E(282,395,30,22),"#9fcf98"],["M262 262Q292 238 292 190L352 200Q352 262 312 300Z","#9fcf98"],[E(332,182,88,74),"#9fcf98"]],
- d:()=>eye(305,178)+eye(368,178)+blush(285,212)+blush(395,212)+smile(337,215,9)+`<circle cx="190" cy="300" r="8" fill="#7fb878"/><circle cx="270" cy="290" r="6" fill="#7fb878"/>`},
-{n:"drak",p:[["M190 262Q140 180 180 112Q205 160 232 138Q244 180 286 172Q282 225 258 262Z","#b9a2d6"],["M135 335Q55 352 32 300L62 290Q86 312 145 300Z","#e88a84"],[E(225,322,102,78),"#e88a84"],
- [E(230,340,58,40),"#f4dc7d"],[E(175,395,30,22),"#e88a84"],[E(280,395,30,22),"#e88a84"],["M258 262Q290 238 296 190L356 198Q352 262 310 298Z","#e88a84"],["M292 125L286 78L318 112Z","#f4dc7d"],["M368 118L382 74L392 120Z","#f4dc7d"],[E(338,180,82,70),"#e88a84"]],
- d:()=>eye(312,176)+eye(368,176)+blush(292,210)+blush(392,210)+smile(340,212,9)+`<circle cx="402" cy="190" r="3" fill="${INK}"/>`}];
 
-// ---------- original characters (themes only evoked) ----------
-const PINK="#f6b8c6",PINK2="#ee9bb0",SKIN="#f8dfcc",SKIN2="#b9805e";
-// transform an absolute-only path (M L Q C Z) : x'=tx+s*x , y'=ty+s*y (mirror with s<0 on x via sx)
-// side-profile piglet, local coords ~ (0..300, 0..380), facing right
-function pig(tx,ty,s,cloth,shoes,boy){const t=d=>T(d,tx,ty,s);const P=[
- [t("M92 300L106 300L106 352L92 352Z"),PINK],[t("M150 300L164 300L164 352L150 352Z"),PINK],
- [t("M70 352Q70 336 99 336Q126 336 126 352Q126 364 99 364Q70 364 70 352Z"),shoes],[t("M130 352Q130 336 158 336Q186 336 186 352Q186 364 158 364Q130 364 130 352Z"),shoes],
- [t("M84 214L22 190Q12 188 14 198L16 204Q20 210 30 206L80 230Z"),PINK],[t("M176 214L238 190Q248 188 246 198L244 204Q240 210 230 206L180 230Z"),PINK],
- boy?[t("M84 198L176 198L190 306L70 306Z"),cloth]:[t("M86 196L174 196L214 312L46 312Z"),cloth],
- [t("M88 40Q78 6 96 0Q114 10 110 40Z"),PINK2],[t("M128 34Q126 -2 146 -6Q160 8 150 38Z"),PINK2],
- [t("M30 120Q18 50 90 36Q170 22 232 52L262 62Q286 70 286 96Q286 122 262 128L232 136Q196 196 104 200Q38 198 30 120Z"),PINK],
- [t("M266 96Q266 58 284 58Q302 58 302 96Q302 134 284 134Q266 134 266 96Z"),PINK2]];
- return P}
-function pigFace(tx,ty,s){const X=x=>tx+x*s,Y=y=>ty+y*s;return eye(X(178),Y(78),s*.85)+eye(X(222),Y(70),s*.85)+`<ellipse cx="${X(110)}" cy="${Y(140)}" rx="${18*s}" ry="${11*s}" fill="#f08aa2" opacity=".6"/>`+
- dot(X(279),Y(86),5*s,"#c9768c")+dot(X(290),Y(106),5*s,"#c9768c")+`<path d="M${X(196)} ${Y(150)}Q${X(226)} ${Y(170)} ${X(252)} ${Y(140)}" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`}
-function dinoToy(tx,ty,s){const t=d=>T(d,tx,ty,s);return [[t("M10 60Q-20 70 -26 40Q-6 52 14 44Z"),"#9fcf98"],[t("M0 50Q0 20 40 18Q80 18 80 50Q80 76 40 76Q0 76 0 50Z"),"#9fcf98"],
- [t("M18 72L18 90L32 90L32 74Z"),"#9fcf98"],[t("M52 74L52 90L66 90L66 72Z"),"#9fcf98"],[t("M60 30Q58 -10 88 -12Q118 -12 116 14Q114 34 90 36Q72 38 64 40Z"),"#9fcf98"],
- [t("M20 22L28 6L38 20Z"),"#f4dc7d"],[t("M40 18L50 2L58 20Z"),"#f4dc7d"]]}
-// heeler-like puppy, front sitting
-function puppy(o){const P=[];
- P.push(["M332 340Q392 312 402 260Q414 250 418 266Q414 334 348 366Z",o.body],[E(250,350,94,74),o.body],[E(250,362,50,46),o.cream],[E(204,414,32,17),o.cream],[E(296,414,32,17),o.cream],
-  ["M168 166L150 42Q154 26 170 34L238 116Z",o.ear],["M332 166L350 42Q346 26 330 34L262 116Z",o.ear],["M174 132L166 70L212 116Z",o.inner],["M326 132L334 70L288 116Z",o.inner],
-  ["M146 204Q146 112 250 106Q354 112 354 204Q348 286 250 290Q152 286 146 204Z",o.body],
-  ["M168 176Q196 136 250 160Q304 136 332 176Q340 214 304 222Q272 210 250 226Q228 210 196 222Q160 214 168 176Z",o.mask],
-  [E(250,246,54,38),o.cream]);
- if(o.bow)P.push(["M250 112L208 88Q196 112 208 136Z","#f2b8cf"],["M250 112L292 88Q304 112 292 136Z","#f2b8cf"],[E(250,112,12),"#e88a9a"]);
- return P}
-const puppyFace=o=>()=>`<circle cx="208" cy="188" r="22" fill="#fff"/><circle cx="292" cy="188" r="22" fill="#fff"/>`+eye(208,190)+eye(292,190)+
- `<ellipse cx="200" cy="150" rx="11" ry="7" fill="${o.brow}"/><ellipse cx="300" cy="150" rx="11" ry="7" fill="${o.brow}"/>`+blush(176,236)+blush(324,236)+
- `<ellipse cx="250" cy="232" rx="17" ry="11" fill="${INK}"/>`+`<path d="M232 254Q250 270 268 254" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/><path d="M244 262q6 16 12 0z" fill="#ef8f9c"/>`;
-function flake(cx,cy,R){const P=[];for(let i=0;i<6;i++){const a=i*Math.PI/3;
- P.push([POLY(rot([[cx-13,cy-38],[cx+13,cy-38],[cx+13,cy-R],[cx,cy-R-18],[cx-13,cy-R]],cx,cy,a)),"#cfe3f5"]);
- P.push([POLY(rot([[cx,cy-R*.62],[cx+38,cy-R*.62-34],[cx+46,cy-R*.62-24],[cx+12,cy-R*.62+6],[cx-12,cy-R*.62+6],[cx-46,cy-R*.62-24],[cx-38,cy-R*.62-34]],cx,cy,a)),"#e2eefa"])}
- P.push([POLY([0,1,2,3,4,5].map(i=>[cx+52*Math.cos(i*Math.PI/3+Math.PI/6),cy+52*Math.sin(i*Math.PI/3+Math.PI/6)])),"#b9d6f0"]);return P}
-const BLUEP={body:"#86aee0",cream:"#f4e6cf",ear:"#6f95cb",inner:"#e9c99a",mask:"#4f6f9f",brow:"#e9c99a"};
-const ORANGEP={body:"#f2a66a",cream:"#fbe9d3",ear:"#e2884a",inner:"#fbe9d3",mask:"#c96f3a",brow:"#fbe9d3",bow:1};
-// princess: platinum hair with side braid, light-blue dress with sheer cape
-const PRIN=[["M118 196Q104 70 246 60Q392 66 380 196Q380 236 352 250L150 250Q118 236 118 196Z","#f3ecd2"],
- ["M150 270Q110 330 102 430L398 430Q390 330 350 270Z","#d8ecfa"],
- [RR(232,236,36,34,12),SKIN],["M210 276Q150 286 128 346Q124 370 146 370Q160 326 214 306Z",SKIN],["M290 276Q350 286 372 346Q376 370 354 370Q340 326 286 306Z",SKIN],
- ["M206 266L294 266L360 424Q250 446 140 424Z","#a8d0f0"],["M206 266L294 266L288 300Q250 312 212 300Z","#8fbbe0"],
- [E(250,182,84,82),SKIN],["M160 196Q150 96 250 90Q340 92 344 160Q300 104 230 128Q196 150 160 196Z","#f3ecd2"],
- [E(176,250,24,26),"#f3ecd2"],[E(170,294,23,25),"#f3ecd2"],[E(166,336,21,23),"#f3ecd2"],[E(164,374,18,20),"#f3ecd2"],["M156 392Q164 384 172 392L176 420Q164 428 152 420Z","#a8d0f0"]];
-const SNOW=[[E(204,420,30,16),"#fff"],[E(296,420,30,16),"#fff"],[E(250,350,104,76),"#fff"],[E(250,240,74,56),"#fff"],["M180 160Q176 66 250 62Q324 66 320 160Q318 204 250 206Q182 204 180 160Z","#fff"],
- ["M250 140L312 150L250 162Z","#f2b27a"]];
-// island girl: long dark wavy hair, red top, leafy skirt
-const ISL=[["M140 190Q120 70 250 60Q380 70 360 190Q376 250 356 300Q378 340 352 372L148 372Q122 340 144 300Q124 250 140 190Z","#3d2b26"],
- [RR(232,240,36,32,12),SKIN2],["M204 274Q150 284 132 340Q128 364 150 364Q162 322 210 304Z",SKIN2],["M296 274Q350 284 368 340Q372 364 350 364Q338 322 290 304Z",SKIN2],
- ["M198 266L302 266Q314 290 302 312L198 312Q186 290 198 266Z","#e0574f"],["M194 310L306 310L338 406Q250 422 162 406Z","#e9c99a"],
- [RR(212,402,24,26,10),SKIN2],[RR(264,402,24,26,10),SKIN2],
- [E(250,182,84,82),SKIN2],["M166 178Q170 98 250 96Q330 98 334 178Q312 136 270 124Q240 150 166 178Z","#3d2b26"]]
- .concat([0,1,2,3,4].map(i=>{const a=i*Math.PI*2/5-Math.PI/2;return [E(330+22*Math.cos(a),118+22*Math.sin(a),16),"#f6f0e6"]})).concat([[E(330,118,10),"#f4dc7d"]]);
-const NEW=[
-// prasátka
-{n:"prasátko",t:"\u{1F437}",p:pig(105,50,1.05,"#e0574f","#e0574f"),d:()=>pigFace(105,50,1.05)},
-{n:"bráška",t:"\u{1F437}",p:pig(70,96,.9,"#8fbbe0","#5a7fb0",true).concat(dinoToy(316,260,1.1)),d:()=>pigFace(70,96,.9)+eye(410,252,.45)+grin(408,266,7)},
-{n:"louže",t:"\u{1F437}",p:[[E(250,400,210,40),"#9a7a62"],[E(250,400,150,24),"#b8957a"]].concat(pig(110,40,.95,"#e0574f","#f4dc7d")).concat([
-  ["M60 330Q44 356 60 364Q76 356 60 330Z","#9a7a62"],["M440 320Q424 346 440 354Q456 346 440 320Z","#9a7a62"],["M100 290Q88 310 100 316Q112 310 100 290Z","#9a7a62"]]),
- d:()=>pigFace(110,40,.95)+ln("M70 400q-30-30-20-60M430 396q30-30 20-60","#9a7a62",5)},
-// pejsci
-{n:"modrý pejsek",t:"\u{1F436}",p:puppy(BLUEP),d:puppyFace(BLUEP)},
-{n:"sestřička",t:"\u{1F436}",p:puppy(ORANGEP),d:puppyFace(ORANGEP)},
-// ledové království
-{n:"princezna",t:"❄️",p:PRIN,d:()=>eye(218,194)+eye(282,194)+ln("M204 176l-6-6M212 173l-3-7M296 176l6-6M288 173l3-7",INK,3)+blush(192,226)+blush(308,226)+smile(250,234,8)+
- `<g fill="none" stroke="#fff" stroke-width="4" stroke-linecap="round"><path d="M250 336v36M234 345l32 18M266 345l-32 18"/><path d="M200 392v20M191 397l18 10M209 397l-18 10"/><path d="M304 388v20M295 393l18 10M313 393l-18 10"/></g>`},
-{n:"sněhulák",t:"❄️",p:SNOW,d:()=>eye(224,128,.9)+eye(276,128,.9)+`<path d="M216 172Q250 196 284 172Q270 186 250 186Q230 186 216 172Z" fill="${INK}"/><rect x="242" y="176" width="16" height="12" rx="2" fill="#fff" stroke="${INK}" stroke-width="2"/>`+
- ln("M226 64q-6-26 4-40M250 62v-44M274 64q6-26-4-40","#9a7a62",5)+ln("M180 236l-62-30M140 216l-8-24M320 236l62-30M360 216l8-24","#9a7a62",6)+dot(250,236,7,"#6b625b")+dot(250,264,7,"#6b625b")+dot(250,334,8,"#6b625b")},
-{n:"vločka",t:"❄️",p:flake(250,225,165),d:()=>eye(232,220,.8)+eye(268,220,.8)+smile(250,240,7)},
-// ostrov
-{n:"holčička",t:"\u{1F33A}",p:ISL,d:()=>eye(220,194)+eye(280,194)+blush(194,228)+blush(306,228)+smile(250,236,9)+
- ln("M184 356q16-24 30 0M234 376q16-24 30 0M286 356q16-24 30 0","#7fb878",5)+`<path d="M210 262Q250 290 290 262" fill="none" stroke="#f6f0e6" stroke-width="7" stroke-linecap="round" stroke-dasharray="0.1 12"/>`},
-{n:"kánoe",t:"\u{1F33A}",p:[[E(80,70,40),"#f4dc7d"],["M262 60L274 60L274 270L262 270Z","#b8957a"],["M276 66Q380 120 420 240Q350 250 278 250Z","#f2b27a"],["M258 80Q200 150 170 240L256 244Z","#f6f0e6"],
-  ["M90 330L420 330L420 344L90 344Z","#b8957a"],["M380 344L390 344L390 370L380 370Z","#b8957a"],["M150 344L160 344L160 370L150 370Z","#b8957a"],[E(270,372,140,12),"#e9c99a"],
-  ["M40 270Q250 336 460 270L430 318Q250 370 70 318Z","#e0574f"],
-  ["M0 360Q62 334 125 360T250 360T375 360T500 360V450H0Z","#8fbbe0"],["M0 404Q62 382 125 404T250 404T375 404T500 404V450H0Z","#6f9fcb"]],
- d:()=>eye(68,66,.55)+eye(92,66,.55)+smile(80,84,6)+ln("M110 306h40M230 322h40M350 306h40","#fff",5)},
-{n:"vlna",t:"\u{1F33A}",p:[[E(90,80,40),"#f4dc7d"],["M60 352Q50 170 230 132Q400 106 438 236Q410 196 350 204Q282 218 300 282Q318 330 392 336Z","#8fbbe0"],["M330 210Q380 192 432 232Q408 214 372 220Q344 226 338 250Q322 232 330 210Z","#fff"],
-  ["M0 340Q125 312 250 340T500 340V450H0Z","#6f9fcb"],[E(380,400,30,16),"#f2b27a"],["M410 400L438 384L438 416Z","#f2b27a"]],
- d:()=>eye(372,398,.5)+ln("M150 250q30-40 70-50M120 300q20-40 50-60","#fff",6)+dot(80,76,4)+dot(100,76,4)+smile(90,92,5)},
-{n:"kohoutek",t:"\u{1F33A}",p:[["M318 250Q372 150 350 96Q396 130 384 250Z","#5fb3a8"],["M326 262Q430 210 440 150Q470 220 396 290Z","#3f8f9a"],["M330 284Q430 300 452 250Q456 310 360 324Z","#7fc6a4"],
-  [E(250,292,104,90),"#e2a35f"],["M262 272Q334 250 338 326Q296 348 260 312Z","#c9803f"],[RR(214,370,14,46,6),"#f4dc7d"],[RR(272,370,14,46,6),"#f4dc7d"],
-  ["M200 420L242 420L242 432L200 432Z","#f4dc7d"],["M258 420L300 420L300 432L258 432Z","#f4dc7d"],
-  ["M206 124Q210 76 238 104Q252 64 272 102Q296 76 300 126Z","#e0574f"],[E(250,180,72,64),"#e2a35f"],["M226 194L274 194L250 236Z","#f4dc7d"],[E(250,244,11,16),"#e0574f"]],
- d:()=>`<circle cx="220" cy="168" r="22" fill="#fff" stroke="${INK}" stroke-width="3"/><circle cx="280" cy="168" r="22" fill="#fff" stroke="${INK}" stroke-width="3"/>`+dot(226,172,8)+dot(274,164,8)+blush(196,206)+blush(304,206)}
-];
 // ===================== v11 picture library =====================
 // robust path transform (abs+rel M L H V Q T C S A Z): x'=tx+sx*x, y'=ty+s*y
 function T(d,tx,ty,s,sx){sx=sx===undefined?s:sx;const tok=d.match(/[A-Za-z]|-?\d*\.?\d+(?:e-?\d+)?/g)||[];const N={M:2,L:2,T:2,Q:4,S:4,C:6,H:1,V:1,A:7,Z:0};
@@ -262,15 +151,14 @@ const cloud=(x,y,s)=>P_([[`M${x-62*s} ${y+22*s}Q${x-84*s} ${y-8*s} ${x-48*s} ${y
 const hill=(y,c)=>P_([[`M0 ${y}Q125 ${y-34} 250 ${y}T500 ${y}L500 450L0 450Z`,c||LGREEN]]);
 const sea=(y,c)=>P_([[`M0 ${y}Q62 ${y-22} 125 ${y}T250 ${y}T375 ${y}T500 ${y}L500 450L0 450Z`,c||BLUE]]);
 const sand=y=>P_([[`M0 ${y}Q250 ${y-28} 500 ${y}L500 450L0 450Z`,"#f3dfb3"]]);
-function flower(x,y,s,c){const P=[[`M${x-4*s} ${y}L${x+4*s} ${y}L${x+4*s} ${y+70*s}L${x-4*s} ${y+70*s}Z`,GREEN2],[`M${x+3*s} ${y+44*s}Q${x+30*s} ${y+22*s} ${x+38*s} ${y+40*s}Q${x+24*s} ${y+58*s} ${x+3*s} ${y+54*s}Z`,GREEN]];
- for(let i=0;i<5;i++){const a=i*Math.PI*2/5-Math.PI/2;P.push([E(x+17*s*Math.cos(a),y+17*s*Math.sin(a),13*s),c])}P.push([E(x,y,10*s),YEL]);return P_(P)}
+function flower(x,y,s,c){return P_([[`M${x-5*s} ${y}L${x+5*s} ${y}L${x+5*s} ${y+72*s}L${x-5*s} ${y+72*s}Z`,GREEN2],[`M${x+4*s} ${y+46*s}Q${x+34*s} ${y+22*s} ${x+42*s} ${y+42*s}Q${x+26*s} ${y+62*s} ${x+4*s} ${y+58*s}Z`,GREEN],[scallop(x,y,20*s,5,22*s),c],[E(x,y,12*s),YEL]])}
 function tree(x,y,s){return P_([[`M${x-14*s} ${y}L${x+14*s} ${y}L${x+20*s} ${y+130*s}L${x-20*s} ${y+130*s}Z`,BROWN],[E(x-42*s,y+8*s,42*s,36*s),GREEN2],[E(x+42*s,y+8*s,42*s,36*s),GREEN2],[E(x,y-34*s,58*s,50*s),GREEN]])}
 function leaf(cx,cy,ang,len,w){const tx=cx+len*Math.cos(ang),ty=cy+len*Math.sin(ang),mx=(cx+tx)/2,my=(cy+ty)/2,px=-Math.sin(ang),py=Math.cos(ang);
  return `M${cx.toFixed(1)} ${cy.toFixed(1)}Q${(mx+px*w).toFixed(1)} ${(my+py*w).toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}Q${(mx-px*w*.35).toFixed(1)} ${(my-py*w*.35).toFixed(1)} ${cx.toFixed(1)} ${cy.toFixed(1)}Z`}
 function palm(x,y,s){const tx=x+18*s,ty=y-190*s,P=[[`M${x-12*s} ${y}Q${x+6*s} ${y-90*s} ${tx-12*s} ${ty}L${tx+12*s} ${ty}Q${x+28*s} ${y-90*s} ${x+14*s} ${y}Z`,"#c9a27e"]];
- [-2.9,-2.3,-1.6,-0.9,-0.25].forEach(a=>P.push([leaf(tx,ty,a,95*s,-30*s),GREEN2]));P.push([E(tx-8*s,ty+14*s,11*s),BROWN],[E(tx+12*s,ty+16*s,11*s),BROWN]);return P_(P)}
+ [-2.9,-2.3,-1.6,-0.9,-0.25].forEach(a=>P.push([leaf(tx,ty,a,95*s,-34*s),GREEN2]));return P_(P)}
 const ball=(x,y,r,c1,c2)=>P_([[E(x,y,r),c1||RED],[`M${x-r} ${y}Q${x} ${y-r*.55} ${x+r} ${y}Q${x} ${y+r*.55} ${x-r} ${y}Z`,c2||WHITE]]);
-const bone=(x,y,s)=>P_([[E(x-38*s,y-10*s,13*s),WHITE],[E(x-38*s,y+10*s,13*s),WHITE],[E(x+38*s,y-10*s,13*s),WHITE],[E(x+38*s,y+10*s,13*s),WHITE],[RR(x-40*s,y-10*s,80*s,20*s,6*s),WHITE]]);
+const bone=(x,y,s)=>{const X=v=>(x+v*s).toFixed(1),Y=v=>(y+v*s).toFixed(1);return P_([[`M${X(-40)} ${Y(-10)}H${X(40)}Q${X(40)} ${Y(-30)} ${X(52)} ${Y(-26)}Q${X(66)} ${Y(-20)} ${X(56)} ${Y(0)}Q${X(66)} ${Y(20)} ${X(52)} ${Y(26)}Q${X(40)} ${Y(30)} ${X(40)} ${Y(10)}H${X(-40)}Q${X(-40)} ${Y(30)} ${X(-52)} ${Y(26)}Q${X(-66)} ${Y(20)} ${X(-56)} ${Y(0)}Q${X(-66)} ${Y(-20)} ${X(-52)} ${Y(-26)}Q${X(-40)} ${Y(-30)} ${X(-40)} ${Y(-10)}Z`,WHITE]])};
 const moon=(x,y,r)=>P_([[`M${x} ${y-r}A${r} ${r} 0 1 0 ${x} ${y+r}A${r*.72} ${r} 0 1 1 ${x} ${y-r}Z`,YEL]]);
 function star5(x,y,r,c){const pts=[];for(let i=0;i<10;i++){const a=i*Math.PI/5-Math.PI/2,R=i%2?r*.45:r;pts.push([x+R*Math.cos(a),y+R*Math.sin(a)])}return [POLY(pts),c||YEL]}
 const seaweed=(x,y,h,c)=>P_([[`M${x} ${y}Q${x-22} ${y-h/3} ${x} ${y-h*.66}Q${x+18} ${y-h} ${x+6} ${y-h}Q${x+30} ${y-h*.66} ${x+12} ${y-h/3}Q${x-2} ${y-h*.15} ${x+18} ${y}Z`,c||GREEN2]]);
@@ -282,134 +170,235 @@ function castle(x,y,s,wall,roof){wall=wall||"#e6dccd";roof=roof||RED;const t=d=>
 function scallop(cx,cy,R,n,bump){let d="";for(let i=0;i<n;i++){const a0=i*2*Math.PI/n,a1=(i+1)*2*Math.PI/n,am=(a0+a1)/2,x0=cx+R*Math.cos(a0),y0=cy+R*Math.sin(a0),x1=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1),
  xm=cx+(R+bump)*Math.cos(am),ym=cy+(R+bump)*Math.sin(am);d+=(i?"":"M"+x0.toFixed(1)+" "+y0.toFixed(1))+"Q"+xm.toFixed(1)+" "+ym.toFixed(1)+" "+x1.toFixed(1)+" "+y1.toFixed(1)}return d+"Z"}
 const faceStd=(x1,x2,y,s)=>eye(x1,y,s)+eye(x2,y,s)+blush(x1-26*s,y+34*s)+blush(x2+26*s,y+34*s)+smile((x1+x2)/2,y+38*s,9*s);
-// ---------- lookup old pictures ----------
-const OLD={};A.concat(NEW).forEach(a=>OLD[a.n]=a);
-// ===================== DINOSAURS =====================
-const babyDino=P_([[ "M196 206L212 166L232 198L250 160L268 196L288 166L304 206Q250 190 196 206Z",ORA],[E(250,290,120,104),GREEN],[E(250,326,70,54),YEL],[E(194,392,36,20),GREEN],[E(306,392,36,20),GREEN]],
- ()=>eye(208,262,1.15)+eye(292,262,1.15)+blush(180,300)+blush(320,300)+smile(250,302,11));
-const stego=P_([
- ...[[140,250,56],[185,230,70],[230,222,78],[275,226,70],[320,242,56]].map(([cx,by,h])=>[`M${cx-24} ${by+18}L${cx} ${by-h}L${cx+24} ${by+18}Z`,ORA]),
- ["M30 300L20 272L44 296Z",YEL],["M54 306L52 278L70 303Z",YEL],["M104 320Q42 336 18 298Q56 310 98 288Z",GREEN],
- [RR(128,320,38,72,16),GREEN2],[RR(300,318,38,74,16),GREEN2],
- ["M90 330Q96 222 230 214Q352 210 382 292Q392 334 362 348L130 348Q96 348 90 330Z",GREEN],[E(240,332,95,22),YEL],
- [RR(178,326,38,72,16),GREEN],[RR(344,322,36,70,16),GREEN],["M356 300Q376 252 420 252Q462 256 464 284Q464 314 426 318Q388 320 356 300Z",GREEN]],
- ()=>eye(424,278,.75)+blush(446,300)+smile(426,302,7)+dot(200,280,7,GREEN2)+dot(260,268,6,GREEN2)+dot(310,290,7,GREEN2));
-const trice=P_([["M110 300Q44 322 24 290Q60 300 104 272Z",GREEN],[RR(120,330,40,70,16),GREEN2],[RR(250,330,40,70,16),GREEN2],[E(215,300,125,82),GREEN],[E(218,320,80,40),YEL],
- [RR(165,334,40,70,16),GREEN],[RR(295,334,40,70,16),GREEN],[scallop(352,236,70,11,14),ORA],[E(352,236,52),"#f7c99a"],
- ["M308 262Q318 206 378 210Q438 214 444 262Q448 302 400 310Q338 316 308 262Z",GREEN],["M352 214L338 146L376 208Z","#fff6e0"],["M394 214L404 146L420 214Z","#fff6e0"],["M432 254L470 236L444 272Z","#fff6e0"]],
- ()=>eye(382,252,.8)+blush(410,282)+smile(400,288,7)+dot(312,232,5,"#fff")+dot(392,232,5,"#fff"));
-const trex=P_([["M168 334Q76 366 24 330Q86 318 156 284Z",GREEN],[E(262,366,36,42),GREEN2],["M236 396L300 396Q312 422 290 424L236 424Z",GREEN2],[E(220,292,86,96),GREEN],[E(236,312,50,66),YEL],
- [E(188,362,42,46),GREEN],["M150 398L222 398Q234 424 212 426L150 426Z",GREEN],["M282 252Q312 248 318 270Q304 276 290 264Z",GREEN],["M266 272Q296 270 300 290Q286 294 274 284Z",GREEN],
- ["M290 196L388 188Q388 218 342 222Q300 224 290 196Z","#cfe8c8"],["M218 182Q212 100 300 94Q382 90 402 140Q412 176 382 190L300 200Q240 216 218 182Z",GREEN]],
- ()=>eye(334,136,.95)+blush(360,170)+dot(388,128,4)+`<path d="M310 196l6 10l6-10M332 194l6 10l6-10M354 192l6 10l6-10" fill="#fff" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`+ln("M300 200Q340 214 384 196",INK,3.5));
-const brachio=combine(sun(80,80,34),palm(440,420,1),P_([["M100 314Q32 336 14 298Q60 302 104 288Z",GREEN],[RR(110,330,34,84,14),GREEN2],[RR(250,330,34,84,14),GREEN2],
- ["M244 290Q292 170 322 84L364 96Q340 182 296 306Z",GREEN],[E(200,320,112,70),GREEN],[E(206,336,70,30),YEL],[RR(150,336,34,84,14),GREEN],[RR(286,334,34,84,14),GREEN],[E(362,84,44,30),GREEN]],
- ()=>eye(372,78,.65)+blush(390,96)+smile(380,96,6)+dot(170,300,8,GREEN2)+dot(230,292,7,GREEN2)+dot(300,220,6,GREEN2)+dot(318,170,5,GREEN2)));
-const ptero=combine(cloud(90,90,.8),cloud(420,370,.7),P_([["M214 214Q120 136 24 168Q98 196 128 252Q172 240 214 262Z",PURP],["M286 214Q380 136 476 168Q402 196 372 252Q328 240 286 262Z",PURP],
- [E(250,240,44,72),"#c9b6e4"],[E(250,262,26,44),YEL],[E(228,316,12,16),ORA],[E(272,316,12,16),ORA],["M262 108L214 76L262 100Z",ORA],["M246 164Q226 122 258 106Q300 100 334 128L302 142Q282 168 246 164Z","#c9b6e4"]],
- ()=>eye(270,128,.65)+blush(256,150)+ln("M296 136L326 128")));
-// ===================== CATS =====================
-const kittyFace=P_([["M150 196L160 82Q166 64 182 76L240 132Z",ORA],["M350 196L340 82Q334 64 318 76L260 132Z",ORA],[E(250,236,132,112),ORA]],
- ()=>eye(200,226,1.3)+eye(300,226,1.3)+blush(166,272)+blush(334,272)+`<path d="M240 254h20l-10 11z" fill="#e88a9a"/>`+smile(250,270,10)+ln("M130 250l-50-8M130 270l-48 10M370 250l50-8M370 270l48 10"));
-const sleepCat=P_([["M80 384Q80 330 250 330Q420 330 420 384Q420 426 250 426Q80 426 80 384Z",PURP],["M368 330Q446 330 426 382Q386 404 300 394Q364 380 368 330Z",GREY],[E(262,318,120,60),GREY],
- [E(205,356,30,14),"#fff"],["M126 278L128 226L164 258Z",GREY],["M188 254L216 220L224 270Z",GREY],[E(172,302,64,54),GREY]],
- ()=>closedEye(150,302,11)+closedEye(194,302,11)+blush(140,326)+blush(206,326)+`<path d="M166 318h12l-6 7z" fill="#e88a9a"/>`+ln("M300 300q14-10 28 0M326 286q14-10 28 0","#9aa6b4",4)+
- `<text x="250" y="210" font-size="42" font-family="Comic Sans MS,sans-serif" fill="#b9a2d6">z</text><text x="285" y="178" font-size="32" font-family="Comic Sans MS,sans-serif" fill="#b9a2d6">z</text>`);
+const MERGE={"baby dino": [], "dinosaur": [], "stegosaurus": [], "triceratops": [], "t rex": [], "long neck": [], "pterodactyl": [], "kitty": [], "cat": [], "sleepy cat": [], "cat with yarn": [4, 5], "cat in a box": [4], "puppy": [], "dog": [], "dachshund": [], "poodle": [], "dog with a bone": [], "fish": [], "goldfish": [], "whale": [], "octopus": [], "turtle": [], "elephant": [], "baby elephant": [], "hippo": [], "lion": [], "giraffe": [13, 14], "chick": [], "duck": [], "owl": [], "parrot": [], "owl at night": [11], "bunny": [], "little bunny": [], "hopping bunny": [], "bunny with a carrot": [], "bunny in the garden": [5, 6], "baby dragon": [], "dragon": [], "flying dragon": [], "dragon castle": [10, 11, 12], "piggy face": [], "piggy": [], "little brother": [], "muddy puddle": [], "piggy family": [], "puppy face": [], "blue puppy": [], "sister": [], "puppies playing": [4, 5, 14, 15, 22], "snowflake": [], "snowman": [], "princess": [2], "ice crystal": [], "ice castle": [9, 10, 11], "flower": [], "wave": [], "girl": [], "sailboat": [], "rooster": [], "island": []};
 const yarn=(x,y,r,c)=>P_([[E(x,y,r),c]],()=>ln(`M${x-r*.7} ${y-r*.5}Q${x} ${y-r*.1} ${x+r*.6} ${y-r*.7}M${x-r*.9} ${y+r*.1}Q${x} ${y+r*.3} ${x+r*.9} ${y-r*.1}M${x-r*.5} ${y+r*.75}Q${x+r*.1} ${y+r*.3} ${x+r*.7} ${y+r*.6}`,"#fff",4));
-const catYarn=combine(P_([["M30 420Q30 380 250 380Q470 380 470 420L470 450L30 450Z","#e2d1f0"]]),place(OLD["kočička"],-30,40,.82),yarn(400,356,48,PNK),P_([],()=>ln("M360 384Q320 420 260 410",PNK,4)));
-const catBox=combine(P_([["M118 280L74 222L236 228L250 280Z","#d9b48c"],["M382 280L426 222L264 228L250 280Z","#d9b48c"],["M180 150L186 82Q190 70 202 78L236 118Z",GREY],["M320 150L314 82Q310 70 298 78L264 118Z",GREY],
- [E(250,196,92,78),GREY],["M118 280L382 280L382 424L118 424Z","#c9a27e"],[E(206,282,28,18),"#fff"],[E(294,282,28,18),"#fff"],
- [E(410,120,26,18),PNK],[E(410,152,22,14),PNK],[E(452,120,26,18),PNK],[E(452,152,22,14),PNK],[RR(426,110,10,54,5),PURP]]),
- P_([],()=>eye(214,190)+eye(286,190)+blush(184,224)+blush(316,224)+`<path d="M242 212h16l-8 9z" fill="#e88a9a"/>`+smile(250,224,9)+ln("M160 205l-36-6M340 205l36-6")+ln("M200 360h100",DBROWN,4)));
-// ===================== DOGS =====================
-const dogFace=P_([[E(250,230,120,108),"#e6c9a8"],[E(250,286,58,40),"#fff"],["M140 160Q90 172 94 262Q98 312 136 298Q166 258 172 178Z","#a87f5f"],["M360 160Q410 172 406 262Q402 312 364 298Q334 258 328 178Z","#a87f5f"]],
- ()=>eye(204,220,1.2)+eye(296,220,1.2)+blush(170,262)+blush(330,262)+`<ellipse cx="250" cy="270" rx="18" ry="12" fill="${INK}"/>`+smile(250,288,10)+`<path d="M243 298q7 18 14 0z" fill="#ef8f9c"/>`);
-const dachs=P_([["M114 262Q74 242 70 210Q92 226 118 246Z",BROWN],[RR(130,300,30,52,12),DBROWN],[RR(300,300,30,52,12),DBROWN],["M112 280Q112 230 172 230L330 230Q382 230 382 280Q382 322 330 322L172 322Q112 322 112 280Z",BROWN],
- [RR(168,302,30,52,12),BROWN],[RR(338,302,30,52,12),BROWN],[E(392,222,50,44),BROWN],[E(436,244,32,22),"#e6c9a8"],["M372 200Q344 212 348 270Q370 284 384 250Z",DBROWN]],
- ()=>eye(400,212,.8)+blush(410,240)+dot(466,238,9)+smile(446,258,6)+ln("M360 276Q300 292 240 276",DBROWN,3));
-const kennel=P_([["M330 250L470 250L470 404L330 404Z",RED],["M314 262L400 182L486 262Z",BROWN],["M372 404L372 334Q400 300 428 334L428 404Z","#6b625b"]]);
-const dogBone=combine(hill(410),kennel,place(OLD["pejsek"],-20,60,.78),bone(170,418,.9));
-const poodle=P_([[E(380,240,26),PNK],["M332 276Q372 240 382 214L392 222Q384 260 346 298Z",WHITE],[E(250,320,90,62),WHITE],[E(250,322,70,46),PNK],
- [E(196,392,26),PNK],[E(304,392,26),PNK],[RR(186,330,20,62,8),WHITE],[RR(294,330,20,62,8),WHITE],
- [E(250,92,40,34),PNK],[E(178,194,40,56),PNK],[E(322,194,40,56),PNK],[E(250,180,78,72),WHITE],[E(250,214,36,26),WHITE]],
- ()=>eye(222,176)+eye(278,176)+blush(196,208)+blush(304,208)+`<ellipse cx="250" cy="204" rx="12" ry="8" fill="${INK}"/>`+smile(250,222,8)+`<path d="M232 128l18 12l18-12v24l-18-12l-18 12z" fill="#e88a9a" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`);
-// ===================== SEA =====================
-const fishEasy=P_([["M336 225L446 140Q464 136 460 160L436 225L460 290Q464 314 446 310Z",ORA],[E(230,225,146,104),YEL],["M196 150Q236 98 296 140Z",ORA]],
- ()=>eye(150,206,1.4)+blush(160,256)+smile(108,244,9)+bubbles([[60,110,14],[84,64,9],[52,32,6]])());
-const whale=P_([["M384 252Q430 214 470 188Q484 252 432 292Z",BLUE],["M60 280Q60 168 222 164Q370 166 400 262Q412 330 300 344L200 346Q60 344 60 280Z",BLUE],["M80 300Q200 344 342 316Q294 346 200 346Q100 342 80 300Z",SKY],
- [E(240,320,36,14),"#7aa8d6"],["M186 160Q166 112 136 100Q178 110 192 138Q208 104 250 98Q214 116 202 160Z","#cfe8f8"]].concat(sea(400,"#6f9fcb").p),
- ()=>eye(130,240,1.1)+blush(132,280)+smile(100,282,10)+ln("M130 330Q200 340 270 332","#fff",4));
-const octo=P_([...[160,192,224,256,288,320].map(x=>[`M${x-12} 250Q${x-38} 322 ${x-14} 384Q${x} 410 ${x+14} 386Q${x+2} 336 ${x+22} 262Z`,PURP]),[E(250,190,104,96),"#c9b6e4"]],
- ()=>eye(208,192,1.2)+eye(292,192,1.2)+blush(180,232)+blush(320,232)+smile(250,236,10)+dot(220,126,9,"#e6dcf5")+dot(270,112,7,"#e6dcf5")+dot(300,140,6,"#e6dcf5")+bubbles([[420,80,14],[446,40,9]])());
-const turtle=combine(sand(420),seaweed(40,430,150),seaweed(450,430,120,GREEN),P_([[E(150,330,34,20),GREEN],[E(370,330,34,20),GREEN],[E(452,272,42,36),GREEN],
- ["M112 300Q122 168 260 162Q398 168 408 300Z",GREEN2],["M100 300L420 300Q422 322 400 324L120 324Q98 322 100 300Z","#e6c98a"],
- [POLY([[260,190],[300,212],[300,254],[260,276],[220,254],[220,212]]),GREEN],[POLY([[176,236],[210,252],[204,292],[160,296],[146,264]]),GREEN],[POLY([[344,236],[310,252],[316,292],[360,296],[374,264]]),GREEN]],
- ()=>eye(462,262,.75)+blush(476,286)+smile(466,290,6)+bubbles([[440,180,12],[456,140,8],[180,100,10]])()));
-// ===================== SAFARI =====================
-const eleFace=P_([[E(130,210,98,110),"#c4cfdb"],[E(370,210,98,110),"#c4cfdb"],[E(250,214,120,108),"#aab8c8"],["M222 280Q210 380 254 400Q298 408 302 370Q276 376 272 340L280 282Z","#aab8c8"]],
- ()=>eye(204,202,1.2)+eye(296,202,1.2)+blush(170,252)+blush(330,252)+ln("M260 330q9-5 16 0M262 352q8-5 15 0"));
-const hippo=P_([[RR(120,330,40,74,16),"#9a8fb0"],[RR(320,330,40,74,16),"#9a8fb0"],[E(230,316,140,84),"#b3a8c9"],[RR(160,334,40,74,16),"#b3a8c9"],[RR(280,334,40,74,16),"#b3a8c9"],
- [E(332,196,16,14),"#9a8fb0"],[E(390,190,16,14),"#9a8fb0"],["M300 230Q312 190 370 192Q432 196 446 240Q470 250 470 286Q468 318 420 320L330 316Q296 296 300 230Z","#b3a8c9"]],
- ()=>eye(350,220,.8)+eye(398,214,.8)+dot(440,268,6)+dot(458,268,6)+blush(360,268)+smile(420,298,9));
-const giraffe=P_([["M150 300Q120 320 112 360L120 362Q132 330 156 316Z",ORA],[RR(170,320,26,100,10),YEL],[RR(290,320,26,100,10),YEL],[E(240,300,92,52),YEL],[RR(205,322,26,100,10),YEL],[RR(255,322,26,100,10),YEL],
- ["M272 280Q300 170 312 98L350 104Q342 182 318 300Z",YEL],["M318 70L314 44L326 44L328 72Z",ORA],["M346 72L346 44L358 44L354 74Z",ORA],[E(300,92,16,10),YEL],
- [E(340,100,40,34),YEL],[E(366,114,22,16),"#f7e6b0"],
- [E(200,292,16,12),ORA],[E(250,280,14,11),ORA],[E(286,306,13,10),ORA],[E(318,226,10,8),ORA],[E(326,170,9,8),ORA]],
- ()=>eye(338,92,.65)+blush(320,112)+dot(370,110,3)+dot(380,112,3)+smile(366,124,5));
-const lion=P_([["M330 330Q410 320 420 260Q436 252 438 270Q432 336 344 356Z",YEL],[E(434,256,14),ORA],[E(250,346,92,64),YEL],[E(205,410,30,16),YEL],[E(295,410,30,16),YEL],
- [scallop(250,190,102,14,20),ORA],[E(170,124,20),YEL],[E(330,124,20),YEL],[E(250,196,84,78),YEL],[E(250,236,38,26),"#fff2cf"]],
- ()=>eye(216,186)+eye(284,186)+blush(186,222)+blush(314,222)+`<path d="M240 222h20l-10 11z" fill="#c9803f"/>`+smile(250,238,9));
-// ===================== BIRDS =====================
-const chick=P_([[E(250,300,110,96),YEL],[E(250,170,74,68),YEL],["M232 186L268 186L250 214Z",ORA],["M300 270Q350 280 346 330Q312 336 296 300Z","#f2d26a"]],
- ()=>eye(224,160,1)+eye(276,160,1)+blush(204,190)+blush(296,190)+ln("M220 396v26M280 396v26M206 422h28M266 422h28",ORA,6)+ln("M240 104q10-24 22-4q8-20 18 0",ORA,4));
-const owlBranch=combine(moon(420,70,40),P_([star5(60,60,16),star5(120,110,10),star5(330,40,10)]),P_([["M0 360L500 340L500 362L0 382Z",BROWN],[leaf(60,370,-2.4,60,-16),GREEN],[leaf(440,350,-0.6,60,18),GREEN]]),place(OLD["sova"],120,10,.6));
-const duck=P_([["M0 370Q125 350 250 370T500 370L500 450L0 450Z",BLUE],["M120 300Q120 232 220 240L300 246Q290 170 340 150Q400 140 410 190Q412 226 370 240Q420 252 420 300Q410 372 270 372Q130 372 120 300Z",YEL],
- ["M404 182L456 194Q452 212 404 212Z",ORA],["M176 284Q250 252 300 292Q262 332 190 322Z","#f2d26a"]],()=>eye(368,180,.85)+blush(380,206)+ln("M60 390q20-8 40 0M380 400q20-8 40 0","#fff",4));
-const parrot=P_([["M210 340L190 440L216 440L232 340Z",BLUE],["M236 340L236 444L262 444L258 340Z",YEL],["M260 336L290 430L312 422L280 334Z",GREEN],
- [E(250,270,78,96),RED],[E(250,300,44,60),"#f7c99a"],["M190 230Q150 290 186 360Q222 320 218 250Z",BLUE],[E(256,150,62,58),RED],["M296 140Q344 140 340 186Q326 176 300 178Z","#f6f0e6"],
- ["M60 370L440 352L440 372L60 390Z",BROWN],[E(230,368,12,8),ORA],[E(266,366,12,8),ORA]],()=>`<circle cx="262" cy="140" r="18" fill="#fff"/>`+eye(264,142,.75)+blush(240,172));
-// ===================== BUNNIES =====================
-const bunnyFace=P_([[E(196,110,34,90),"#ece3da"],[E(304,110,34,90),"#ece3da"],[E(196,118,16,60),PNK],[E(304,118,16,60),PNK],[E(250,270,130,110),"#ece3da"]],
- ()=>eye(206,262,1.3)+eye(294,262,1.3)+blush(166,306)+blush(334,306)+`<path d="M241 288h18l-9 10z" fill="#e88a9a"/>`+smile(250,302,9));
-const hopBunny=P_([[E(126,282,26),WHITE],["M150 352Q132 386 200 386L262 386Q264 362 210 350Z","#ece3da"],[E(240,300,112,74),"#ece3da"],[E(320,370,24,14),"#ece3da"],
- ["M322 196Q284 92 316 70Q344 92 348 190Z","#ece3da"],["M356 196Q352 84 388 74Q404 104 376 200Z","#ece3da"],["M326 184Q304 112 318 92Q334 110 338 180Z",PNK],[E(356,236,64,54),"#ece3da"]],
- ()=>eye(374,226,.85)+blush(392,256)+`<path d="M408 238h12l-6 7z" fill="#e88a9a"/>`+smile(404,252,6));
 const carrot=(x,y,s,ang)=>{const t=d=>T(d,x,y,s);return P_([[t("M-12 -98Q-34 -140 -6 -150Q2 -126 -2 -100Z"),GREEN],[t("M10 -98Q30 -144 4 -152Q-2 -126 2 -100Z"),GREEN2],[t("M-30 -100Q0 -112 30 -100L4 40Q0 48 -4 40Z"),ORA]],
  ()=>`<g transform="translate(${x} ${y}) scale(${s})">${ln("M-16 -60h12M6 -30h12M-10 0h10",DBROWN,3)}</g>`)};
-const bunnyCarrot=combine(hill(400),place(OLD["zajíček"],-30,40,.84),carrot(410,330,1));
-const bunnyGarden=combine(sun(420,70,40),hill(370),place(OLD["zajíček"],80,90,.68),flower(70,320,1,PNK),flower(420,330,1,PURP));
-// ===================== DRAGONS =====================
-const babyDragon=P_([["M196 170L190 120L222 152Z",YEL],["M304 170L310 120L278 152Z",YEL],[E(250,230,100,86),RED],["M140 300L170 270L200 300L230 268L260 300L290 268L320 300L350 270L360 300Q360 424 250 424Q140 424 140 300Z","#fff6e0"]],
- ()=>eye(212,222,1.15)+eye(288,222,1.15)+blush(180,260)+blush(320,260)+smile(250,262,10)+dot(236,246,3)+dot(264,246,3)+dot(200,350,9,"#f2dcc0")+dot(300,380,7,"#f2dcc0"));
-const flyDragon=combine(cloud(80,380,.8),cloud(430,90,.7),P_([["M220 220Q140 120 40 140Q70 160 70 190Q100 180 110 210Q140 200 150 240Q190 230 220 260Z",PURP],["M280 220Q360 120 460 140Q430 160 430 190Q400 180 390 210Q360 200 350 240Q310 230 280 260Z",PURP],
- ["M236 330Q200 400 140 410L118 396L136 384Q190 376 216 320Z",RED],[POLY([[118,396],[96,412],[108,382]]),YEL],[E(250,260,58,82),RED],[E(250,282,34,52),YEL],[E(222,344,14,18),RED],[E(278,344,14,18),RED],
- ["M222 168L214 128L240 156Z",YEL],["M278 168L286 128L260 156Z",YEL],[E(250,180,58,50),RED]]),P_([],()=>eye(228,176,.85)+eye(272,176,.85)+blush(210,200)+blush(290,200)+smile(250,202,7)));
-const dragonCastle=combine(cloud(380,60,.7),hill(420),castle(340,410,.85,"#e6dccd",PURP),place(OLD["drak"],-50,190,.52));
-// ===================== PIGGIES / PUPPIES / ICE / ISLAND extras =====================
-const piggyFace=P_(pig(60,60,1.4,RED,RED).slice(7).map(x=>x),()=>pigFace(60,60,1.4));
-const piggyFamily=combine(hill(400),place(OLD["prasátko"],-10,70,.7),place(OLD["bráška"],245,110,.62));
-const pupFace=P_(puppy(BLUEP).slice(5),puppyFace(BLUEP));
-const pupsPlay=combine(hill(400),place(OLD["modrý pejsek"],-20,90,.62),place(OLD["sestřička"],210,90,.62),ball(250,404,30,YEL,RED));
-function flakeSimple(cx,cy,R){const pts=[];for(let i=0;i<12;i++){const a=i*Math.PI/6-Math.PI/2,r=i%2?R*.42:R;pts.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}return P_([[POLY(pts),SKY],[E(cx,cy,R*.3),"#e2eefa"]],()=>eye(cx-18,cy-4,.7)+eye(cx+18,cy-4,.7)+smile(cx,cy+16,6))}
-const iceCastle=combine(P_([["M0 380Q250 350 500 380L500 450L0 450Z","#eef5fc"]]),castle(320,400,.95,"#d8ecfa","#a8d0f0"),place(OLD["sněhulák"],-20,170,.55),P_([],()=>`<g fill="none" stroke="#a8d0f0" stroke-width="4" stroke-linecap="round"><path d="M60 60v30M47 67l26 16M73 67l-26 16"/><path d="M200 40v24M190 46l20 12M210 46l-20 12"/><path d="M460 200v24M450 206l20 12M470 206l-20 12"/></g>`));
-const hibiscus=P_([...[0,1,2,3,4].map(i=>{const a=i*Math.PI*2/5-Math.PI/2;return [E(250+80*Math.cos(a),225+80*Math.sin(a),70),PNK]}),[E(250,225,46),RED],[E(250,225,16),YEL]]);
-const island=combine(sun(90,80,40),sea(330),P_([["M120 360Q250 280 400 360Z","#f3dfb3"]]),palm(250,330,.9),cloud(400,90,.7),P_([["M380 400L470 400L455 420L395 420Z",RED],["M420 400L420 352L450 396Z",WHITE]]));
+// ===================== v12 art: one consistent style =====================
+const MIR=d=>T(d,500,0,1,-1);              // mirror around x=250
+const both=(d,c)=>[[d,c],[MIR(d),c]];
+const nose=(x,y,c)=>`<path d="M${x-11} ${y-5}h22l-11 12z" fill="${c||"#e88a9a"}" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`;
+const face=(o)=>{o=o||{};const y=o.y||176,dx=o.dx||38,s=o.s||1.15;return eye(250-dx,y,s)+eye(250+dx,y,s)+blush(250-dx-30,y+36)+blush(250+dx+30,y+36)+(o.nose===false?"":nose(250,y+26,o.nc))+(o.mouth===false?"":smile(250,y+42,9))+(o.extra||"")};
+const whisk=(y)=>ln(`M160 ${y}l-46-6M160 ${y+18}l-44 10M340 ${y}l46-6M340 ${y+18}l44 10`,INK,3.5);
+// generic front-sitting chibi animal; head centre (250,180)
+function chibi(o){const P=[];const c=o.c,b=o.belly||WHITE;
+ if(o.tail=="cat")P.push(["M318 368Q404 360 404 288Q404 256 424 258Q446 262 438 296Q430 382 330 396Z",o.tc||c]);
+ if(o.tail=="dog")P.push(["M318 350Q372 330 384 284Q402 280 404 298Q396 348 334 376Z",o.tc||c]);
+ if(o.tail=="puff")P.push([E(334,380,30),o.tc||WHITE]);
+ if(o.ear=="bunny")P.push(...both(E(206,92,32,82).replace(/^/,""),c),...both(E(206,100,15,58),o.inner||PNK));
+ if(o.ear=="round")P.push(...both(E(166,108,34),c),...both(E(166,108,17),o.inner||PNK));
+ if(o.ear=="cat")P.push(...both("M150 150Q136 58 162 48Q190 54 230 98Z",o.ec||c),...both("M164 128Q158 84 170 78Q188 84 208 104Z",o.inner||PNK));
+ if(o.ear=="pointy")P.push(...both("M156 140Q130 34 160 22Q186 30 236 96Z",o.ec||c),...both("M168 118Q156 64 168 56Q186 64 212 100Z",o.inner||PNK));
+ if(!o.noBody){P.push([E(250,336,84,74),c]);if(o.belly!==false)P.push([E(250,352,52,48),b]);P.push([E(204,408,36,20),o.fc||b],[E(296,408,36,20),o.fc||b])}
+ P.push([E(250,180,110,94),c]);
+ if(o.mask)P.push([o.mask,o.mc]);
+ if(o.ear=="dog")P.push(...both("M158 122Q108 132 110 212Q114 262 150 256Q176 216 178 142Z",o.ec||c));
+ if(o.muzzle)P.push([E(250,212,48,32),o.muzzle]);
+ if(o.extra)P.push(...o.extra);
+ return P}
+const headOnly=(o)=>chibi(Object.assign({},o,{noBody:true,tail:null}));
+const big=(parts,deco)=>place(P_(parts,deco),-87.5,-12,1.35);  // enlarge a head for the easy picture
+// ---------- DINOSAURS ----------
+const dino1=P_([["M178 196L196 140L222 182L250 128L278 182L304 140L322 196Z",ORA],["M130 300Q126 168 250 166Q374 168 370 300Q368 388 250 390Q132 388 130 300Z",GREEN],
+ [E(250,326,70,52),YEL],[E(196,394,40,22),GREEN2],[E(304,394,40,22),GREEN2]],()=>eye(208,250,1.2)+eye(292,250,1.2)+blush(176,288)+blush(324,288)+smile(250,286,11));
+const dino2=P_([[RR(170,330,46,74,18),GREEN2],[RR(282,330,46,74,18),GREEN2],
+ ["M30 336Q110 334 150 286Q196 232 270 236Q318 240 326 196Q324 120 398 116Q462 116 464 170Q464 214 414 220Q374 224 366 256Q372 334 318 360L180 362Q96 364 30 336Z",GREEN],[E(258,326,62,26),YEL]],
+ ()=>eye(410,158,1)+blush(436,192)+smile(434,196,7)+dot(200,282,8,GREEN2)+dot(240,266,7,GREEN2)+dot(282,276,8,GREEN2));
+const stego=P_([
+ ...[[130,262,64],[180,238,82],[232,228,92],[284,232,82],[334,250,64]].map(([cx,by,h])=>[`M${cx-30} ${by+20}Q${cx-18} ${by-h*.7} ${cx} ${by-h}Q${cx+18} ${by-h*.7} ${cx+30} ${by+20}Z`,ORA]),
+ ["M100 318Q46 318 14 280Q40 280 54 268L70 292L88 266Q96 280 108 290Z",GREEN],
+ [RR(128,316,42,76,18),GREEN2],[RR(300,316,42,76,18),GREEN2],
+ ["M88 330Q92 224 232 216Q356 212 386 296Q394 336 364 350L130 350Q92 350 88 330Z",GREEN],[E(240,334,96,22),YEL],
+ [RR(176,322,42,76,18),GREEN],[RR(344,320,42,74,18),GREEN],["M352 304Q370 250 420 250Q466 254 468 286Q468 318 428 322Q384 324 352 304Z",GREEN]],
+ ()=>eye(426,280,.8)+blush(448,304)+smile(428,304,7)+dot(200,282,7,GREEN2)+dot(262,270,6,GREEN2)+dot(316,292,7,GREEN2));
+const trice=P_([["M112 304Q46 326 22 292Q60 300 104 274Z",GREEN],[RR(118,330,44,72,18),GREEN2],[RR(248,330,44,72,18),GREEN2],[E(214,300,126,82),GREEN],[E(218,322,80,38),YEL],
+ [RR(164,334,44,72,18),GREEN],[RR(294,334,44,72,18),GREEN],[scallop(352,232,76,10,16),ORA],
+ ["M306 262Q316 202 378 206Q440 210 448 262Q452 304 402 312Q336 318 306 262Z",GREEN],
+ ["M348 214L330 128L384 208Z","#fff6e0"],["M392 212L408 128L432 214Z","#fff6e0"]],
+ ()=>eye(384,250,.85)+blush(414,282)+smile(404,288,7)+`<path d="M436 240l26-12l-10 26z" fill="#fff6e0" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/>`);
+const trex=P_([["M150 392Q140 372 170 370L236 370Q262 372 256 400L250 412L156 412Z",GREEN2],["M262 392Q262 372 290 372L330 372Q352 376 346 400L340 412L270 412Z",GREEN2],
+ ["M24 330Q104 336 150 290Q170 190 238 158Q246 92 326 86Q414 82 424 140Q430 186 376 194L322 198Q304 204 306 232Q326 300 300 356Q276 392 214 390Q160 388 146 354Q80 366 24 330Z",GREEN],
+ [E(246,300,40,60),YEL],[E(202,330,50,56),GREEN],[E(326,262,26,15),GREEN]],
+ ()=>eye(352,126,1)+blush(380,160)+`<path d="M326 196l8 12l8-12M350 194l8 12l8-12" fill="#fff" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`+ln("M318 198Q356 204 398 186",INK,3.5)+dot(406,112,4)+dot(160,300,8,GREEN2)+dot(186,260,7,GREEN2));
+const brachio=combine(sun(76,72,32),palm(420,430,.95),P_([["M96 318Q34 340 12 304Q60 306 100 290Z",GREEN],[RR(106,326,40,88,16),GREEN2],[RR(250,326,40,88,16),GREEN2],
+ ["M224 300Q266 190 310 96L384 112Q344 210 330 312Z",GREEN],[E(198,322,114,70),GREEN],[E(206,340,72,30),YEL],[RR(146,334,40,84,16),GREEN],[RR(290,330,40,86,16),GREEN],[E(358,90,54,36),GREEN]],
+ ()=>eye(372,84,.75)+blush(394,104)+smile(388,104,6)+dot(168,300,8,GREEN2)+dot(226,292,7,GREEN2)+dot(318,208,7,GREEN2)+dot(338,160,6,GREEN2)));
+const ptero=combine(cloud(84,86,.75),cloud(420,376,.7),P_([["M216 212Q120 128 18 160Q96 192 120 262Q170 244 216 266Z",PURP],["M284 212Q380 128 482 160Q404 192 380 262Q330 244 284 266Z",PURP],
+ [E(250,244,46,74),"#c9b6e4"],[E(250,266,28,46),YEL],["M232 112L190 64L262 102Z",ORA],["M236 170Q216 120 256 104Q300 98 344 128L304 146Q284 172 236 170Z","#c9b6e4"]],
+ ()=>eye(270,130,.7)+blush(256,154)+ln("M298 140L338 130")+ln("M232 318v18M268 318v18",ORA,7)));
+// ---------- CATS ----------
+const CATC={c:ORA,ear:"cat",inner:PNK};
+const kittyFace=big(headOnly(CATC),()=>face({nc:"#e88a9a"})+whisk(204));
+const cat=P_(chibi(Object.assign({tail:"cat",belly:"#fbe9d3"},CATC)),()=>face()+whisk(204)+ln("M196 270q-10 14 0 28M304 270q10 14 0 28","#d98f55",4));
+const sleepCat=P_([["M60 392Q60 340 250 340Q440 340 440 392Q440 430 250 430Q60 430 60 392Z",PURP],["M352 340Q440 330 424 384Q384 410 300 398Q356 384 352 340Z",GREY],[E(266,322,124,62),GREY],
+ ["M114 286L112 216L162 256Z",GREY],["M188 252L226 212L232 272Z",GREY],[E(172,306,72,58),GREY]],
+ ()=>closedEye(146,304,12)+closedEye(198,304,12)+blush(134,330)+blush(210,330)+nose(172,322)+ln("M300 300q16-12 32 0M332 284q16-12 32 0","#9aa6b4",4)+
+ `<text x="250" y="214" font-size="44" font-family="Comic Sans MS,sans-serif" fill="#b9a2d6">z</text><text x="290" y="180" font-size="32" font-family="Comic Sans MS,sans-serif" fill="#b9a2d6">z</text>`);
+const catYarn=combine(P_([["M0 410Q250 384 500 410L500 450L0 450Z","#e2d1f0"]]),place(P_(chibi(Object.assign({tail:"cat",belly:"#fbe9d3"},CATC)),()=>face()+whisk(204)),-20,40,.8),yarn(410,370,50,PNK),P_([],()=>ln("M366 392Q330 424 280 414",PNK,4)));
+const catBox=combine(P_([["M118 284L70 224L238 230L250 284Z","#d9b48c"],["M382 284L430 224L262 230L250 284Z","#d9b48c"]]),
+ place(P_(headOnly({c:GREY,ear:"cat",inner:PNK})),25,30,.9),P_([["M118 284L382 284L382 426L118 426Z","#c9a27e"],[E(200,286,34,20),WHITE],[E(300,286,34,20),WHITE],
+  [E(418,112,30,22),PNK],[E(418,150,26,18),PNK],[E(462,112,30,22),PNK],[E(462,150,26,18),PNK]],
+ ()=>`<g transform="translate(25 30) scale(.9)">${face()+whisk(204)}</g>`+ln("M440 104v60",INK,5)+ln("M200 366h100",DBROWN,4)));
+// ---------- DOGS ----------
+const DOGC={c:"#e6c9a8",ear:"dog",ec:"#a87f5f",muzzle:WHITE};
+const dogFace=big(headOnly(DOGC),()=>face({y:172,nose:false,mouth:false,extra:`<ellipse cx="250" cy="204" rx="16" ry="11" fill="${INK}"/>`+smile(250,222,9)+`<path d="M243 232q7 16 14 0z" fill="#ef8f9c"/>`}));
+const dogFaceDeco=()=>face({y:172,nose:false,mouth:false,extra:`<ellipse cx="250" cy="204" rx="16" ry="11" fill="${INK}"/>`+smile(250,222,9)+`<path d="M243 232q7 16 14 0z" fill="#ef8f9c"/>`});
+const dog=P_(chibi(Object.assign({tail:"dog",belly:WHITE,extra:[["M262 106Q312 92 334 132Q340 170 300 166Q268 160 262 106Z","#a87f5f"]]},DOGC)),dogFaceDeco);
+const dachs=P_([["M112 262Q72 240 66 206Q92 222 120 244Z",BROWN],[RR(128,298,34,56,14),DBROWN],[RR(298,298,34,56,14),DBROWN],["M108 280Q108 228 172 228L330 228Q386 228 386 280Q386 326 330 326L172 326Q108 326 108 280Z",BROWN],
+ [RR(166,300,34,56,14),BROWN],[RR(338,300,34,56,14),BROWN],["M352 214Q352 168 400 168Q448 170 456 210Q482 222 480 248Q476 272 440 270L392 268Q352 258 352 214Z",BROWN],["M378 186Q342 196 346 262Q372 280 392 244Z",DBROWN]],
+ ()=>eye(410,206,.85)+blush(424,242)+dot(474,232,9)+smile(452,256,6)+`<path d="M200 228q20 20 40 0" fill="none" stroke="${DBROWN}" stroke-width="3"/>`);
+const poodle=P_([[scallop(392,232,24,7,10),PNK],["M334 290Q370 260 384 238L398 246Q386 280 350 308Z",WHITE],
+ [scallop(250,320,70,12,18),PNK],[scallop(199,404,22,7,9),PNK],[scallop(301,404,22,7,9),PNK],
+ [scallop(250,92,32,8,12),PNK],[scallop(170,200,40,8,14),PNK],[scallop(330,200,40,8,14),PNK],[E(250,186,80,72),WHITE]],
+ ()=>eye(220,180)+eye(280,180)+blush(194,214)+blush(306,214)+`<ellipse cx="250" cy="208" rx="13" ry="9" fill="${INK}"/>`+smile(250,228,8)+`<path d="M228 132l22 12l22-12v26l-22-12l-22 12z" fill="#e88a9a" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`);
+const kennel=P_([["M330 254L472 254L472 406L330 406Z",RED],["M312 266L401 180L490 266Z",BROWN],["M372 406L372 336Q401 300 430 336L430 406Z","#8a7f76"]]);
+const dogBone=combine(hill(412),kennel,place(P_(chibi(Object.assign({tail:"dog",belly:WHITE},DOGC)),dogFaceDeco),-10,40,.76),bone(250,424,1.2));
+// ---------- SEA ----------
+const fishEasy=P_([["M330 225L448 130Q470 126 466 156L438 225L466 294Q470 324 448 320Z",ORA],["M70 225Q80 108 230 108Q366 112 372 225Q366 338 230 342Q80 342 70 225Z",YEL],["M186 112Q232 50 300 120Z",ORA]],
+ ()=>eye(150,206,1.4)+blush(158,258)+smile(110,248,9)+bubbles([[44,110,14],[66,62,9]])());
+const goldfish=P_([["M320 225Q410 110 476 140Q440 200 456 225Q440 250 476 310Q410 340 320 225Z",ORA],["M180 120Q230 60 300 118Z",ORA],[E(220,226,140,98),"#f6c66b"],["M200 260Q240 236 270 268Q240 302 204 290Z",ORA]],()=>eye(140,212,1.2)+blush(150,256)+smile(108,248,8)+ln("M300 170q14 56 0 112",ORA,4)+bubbles([[60,90,14],[80,44,9]])());
+const whale=P_([...sea(404,"#6f9fcb").p,["M384 250Q430 212 474 186Q488 252 432 292Z",BLUE],["M56 282Q56 166 222 162Q372 164 402 262Q414 332 300 346L200 348Q56 346 56 282Z",BLUE],["M76 302Q200 348 344 318Q296 348 200 348Q98 344 76 302Z",SKY],
+ ["M196 160Q170 108 132 98Q182 104 200 136Q218 98 266 92Q222 116 212 160Z","#cfe8f8"]],()=>eye(126,240,1.1)+blush(128,282)+smile(98,284,10)+ln("M140 330Q200 340 270 334","#fff",4));
+const octo=P_([...[150,186,222,258,294,330].map(x=>[`M${x-16} 250Q${x-44} 326 ${x-16} 392Q${x} 418 ${x+16} 394Q${x+2} 338 ${x+26} 262Z`,PURP]),[E(250,186,110,100),"#c9b6e4"]],
+ ()=>eye(206,190,1.25)+eye(294,190,1.25)+blush(176,232)+blush(324,232)+smile(250,236,10)+dot(220,122,10,"#e6dcf5")+dot(272,108,8,"#e6dcf5")+bubbles([[424,80,14],[450,38,9]])());
+const turtle=combine(sand(424),seaweed(40,434,150),seaweed(452,434,120,GREEN),P_([[E(148,334,38,22),GREEN],[E(372,334,38,22),GREEN],["M408 272Q412 236 452 236Q490 240 488 276Q484 304 450 306Q412 306 408 272Z",GREEN],
+ ["M110 304Q120 166 260 160Q400 166 410 304Z",GREEN2],["M98 304L422 304Q424 326 402 328L118 328Q96 326 98 304Z","#e6c98a"],
+ [POLY([[260,188],[306,212],[306,258],[260,282],[214,258],[214,212]]),GREEN],[POLY([[170,232],[206,250],[200,294],[150,298],[136,264]]),GREEN],[POLY([[350,232],[314,250],[320,294],[370,298],[384,264]]),GREEN]],
+ ()=>eye(462,264,.8)+blush(474,290)+smile(462,292,6)+bubbles([[440,180,12],[456,140,8],[180,100,10]])()));
+// ---------- SAFARI ----------
+const ELE="#aab8c8",ELE2="#c4cfdb";
+const eleFace=P_([[E(126,206,100,112),ELE2],[E(374,206,100,112),ELE2],["M136 214Q130 106 250 102Q370 106 364 214Q360 272 300 296Q296 360 304 384Q276 410 246 396Q218 382 220 300Q140 276 136 214Z",ELE]],
+ ()=>eye(204,196,1.25)+eye(296,196,1.25)+blush(170,246)+blush(330,246)+ln("M236 330q10-6 18 0M238 356q9-5 17 0"));
+const babyEle=P_([[E(250,340,96,70),ELE],[E(200,404,34,20),ELE2],[E(300,404,34,20),ELE2],[E(150,190,82,92),ELE2],[E(350,190,82,92),ELE2],[E(150,190,50,62),PNK],[E(350,190,50,62),PNK],
+ ["M166 196Q164 104 250 100Q336 104 334 196Q332 246 286 262Q282 330 300 340Q282 362 258 352Q232 340 236 266Q168 250 166 196Z",ELE]],
+ ()=>eye(214,180,1.05)+eye(286,180,1.05)+blush(186,222)+blush(314,222)+ln("M252 300q9-5 16 0"));
+const hippo=P_([[RR(116,328,44,76,18),"#9a8fb0"],[RR(320,328,44,76,18),"#9a8fb0"],[E(228,316,142,86),"#b3a8c9"],[RR(158,332,44,76,18),"#b3a8c9"],[RR(278,332,44,76,18),"#b3a8c9"],
+ [E(330,190,26,22),"#9a8fb0"],[E(392,184,26,22),"#9a8fb0"],["M296 232Q308 188 370 190Q434 194 448 240Q474 250 474 288Q472 322 420 324L330 320Q292 298 296 232Z","#b3a8c9"]],
+ ()=>eye(352,218,.85)+eye(400,212,.85)+dot(444,266,6)+dot(462,266,6)+blush(362,268)+smile(422,300,9));
+const lion=P_([["M330 330Q410 320 420 262Q436 254 440 272Q434 338 344 358Z",YEL],[E(436,256,18),ORA],[E(250,348,94,64),YEL],[E(204,410,34,18),YEL],[E(296,410,34,18),YEL],
+ [scallop(250,190,104,12,22),ORA],[E(166,120,24),YEL],[E(334,120,24),YEL],[E(250,196,86,80),YEL],[E(250,238,40,28),"#fff2cf"]],
+ ()=>eye(214,186)+eye(286,186)+blush(184,222)+blush(316,222)+nose(250,226,"#c9803f")+smile(250,244,9));
+const giraffe=P_([["M148 300Q116 322 108 364L122 366Q134 334 156 318Z",ORA],[RR(166,320,30,100,12),YEL],[RR(288,320,30,100,12),YEL],[E(240,300,94,54),YEL],[RR(204,322,30,100,12),YEL],[RR(252,322,30,100,12),YEL],
+ ["M266 282Q296 170 306 96L356 104Q346 184 320 302Z",YEL],["M306 74L298 26L334 26L332 76Z",ORA],["M344 76L348 28L382 32L366 80Z",ORA],
+ [E(338,100,46,38),YEL],[E(370,116,26,18),"#f7e6b0"],[E(198,290,20,15),ORA],[E(254,280,18,14),ORA],[E(296,304,16,13),ORA],[E(316,214,14,12),ORA]],
+ ()=>eye(334,94,.7)+blush(314,116)+dot(372,112,3)+dot(384,114,3)+smile(368,128,5)+dot(322,160,8,ORA));
+// ---------- BIRDS ----------
+const chick=P_([[E(250,300,116,100),YEL],[E(250,166,78,70),YEL],["M222 180L278 180L250 222Z",ORA],["M300 266Q358 278 352 332Q314 340 296 302Z","#f2d26a"]],
+ ()=>eye(222,156,1.05)+eye(278,156,1.05)+blush(200,190)+blush(300,190)+ln("M216 400v24M284 400v24M200 424h32M268 424h32",ORA,7)+ln("M238 98q10-24 22-4q8-20 18 0",ORA,4));
+const duck=P_([["M0 372Q125 352 250 372T500 372L500 450L0 450Z",BLUE],["M116 302Q116 232 220 240L300 246Q290 168 342 148Q404 138 414 190Q416 228 372 242Q424 254 424 302Q414 376 270 376Q126 376 116 302Z",YEL],
+ ["M406 178L466 192Q462 216 406 216Z",ORA],["M172 286Q250 252 304 294Q264 336 186 326Z","#f2d26a"]],()=>eye(370,180,.9)+blush(382,208)+ln("M60 394q20-8 40 0M380 404q20-8 40 0","#fff",4));
+const OWLC="#c9a27e";
+const owl=P_([["M130 300Q110 220 150 150L170 70L214 116Q250 106 286 116L330 70L350 150Q390 220 370 300Q356 404 250 406Q144 404 130 300Z",OWLC],[E(250,310,74,82),"#f1dfc5"],
+ [E(200,170,52),WHITE],[E(300,170,52),WHITE],["M226 206L274 206L250 246Z",ORA],["M132 250Q90 290 116 360Q150 360 160 300Z","#a8805c"],["M368 250Q410 290 384 360Q350 360 340 300Z","#a8805c"]],
+ ()=>eye(204,172,1.5)+eye(296,172,1.5)+blush(170,224)+blush(330,224)+ln("M222 300q14 12 28 0q14 12 28 0M222 340q14 12 28 0q14 12 28 0","#c9a27e",4)+ln("M226 406v18M274 406v18",ORA,7));
+const owlNight=combine(moon(436,64,44),P_([star5(60,70,30),star5(160,44,26),star5(330,48,26)]),P_([["M0 372L500 350L500 376L0 398Z",BROWN],[leaf(60,384,-2.4,90,-30),GREEN],[leaf(440,362,-0.6,90,32),GREEN]]),
+ place(P_(owl.p,()=>eye(204,172,1.5)+eye(296,172,1.5)+blush(170,224)+blush(330,224)),90,-14,.66));
+const parrot=P_([["M206 340L184 444L214 444L234 340Z",BLUE],["M236 340L238 446L266 446L262 340Z",YEL],["M262 336L294 432L320 422L284 334Z",GREEN],
+ [E(250,268,80,98),RED],[E(250,302,46,60),"#f7c99a"],["M186 226Q144 290 182 362Q222 322 218 248Z",BLUE],["M310 226Q354 290 316 362Q278 322 282 248Z",GREEN],[E(256,148,64,60),RED],["M298 136Q350 136 344 188Q328 176 302 178Z","#f6f0e6"],
+ ["M60 372L440 352L440 376L60 396Z",BROWN]],()=>`<circle cx="262" cy="140" r="20" fill="#fff"/>`+eye(264,142,.8)+blush(240,172)+ln("M228 376v-14M272 374v-14",ORA,7));
+// ---------- BUNNIES ----------
+const BUNC={c:"#ece3da",ear:"bunny",inner:PNK,muzzle:"#f8f3ee"};
+const bunFace=()=>face({y:176,nose:false,mouth:false,extra:nose(250,206)+smile(250,224,8)});
+const bunnyFace=big(headOnly(BUNC),bunFace);
+const littleBunny=P_(chibi(Object.assign({tail:"puff",belly:WHITE},BUNC)),bunFace);
+const hopBunny=P_([[E(124,284,30),WHITE],["M148 352Q128 390 200 390L266 390Q268 362 212 350Z","#ece3da"],[E(240,300,114,76),"#ece3da"],[E(324,374,30,16),"#ece3da"],
+ ["M318 200Q278 90 312 66Q344 88 350 194Z","#ece3da"],["M356 200Q352 80 392 70Q410 104 378 204Z","#ece3da"],["M328 186Q302 108 316 90Q336 108 340 182Z",PNK],[E(358,240,68,56),"#ece3da"]],
+ ()=>eye(378,230,.9)+blush(396,262)+nose(414,246)+smile(410,262,6));
+const bunnyCarrot=combine(hill(410),place(P_(chibi(Object.assign({tail:"puff"},BUNC)),bunFace),-30,48,.82),carrot(414,340,1.05));
+const bunnyGarden=combine(sun(420,70,38),hill(372),place(P_(chibi(Object.assign({},BUNC,{tail:null,muzzle:null})),bunFace),90,92,.64),flower(80,300,1.5,PNK),flower(420,300,1.5,PURP));
+// ---------- DRAGONS ----------
+const DRC={c:RED,belly:YEL};
+const babyDragon=P_([["M196 160Q172 98 196 82Q206 120 238 144Z",YEL],["M304 160Q328 98 304 82Q294 120 262 144Z",YEL],[E(250,230,104,90),RED],["M138 300L170 268L202 300L234 266L266 300L298 266L330 300L362 268L362 300Q362 428 250 428Q138 428 138 300Z","#fff6e0"]],
+ ()=>eye(212,222,1.2)+eye(288,222,1.2)+blush(178,262)+blush(322,262)+smile(250,264,10)+dot(236,246,3)+dot(264,246,3)+dot(200,356,10,"#f2dcc0")+dot(302,384,8,"#f2dcc0"));
+const dragon=P_([["M150 220Q60 150 40 220Q80 230 70 270Q110 262 120 300Q150 280 176 290Z",PURP],["M350 220Q440 150 460 220Q420 230 430 270Q390 262 380 300Q350 280 324 290Z",PURP],
+ ["M318 370Q400 380 430 330L454 340L436 300L418 326Q386 352 330 344Z",RED],["M184 112Q160 46 186 30Q196 70 232 94Z",YEL],["M316 112Q340 46 314 30Q304 70 268 94Z",YEL],
+ [E(250,336,84,74),RED],[E(250,352,52,48),YEL],[E(204,408,36,20),RED],[E(296,408,36,20),RED],[E(250,180,110,94),RED]],
+ ()=>face({nose:false,extra:dot(236,206,3)+dot(264,206,3)})+ln("M222 320h56M226 350h48M232 380h36","#e8c766",4));
+const flyDragon=combine(cloud(80,384,.8),cloud(430,92,.7),P_([["M218 220Q140 116 36 138Q66 160 66 192Q98 182 108 214Q140 202 150 244Q192 232 218 262Z",PURP],["M282 220Q360 116 464 138Q434 160 434 192Q402 182 392 214Q360 202 350 244Q308 232 282 262Z",PURP],
+ ["M238 330Q204 404 140 414L112 418L130 384Q190 380 214 322Z",RED],[E(250,262,62,84),RED],[E(250,286,36,54),YEL],
+ ["M214 150Q190 92 214 76Q222 110 248 136Z",YEL],["M286 150Q310 92 286 76Q278 110 252 136Z",YEL],[E(250,182,62,54),RED]]),P_([],()=>eye(226,178,.9)+eye(274,178,.9)+blush(206,204)+blush(294,204)+smile(250,206,7)+ln("M232 346v20M268 346v20",RED,10)));
+const dragonCastle=combine(cloud(380,64,.7),hill(424),castle(372,414,.8,"#e6dccd",PURP),place(P_(dragon.p,()=>face({nose:false})),-22,138,.7));
+// ---------- PIGGIES (side profile, new art) ----------
+const PK="#f6b8c6",PK2="#ee9bb0";
+function pigP(tx,ty,s,cloth,shoe,boy){const t=d=>T(d,tx,ty,s);return [
+ [t("M72 50Q60 -6 98 -14Q130 0 124 46Z"),PK2],[t("M128 42Q126 -12 166 -16Q186 6 172 46Z"),PK2],
+ [t(boy?"M96 190L184 190L196 304L84 304Z":"M98 190L182 190L224 312L56 312Z"),cloth],
+ [t("M38 112Q28 40 108 30Q188 22 240 50L270 58Q296 64 296 94Q296 122 270 126L240 134Q202 192 120 194Q46 192 38 112Z"),PK],
+ [t("M276 94Q276 56 296 56Q316 56 316 94Q316 132 296 132Q276 132 276 94Z"),PK2],
+ [t("M72 356Q72 338 104 338Q134 338 134 356Q134 370 104 370Q72 370 72 356Z"),shoe],[t("M146 356Q146 338 178 338Q208 338 208 356Q208 370 178 370Q146 370 146 356Z"),shoe]]}
+function pigD(tx,ty,s){const X=x=>tx+x*s,Y=y=>ty+y*s,L=(a,b,c,d)=>`M${X(a)} ${Y(b)}L${X(c)} ${Y(d)}`;
+ return `<path d="${L(96,216,36,262)+L(184,216,246,256)}" fill="none" stroke="${PK2}" stroke-width="${12*s}" stroke-linecap="round"/><path d="${L(108,312,108,340)+L(176,312,176,340)}" fill="none" stroke="${PK2}" stroke-width="${12*s}" stroke-linecap="round"/>`+
+ eye(X(178),Y(78),s*.9)+eye(X(222),Y(70),s*.9)+`<ellipse cx="${X(108)}" cy="${Y(142)}" rx="${20*s}" ry="${12*s}" fill="#f08aa2" opacity=".6"/>`+dot(X(290),Y(84),5*s,"#c9768c")+dot(X(302),Y(104),5*s,"#c9768c")+
+ `<path d="M${X(196)} ${Y(154)}Q${X(228)} ${Y(174)} ${X(256)} ${Y(142)}" fill="none" stroke="${INK}" stroke-width="4" stroke-linecap="round"/>`}
+const piggyFace=P_(pigP(30,90,1.4,RED,RED).filter((_,i)=>[0,1,3,4].includes(i)),()=>pigD(30,90,1.4).replace(/^<path[^>]*\/><path[^>]*\/>/,""));
+const piggy=P_(pigP(100,52,1.05,"#e0574f","#e0574f"),()=>pigD(100,52,1.05));
+const toyDino=(x,y,s)=>{const t=d=>T(d,x,y,s);return [[t("M0 50Q0 16 44 16Q90 16 92 52Q92 80 46 80Q0 80 0 50Z M0 0"),GREEN],[t("M70 34Q66 -12 102 -14Q134 -12 132 18Q128 40 100 42Z"),GREEN],[t("M4 62Q-30 80 -46 36Q-12 44 8 40Z"),GREEN]]};
+const littleBro=P_(pigP(60,100,.88,"#8fbbe0","#5a7fb0",true).concat(toyDino(330,300,1.2)),()=>pigD(60,100,.88)+eye(470,300,.5)+ln("M352 396v-14M402 396v-14",GREEN2,10));
+const puddle=P_([[E(250,404,214,40),"#9a7a62"]].concat(pigP(104,30,.98,"#e0574f","#f4dc7d")).concat([[E(60,330,24,30),"#9a7a62"],[E(442,320,24,30),"#9a7a62"]]),
+ ()=>pigD(104,30,.98)+ln("M100 404q60 14 120 0M280 410q50 10 100 0","#b8957a",5));
+const piggyFamily=combine(hill(410),P_(pigP(10,80,.78,"#e0574f","#e0574f").concat(pigP(240,124,.72,"#8fbbe0","#5a7fb0",true)),()=>pigD(10,80,.78)+pigD(240,124,.72)));
+// ---------- PUPPIES (heeler-like, new art) ----------
+const HEB={c:"#86aee0",ear:"pointy",ec:"#6f95cb",inner:"#e9c99a",belly:"#f4e6cf",fc:"#f4e6cf",tail:"dog",muzzle:"#f4e6cf",mc:"#4f6f9f",
+ mask:"M160 168Q190 118 250 146Q310 118 340 168Q348 206 306 214Q276 200 250 212Q224 200 194 214Q152 206 160 168Z"};
+const HEO=Object.assign({},HEB,{c:"#f2a66a",ec:"#e2884a",inner:"#fbe9d3",belly:"#fbe9d3",fc:"#fbe9d3",muzzle:"#fbe9d3",mc:"#c96f3a"});
+const pupDeco=(bow)=>()=>`<circle cx="212" cy="178" r="22" fill="#fff"/><circle cx="288" cy="178" r="22" fill="#fff"/>`+eye(212,180)+eye(288,180)+blush(176,226)+blush(324,226)+`<ellipse cx="250" cy="206" rx="17" ry="11" fill="${INK}"/>`+smile(250,226,9)+
+ (bow?`<path d="M250 92l-40-22q-12 22 0 44zM250 92l40-22q12 22 0 44z" fill="#f2b8cf" stroke="${INK}" stroke-width="4" stroke-linejoin="round"/><circle cx="250" cy="92" r="11" fill="#e88a9a" stroke="${INK}" stroke-width="4"/>`:"");
+const pupFace=big(headOnly(HEB),pupDeco());
+const bluePup=P_(chibi(HEB),pupDeco());
+const sister=P_(chibi(HEO),pupDeco(true));
+const pupsPlay=combine(hill(410),place(P_(chibi(Object.assign({},HEB,{muzzle:null,belly:false})),pupDeco()),-30,92,.6),place(P_(chibi(Object.assign({},HEO,{muzzle:null,belly:false})),pupDeco(true)),230,92,.6),ball(250,404,30,YEL,RED));
+// ---------- ICE ----------
+function flakeBig(cx,cy,R){const P=[];for(let i=0;i<6;i++){const a=i*Math.PI/3;
+ P.push([POLY(rot([[cx-16,cy-40],[cx+16,cy-40],[cx+16,cy-R],[cx,cy-R-22],[cx-16,cy-R]],cx,cy,a)),"#cfe3f5"]);
+ P.push([POLY(rot([[cx,cy-R*.6],[cx+42,cy-R*.6-38],[cx+54,cy-R*.6-26],[cx+14,cy-R*.6+8],[cx-14,cy-R*.6+8],[cx-54,cy-R*.6-26],[cx-42,cy-R*.6-38]],cx,cy,a)),"#e2eefa"])}
+ P.push([POLY([0,1,2,3,4,5].map(i=>[cx+56*Math.cos(i*Math.PI/3+Math.PI/6),cy+56*Math.sin(i*Math.PI/3+Math.PI/6)])),"#b9d6f0"]);return P}
+const snowman=P_([[E(250,352,110,80),WHITE],[E(250,238,78,58),WHITE],["M178 166Q174 62 250 58Q326 62 322 166Q320 210 250 212Q180 210 178 166Z",WHITE],["M176 206Q250 236 324 206L330 236Q250 266 170 236Z",RED],
+ ["M186 70Q190 18 250 18Q310 18 314 70Z",BLUE],["M250 144L318 156L250 168Z",ORA]],
+ ()=>eye(222,124,.9)+eye(278,124,.9)+blush(204,156)+blush(296,156)+smile(250,182,8)+dot(250,262,7)+dot(250,300,7)+dot(250,340,7)+ln("M176 240L106 196M324 240L394 196",BROWN,7));
+const SKN="#f8dfcc",SKN2="#b9805e";
+function girl(o){return [[o.hairBack,o.hair],o.cape?[o.cape,"#d8ecfa"]:null,[E(176,314,24,40),o.skin],[E(324,314,24,40),o.skin],[o.dress,o.dc],[RR(212,404,28,30,12),o.skin],[RR(260,404,28,30,12),o.skin],
+ [E(250,182,88,84),o.skin],[o.fringe,o.hair]].concat(o.more||[]).filter(Boolean)}
+const girlFace=(c)=>()=>eye(220,192,1.05)+eye(280,192,1.05)+blush(196,224)+blush(304,224)+smile(250,228,9);
+const princess=P_(girl({hair:"#f3ecd2",skin:SKN,dc:"#a8d0f0",hairBack:"M118 200Q100 66 250 58Q400 66 382 200Q384 250 352 262L148 262Q116 250 118 200Z",
+ cape:"M156 270Q112 340 100 432L400 432Q388 340 344 270Z",dress:"M204 266L296 266L364 426Q250 448 136 426Z",
+ fringe:"M158 200Q146 92 250 88Q346 90 346 160Q300 104 232 128Q196 150 158 200Z",
+ more:[["M170 240Q150 300 164 360Q150 400 170 424Q190 400 186 360Q196 300 190 240Z","#f3ecd2"]]}),
+ ()=>girlFace()()+`<path d="M214 92l12-24l12 18l12-22l12 22l12-18l12 24z" fill="#f4dc7d" stroke="${INK}" stroke-width="3.5" stroke-linejoin="round"/>`+ln("M168 280q14 10 0 20q14 10 0 20q14 10 0 20q14 10 0 20","#d8cfa8",3.5)+`<g fill="#fff">${[[230,330],[280,360],[250,400],[310,410],[200,400]].map(([x,y])=>`<path d="M${x} ${y-8}l2 6l6 2l-6 2l-2 6l-2-6l-6-2l6-2z"/>`).join("")}</g>`);
+const crystal=P_(flakeBig(250,225,180),()=>eye(232,220,.6)+eye(268,220,.6)+smile(250,238,6));
+const snowflake=P_([[POLY([...Array(12)].map((_,i)=>{const a=i*Math.PI/6-Math.PI/2,r=i%2?78:190;return [250+r*Math.cos(a),225+r*Math.sin(a)]})),SKY],[E(250,225,62),"#e2eefa"]],()=>eye(230,218,.8)+eye(270,218,.8)+blush(214,240)+blush(286,240)+smile(250,240,7));
+const iceCastle=combine(P_([["M0 384Q250 354 500 384L500 450L0 450Z","#eef5fc"]]),castle(330,404,.92,"#d8ecfa","#a8d0f0"),place(P_(snowman.p.slice(0,4),()=>eye(222,124,.9)+eye(278,124,.9)+smile(250,182,8)),-30,190,.5),
+ P_([],()=>`<g fill="none" stroke="#a8d0f0" stroke-width="5" stroke-linecap="round"><path d="M60 50v34M45 58l30 18M75 58l-30 18"/><path d="M200 34v28M188 41l24 14M212 41l-24 14"/><path d="M462 190v28M450 197l24 14M474 197l-24 14"/></g>`));
+// ---------- ISLAND ----------
+const hibiscus=P_([...[0,1,2,3,4].map(i=>{const a=i*Math.PI*2/5-Math.PI/2;return [E(250+84*Math.cos(a),225+84*Math.sin(a),74),PNK]}),[E(250,225,52),RED]],()=>dot(250,225,12,YEL)+[0,1,2,3,4].map(i=>{const a=i*Math.PI*2/5-Math.PI/2;return ln(`M${250+60*Math.cos(a)} ${225+60*Math.sin(a)}L${250+110*Math.cos(a)} ${225+110*Math.sin(a)}`,"#e88a9a",4)}).join(""));
+const wave=P_([sea(380,"#6f9fcb").p[0],["M20 380Q40 200 200 140Q340 96 430 170Q470 210 440 250Q410 200 360 210Q320 226 344 270Q300 260 300 220Q260 300 290 380Z",BLUE],["M300 220Q330 160 400 172Q370 180 360 210Q320 226 344 270Q300 260 300 220Z",WHITE]],
+ ()=>ln("M80 300Q130 220 210 190","#fff",5));const waveS=combine(sun(74,70,30),wave);
+const islGirl=P_(girl({hair:"#3d2b26",skin:SKN2,dc:"#e9c99a",hairBack:"M136 190Q118 66 250 58Q382 66 364 190Q382 260 360 310Q384 352 352 380L148 380Q116 352 140 310Q118 260 136 190Z",
+ dress:"M196 270L304 270L340 410Q250 426 160 410Z",fringe:"M164 180Q170 96 250 94Q330 96 336 180Q312 134 270 122Q240 150 164 180Z",
+ more:[["M196 266L304 266Q316 290 304 316L196 316Q184 290 196 266Z","#e0574f"],[scallop(332,118,24,5,14),"#f6f0e6"]]}),()=>girlFace()()+dot(332,118,8,YEL)+ln("M200 340l8 64M240 330v76M280 334l-4 72","#c9a77a",3.5));
+const canoe=combine(sun(80,74,32),sea(352),P_([["M240 330L240 70L398 300Z","#f2b27a"],["M226 330L226 90L110 300Z",WHITE],["M60 330L440 330Q420 400 330 404L170 404Q80 400 60 330Z",RED],["M60 330L440 330L430 352L70 352Z","#c9a27e"]]),
+ P_([],()=>ln("M233 330V60",BROWN,7)+ln("M150 380h40M300 380h40","#fff",4)));
+const rooster=P_([["M300 250Q380 150 440 190Q420 210 450 240Q400 240 420 290Q370 280 330 320Z","#5aa89a"],["M300 250Q360 200 400 230Q370 250 390 290Q350 290 330 320Z","#3f8f7f"],
+ [E(240,290,96,82),"#c98a4a"],["M200 290Q240 260 280 300Q250 350 210 330Z","#e8b070"],["M150 166Q150 104 200 104Q252 106 252 166Q252 196 238 214L264 262L170 272L168 214Q150 196 150 166Z","#c98a4a"],
+ ["M168 112Q160 70 182 66Q186 50 204 58Q220 46 230 70Q248 74 240 110Z",RED],["M154 158L100 178L154 200Z",YEL],["M156 196Q140 238 168 232Q180 216 170 196Z",RED]],
+ ()=>eye(186,150,.8)+blush(208,176)+ln("M220 368v50M260 370v48M200 418h40M244 418h36",ORA,7));
+const island=combine(sun(84,76,36),sea(334),P_([["M110 366Q250 282 410 366Z","#f3dfb3"]]),palm(250,336,.88),cloud(400,92,.7),P_([["M378 404L474 404L458 426L394 426Z",RED],["M424 404L424 350L458 400Z",WHITE]]));
 // ===================== categories =====================
 const CATS=[
- ["dinosaurs",[[babyDino,"baby dino",1],[OLD["dinosaurus"],"dinosaur",1],[stego,"stegosaurus",2],[trice,"triceratops",2],[trex,"t rex",3],[brachio,"long neck",3],[ptero,"pterodactyl",3]]],
- ["cats",[[kittyFace,"kitty",1],[OLD["kočička"],"cat",2],[sleepCat,"sleepy cat",2],[catYarn,"cat with yarn",3],[catBox,"cat in a box",3]]],
- ["dogs",[[dogFace,"puppy",1],[OLD["pejsek"],"dog",2],[dachs,"dachshund",2],[poodle,"poodle",3],[dogBone,"dog with a bone",3]]],
- ["sea",[[fishEasy,"fish",1],[OLD["rybička"],"goldfish",2],[whale,"whale",2],[octo,"octopus",2],[turtle,"turtle",3]]],
- ["safari",[[eleFace,"elephant",1],[OLD["slon"],"baby elephant",2],[hippo,"hippo",2],[lion,"lion",3],[giraffe,"giraffe",3]]],
- ["birds",[[chick,"chick",1],[duck,"duck",1],[OLD["sova"],"owl",2],[parrot,"parrot",3],[owlBranch,"owl at night",3]]],
- ["bunnies",[[bunnyFace,"bunny",1],[OLD["zajíček"],"little bunny",2],[hopBunny,"hopping bunny",2],[bunnyCarrot,"bunny with a carrot",3],[bunnyGarden,"bunny in the garden",3]]],
- ["dragons",[[babyDragon,"baby dragon",1],[OLD["drak"],"dragon",2],[flyDragon,"flying dragon",3],[dragonCastle,"dragon castle",3]]],
- ["piggies",[[piggyFace,"piggy face",1],[OLD["prasátko"],"piggy",2],[OLD["bráška"],"little brother",2],[OLD["louže"],"muddy puddle",3],[piggyFamily,"piggy family",3]]],
- ["puppies",[[pupFace,"puppy face",1],[OLD["modrý pejsek"],"blue puppy",2],[OLD["sestřička"],"sister",2],[pupsPlay,"puppies playing",3]]],
- ["ice",[[flakeSimple(250,225,170),"snowflake",1],[OLD["sněhulák"],"snowman",2],[OLD["princezna"],"princess",2],[OLD["vločka"],"ice crystal",3],[iceCastle,"ice castle",3]]],
- ["island",[[hibiscus,"flower",1],[OLD["vlna"],"wave",2],[OLD["holčička"],"girl",2],[OLD["kánoe"],"canoe",3],[OLD["kohoutek"],"rooster",3],[island,"island",3]]]];
-const PICS=[];const CATLIST=[];
-CATS.forEach(([cn,list],ci)=>{const idx=[];list.forEach(([pic,n,l])=>{idx.push(PICS.length);PICS.push({n,p:pic.p,d:pic.d,lvl:l,cat:ci})});CATLIST.push({n:cn,idx,thumb:idx[Math.min(1,idx.length-1)]})});
+ ["dinosaurs",[[dino1,"baby dino",1],[dino2,"dinosaur",1],[stego,"stegosaurus",2],[trice,"triceratops",2],[trex,"t rex",3],[brachio,"long neck",3],[ptero,"pterodactyl",3]]],
+ ["cats",[[kittyFace,"kitty",1],[cat,"cat",2],[sleepCat,"sleepy cat",2],[catYarn,"cat with yarn",3],[catBox,"cat in a box",3]]],
+ ["dogs",[[dogFace,"puppy",1],[dog,"dog",2],[dachs,"dachshund",2],[poodle,"poodle",3],[dogBone,"dog with a bone",3]]],
+ ["sea",[[fishEasy,"fish",1],[goldfish,"goldfish",2],[whale,"whale",2],[octo,"octopus",2],[turtle,"turtle",3]]],
+ ["safari",[[eleFace,"elephant",1],[babyEle,"baby elephant",2],[hippo,"hippo",2],[lion,"lion",3],[giraffe,"giraffe",3]]],
+ ["birds",[[chick,"chick",1],[duck,"duck",1],[owl,"owl",2],[parrot,"parrot",3],[owlNight,"owl at night",3]]],
+ ["bunnies",[[bunnyFace,"bunny",1],[littleBunny,"little bunny",2],[hopBunny,"hopping bunny",2],[bunnyCarrot,"bunny with a carrot",3],[bunnyGarden,"bunny in the garden",3]]],
+ ["dragons",[[babyDragon,"baby dragon",1],[dragon,"dragon",2],[flyDragon,"flying dragon",3],[dragonCastle,"dragon castle",3]]],
+ ["piggies",[[piggyFace,"piggy face",1],[piggy,"piggy",2],[littleBro,"little brother",2],[puddle,"muddy puddle",3],[piggyFamily,"piggy family",3]]],
+ ["puppies",[[pupFace,"puppy face",1],[bluePup,"blue puppy",2],[sister,"sister",2],[pupsPlay,"puppies playing",3]]],
+ ["ice",[[snowflake,"snowflake",1],[snowman,"snowman",2],[princess,"princess",2],[crystal,"ice crystal",3],[iceCastle,"ice castle",3]]],
+ ["island",[[hibiscus,"flower",1],[waveS,"wave",2],[islGirl,"girl",2],[canoe,"sailboat",3],[rooster,"rooster",3],[island,"island",3]]]];
+const PICS=[],PICS_RAW=[];const CATLIST=[];
+window.PICS_RAW=PICS_RAW;
+CATS.forEach(([cn,list],ci)=>{const idx=[];list.forEach(([pic,n,l])=>{idx.push(PICS.length);PICS_RAW.push({n,p:pic.p,d:pic.d});const m=MERGE[n]||[];const keep=pic.p.filter((_,k)=>!m.includes(k)),gone=pic.p.filter((_,k)=>m.includes(k));PICS.push({n,p:keep,d:()=>`<g fill="none" stroke="${INK}" stroke-width="4.5" stroke-linejoin="round">${gone.map(([d])=>`<path d="${d}"/>`).join("")}</g>`+pic.d(),lvl:l,cat:ci})});CATLIST.push({n:cn,idx,thumb:idx[Math.min(1,idx.length-1)]})});
 // ---------- data ----------
 const EN={"kočička":"cat","pejsek":"dog","rybička":"fish","slon":"elephant","sova":"owl","zajíček":"bunny","dinosaurus":"dinosaur","drak":"dragon","prasátko":"piggy","bráška":"little brother","louže":"puddle",
  "modrý pejsek":"blue puppy","sestřička":"sister","princezna":"princess","sněhulák":"snowman","vločka":"snowflake","holčička":"girl","kánoe":"canoe","vlna":"wave","kohoutek":"rooster"};
