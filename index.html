@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Colouring">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792353755"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792354487"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -41,10 +41,10 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 .c{flex:0 0 auto;width:min(8.2vw,84px);height:min(8.2vw,84px);border-radius:50%;border:5px solid #fff;box-shadow:0 2px 5px #0002;transition:transform .25s;background-size:cover}
 .c.on{transform:scale(1.15);border-color:#5a5048}
 @media (max-width:640px) and (orientation:portrait){#pal{display:grid;grid-template-columns:repeat(5,1fr);justify-items:center;gap:8px}.c{width:15vw;height:15vw}}
-#word{position:absolute;top:6px;max-width:96%;text-align:center;left:50%;transform:translateX(-50%);font-size:clamp(40px,9vw,88px);font-weight:bold;opacity:0;transition:opacity .6s;pointer-events:none;z-index:5;white-space:nowrap;text-shadow:0 3px 0 #fff,0 -3px 0 #fff,3px 0 0 #fff,-3px 0 0 #fff}
-#word.show{opacity:1}
+#word{position:absolute;top:6px;max-width:96%;text-align:center;left:50%;transform:translateX(-50%);font-size:clamp(24px,4.5vw,40px);font-weight:bold;opacity:0;transition:opacity .6s;pointer-events:none;z-index:5;white-space:nowrap;text-shadow:0 3px 0 #fff,0 -3px 0 #fff,3px 0 0 #fff,-3px 0 0 #fff}
+#word.show{opacity:.85}#word.big{font-size:clamp(44px,10vw,96px)}#word.big.show{opacity:1}
 .corner{position:absolute;top:6px;width:38px;height:38px;font-size:22px;color:#cfc3b2;z-index:6;display:flex;align-items:center;justify-content:center}
-#home{left:6px}#gear{right:6px}
+#home{left:6px}#mus{left:46px;color:#c9b9a3;font-size:24px}#mus.off{opacity:.35;text-decoration:line-through}#gear{right:6px}
 #ring{position:absolute;right:8px;top:8px;width:34px;height:34px;border-radius:50%;border:3px solid #c9b9a3;opacity:0;pointer-events:none;z-index:6}
 #ring.go{opacity:1;animation:ring 1.5s linear}@keyframes ring{from{transform:scale(.4)}to{transform:scale(1.3)}}
 #menu{position:absolute;right:10px;top:48px;background:#fff;border-radius:16px;padding:16px;box-shadow:0 4px 14px #0003;display:none;font-size:18px;z-index:9}
@@ -56,7 +56,7 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
  #app{flex-direction:row}#side{flex-direction:column;overflow-x:hidden;overflow-y:auto;touch-action:pan-y;padding:8px;gap:8px}
  .pg{width:min(78px,22vh);height:min(78px,22vh)}.th{font-size:22px;width:auto}
  #pal{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:2vh;padding:8px}.c{width:16vh;height:16vh;border-width:4px}
- #word{font-size:12vh}}
+ #word{font-size:7vh}#word.big{font-size:13vh}}
 #lock{position:absolute;inset:0;top:0;left:0;right:0;bottom:0;z-index:50;background:#fbf7ef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
 #lock.hide{display:none}#lock label{font-size:40px;font-weight:bold}
 #pw{font-size:34px;padding:14px 20px;border-radius:24px;border:4px solid #e2d7c6;width:min(80vw,360px);text-align:center;background:#fff;color:#5a5048;outline:none;-webkit-user-select:text;user-select:text}
@@ -77,11 +77,11 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
  <div id="stage"><div id="word"></div>
   <div id="wrap"><svg id="pic" viewBox="0 0 500 450"><defs id="defs"></defs><g id="parts"></g><g id="decoL" class="deco"></g><g id="dot"><circle r="26" fill="#f4dc7d" opacity=".35"/><circle r="15" fill="#e8c766" stroke="#fff" stroke-width="5"/></g></svg></div>
   <div id="hand">&#x1F446;</div>
-  <button class="corner" id="home" aria-label="Home">⌂</button>
+  <button class="corner" id="home" aria-label="Home">⌂</button><button class="corner" id="mus" aria-label="Music">&#x266B;</button>
   <button class="corner" id="gear" aria-label="For parents (hold)">⚙︎</button><div id="ring"></div>
   <div id="menu"><b>For parents</b>
    <label><input type="checkbox" id="voice"> Voice</label>
-   <label><input type="checkbox" id="spk"> Sparkles</label>
+   <label><input type="checkbox" id="spk"> Sparkles</label><label><input type="checkbox" id="musc"> Music</label>
    <button id="clear">Clear picture</button><button id="close">Close</button></div>
  </div>
  <div id="pal"></div>
@@ -235,11 +235,11 @@ const PICS=A.concat(NEW);
 const EN={"kočička":"cat","pejsek":"dog","rybička":"fish","slon":"elephant","sova":"owl","zajíček":"bunny","dinosaurus":"dinosaur","drak":"dragon","prasátko":"piggy","bráška":"little brother","louže":"puddle",
  "modrý pejsek":"blue puppy","sestřička":"sister","princezna":"princess","sněhulák":"snowman","vločka":"snowflake","holčička":"girl","kánoe":"canoe","vlna":"wave","kohoutek":"rooster"};
 PICS.forEach(a=>{a.n=EN[a.n]||a.n});
-const PRAISE_S=["Good!","Well done!","Nice!","Yes!"],PRAISE_B=["Great job!","You are great!","Awesome!","Amazing!","Beautiful!"];
+const PRAISE_B=["Well done!","Great job!","You are great!","Awesome!","Amazing!","Beautiful!"];
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const article=n=>(/^[aeiou]/i.test(n)?"an ":"a ")+n;
-function praiseSmall(){say(pick(PRAISE_S))}
-function praiseBig(){const p=pick(PRAISE_B),n=PICS[cur].n;say(p,null,p+" It's "+article(n)+"!",3200)}
+function praiseSmall(){}
+function praiseBig(){const i=Math.floor(Math.random()*PRAISE_B.length),n=PICS[cur].n;say(PRAISE_B[i],"#e8a04a",true,3400);playClips(["p"+i,"n-"+n.replace(/ /g,"-")])}
 const COLORS=[["red","#e88a84"],["orange","#f2b27a"],["yellow","#f4dc7d"],["green","#9fcf98"],["blue","#8fbbe0"],["purple","#b9a2d6"],["pink","#f2b8cf"],["brown","#b8957a"],["gold glitter","#e8c766",1],["blue glitter","#9cc6ec",1]];
 const $=s=>document.querySelector(s),SVGNS="http://www.w3.org/2000/svg",pic=$("#pic"),word=$("#word"),stage=$("#stage"),dotEl=$("#dot"),hand=$("#hand");
 let mode="color",cur=0,color=COLORS[0],state={};try{state=JSON.parse(LS.om5||"{}")}catch(e){}
@@ -250,9 +250,26 @@ function persist(){try{LS.om5=JSON.stringify(state)}catch(e){}}
 function glit(base,w){const c=document.createElement("canvas");c.width=c.height=w;const g=c.getContext("2d");g.fillStyle=base;g.fillRect(0,0,w,w);
  for(let i=0;i<w*1.2;i++){g.fillStyle=Math.random()<.6?"rgba(255,255,255,.8)":"rgba(255,255,255,.35)";g.beginPath();g.arc(Math.random()*w,Math.random()*w,Math.random()*1.2+.3,0,7);g.fill()}return c.toDataURL()}
 COLORS.forEach((c,i)=>{c.v=c[1];if(c[2]){c.url=glit(c[1],40);$("#defs").insertAdjacentHTML("beforeend",`<pattern id="g${i}" patternUnits="userSpaceOnUse" width="24" height="24"><rect width="24" height="24" fill="${c[1]}"/><image class="shim" href="${c.url}" width="24" height="24"/></pattern>`);c.v=`url(#g${i})`}});
-let wt;function say(t,col,spoken,dur){word.textContent=t;word.style.color=col||"#8a7d70";word.classList.add("show");clearTimeout(wt);wt=setTimeout(()=>word.classList.remove("show"),dur||1600);
- try{if(voice.checked&&window.speechSynthesis){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(spoken||t);u.lang="en-US";u.rate=.75;u.pitch=1.1;u.volume=.45;
- const vs=speechSynthesis.getVoices(),v=vs.find(v=>v.lang==="en-US"&&/Samantha|Google US|Female/i.test(v.name))||vs.find(v=>v.lang&&v.lang.indexOf("en-US")===0)||vs.find(v=>v.lang&&v.lang.indexOf("en")===0);if(v)u.voice=v;speechSynthesis.speak(u)}}catch(e){}}
+let wt;function say(t,col,big,dur){word.textContent=t;word.style.color=col||"#8a7d70";word.classList.toggle("big",!!big);word.classList.add("show");clearTimeout(wt);wt=setTimeout(()=>word.classList.remove("show"),dur||1500)}
+// ---------- audio (Web Audio; unlocked on first touch for iOS) ----------
+const LOOP=62.6086875;let AC=null,musicBuf=null,musicSrc=null,musicGain=null;const clips={};
+const musicOn=()=>LS.om5m!=="0";
+function unlockAudio(){if(AC){if(AC.state==="suspended"&&AC.resume)AC.resume();return}
+ try{AC=new (window.AudioContext||window.webkitAudioContext)()}catch(e){return}
+ musicGain=AC.createGain();musicGain.gain.value=0;musicGain.connect(AC.destination);
+ try{const b=AC.createBuffer(1,1,22050),x=AC.createBufferSource();x.buffer=b;x.connect(AC.destination);x.start(0)}catch(e){}
+ if(musicOn())startMusic()}
+["pointerdown","touchend","click"].forEach(ev=>document.addEventListener(ev,unlockAudio,true));
+function loadBuf(url){return fetch(url).then(r=>{if(!r.ok)throw 0;return r.arrayBuffer()}).then(a=>new Promise((res,rej)=>AC.decodeAudioData(a,res,rej)))}
+function fadeTo(v,t){if(!musicGain)return;const g=musicGain.gain,n=AC.currentTime;try{g.cancelScheduledValues(n);g.setValueAtTime(g.value,n);g.linearRampToValueAtTime(v,n+t)}catch(e){g.value=v}}
+function startMusic(){if(!AC||musicSrc)return;(musicBuf?Promise.resolve(musicBuf):loadBuf("audio/music.mp3").then(b=>musicBuf=b)).then(b=>{if(musicSrc||!musicOn())return;
+ const dd=b.getChannelData(0);let o=0;while(o<dd.length&&Math.abs(dd[o])<1e-4)o++;const x=AC.createBufferSource();x.buffer=b;x.loop=true;x.loopStart=o/b.sampleRate;x.loopEnd=Math.min(b.duration,x.loopStart+LOOP);
+ x.connect(musicGain);x.start(0,x.loopStart);musicSrc=x;fadeTo(.25,2)}).catch(()=>{})}
+function stopMusic(){if(!musicSrc)return;fadeTo(0,.5);const x=musicSrc;musicSrc=null;setTimeout(()=>{try{x.stop()}catch(e){}},700)}
+function setMusic(on){LS.om5m=on?"1":"0";const m=document.getElementById("mus");m.classList.toggle("off",!on);document.getElementById("musc").checked=on;if(on){unlockAudio();startMusic()}else stopMusic()}
+function playClips(names){if(!AC||!voice.checked)return;Promise.all(names.map(n=>clips[n]||(clips[n]=loadBuf("audio/"+n+".mp3")))).then(bs=>{if(musicSrc)fadeTo(.08,.4);let t=AC.currentTime+.2;
+ bs.forEach(b=>{const x=AC.createBufferSource();x.buffer=b;const g=AC.createGain();g.gain.value=.9;x.connect(g);g.connect(AC.destination);x.start(t);t+=b.duration+.12});
+ setTimeout(()=>{if(musicSrc)fadeTo(.25,1.5)},(t-AC.currentTime)*1000+300)}).catch(()=>{})}
 function staticSVG(a,colored){return `<svg viewBox="0 0 500 450" xmlns="${SVGNS}">${a.p.map(([d,c])=>`<path d="${d}" fill="${colored?c:"#fff"}" stroke="${INK}" stroke-width="${colored?5:8}" stroke-linejoin="round"/>`).join("")}${a.d()}</svg>`}
 window.staticSVG=staticSVG;window.PICS=PICS;
 // ---------- UI ----------
@@ -260,7 +277,7 @@ COLORS.forEach((c,i)=>{const b=document.createElement("button");b.className="c"+
  b.onpointerdown=()=>{color=c;document.querySelectorAll(".c").forEach(x=>x.classList.toggle("on",x==b));say(c[0],c[1]);if(mode=="trace")tint()};$("#pal").append(b)});
 let lastTh="";PICS.forEach((a,i)=>{if(a.t!=lastTh){lastTh=a.t;const t=document.createElement("div");t.className="th";t.textContent=a.t;$("#side").append(t)}
  const b=document.createElement("button");b.className="pg";b.setAttribute("aria-label",a.n);b.innerHTML=staticSVG(a,false);b.onclick=()=>{load(i);say(a.n)};$("#side").append(b)});
-function startMode(m){mode=m;$("#start").classList.add("hide");document.body.classList.toggle("tmode",m=="trace");pic.classList.toggle("tmode",m=="trace");fit();load(cur);say(m=="trace"?"Trace!":"Colour!")}
+function startMode(m){mode=m;$("#start").classList.add("hide");document.body.classList.toggle("tmode",m=="trace");pic.classList.toggle("tmode",m=="trace");fit();load(cur);}
 $("#mTrace").onclick=()=>startMode("trace");$("#mColor").onclick=()=>startMode("color");
 $("#home").onclick=()=>{$("#start").classList.remove("hide");hand.classList.remove("show")};
 // ---------- build picture ----------
@@ -379,6 +396,6 @@ function fit(){const r=stage.getBoundingClientRect(),w=Math.max(50,r.width-16),h
 window.addEventListener("resize",fit);window.addEventListener("orientationchange",()=>setTimeout(fit,300));
 document.addEventListener("touchmove",e=>{if(!e.target.closest||!e.target.closest("#side"))e.preventDefault()},{passive:false});
 document.addEventListener("gesturestart",e=>e.preventDefault());document.addEventListener("dblclick",e=>e.preventDefault());
-try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}catch(e){}
+document.getElementById("mus").onclick=()=>setMusic(!musicOn());document.getElementById("musc").onchange=e=>setMusic(e.target.checked);document.getElementById("mus").classList.toggle("off",!musicOn());document.getElementById("musc").checked=musicOn();
 fit();load(0);
 </script></body></html>
