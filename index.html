@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Omalovánky">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Omalovánky</title><link rel="manifest" href="manifest.webmanifest?v=1792352652"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Omalovánky</title><link rel="manifest" href="manifest.webmanifest?v=1792353650"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -22,7 +22,7 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 #stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:8px}
 #wrap{position:relative;width:500px;height:450px}
 #pic{position:absolute;inset:0;width:100%;height:100%;top:0;left:0}
-.base{fill:#fff}.fillc{opacity:0;transition:opacity .3s ease-out}.tmode .fillc{transition:opacity 1.2s ease}.fillc.on{opacity:1}
+.base{fill:#fff}.fillc{opacity:0;transition:opacity .9s ease}.tmode .fillc{transition:opacity 1.2s ease}.fillc.on{opacity:1}
 .ol{fill:none;stroke:#4a403a;stroke-width:5;stroke-linejoin:round;stroke-linecap:round;pointer-events:none}
 .st{fill:none;stroke-width:42;stroke-linecap:round;stroke-linejoin:round;opacity:.92;pointer-events:none}
 .paint,.deco,.tl,.gd{pointer-events:none}
@@ -256,7 +256,7 @@ function startMode(m){mode=m;$("#start").classList.add("hide");document.body.cla
 $("#mTrace").onclick=()=>startMode("trace");$("#mColor").onclick=()=>startMode("color");
 $("#home").onclick=()=>{$("#start").classList.remove("hide");hand.classList.remove("show")};
 // ---------- build picture ----------
-let parts=[];const BR=42,DONE=.7,GRID=7;
+let parts=[];const BR=42,DONE=.85,GRID=7;
 function load(i){cur=i;const a=PICS[i];document.querySelectorAll(".pg").forEach(x=>x.classList.toggle("on",x.getAttribute("aria-label")==a.n));
  const sel=document.querySelector(".pg.on");if(sel&&sel.scrollIntoView)try{sel.scrollIntoView({block:"nearest",inline:"center"})}catch(e){}
  const g=$("#parts");g.innerHTML="";parts=[];
@@ -315,9 +315,12 @@ function nearestIn(p,x,y,R,from){const n=p.pts.length,W=Math.ceil(R*2.2/TSTEP);l
 function coverRange(p,a,b){const n=p.pts.length;let f=((b-a)%n+n)%n;if(f<=n/2){for(let i=0;i<=f;i++)p.cov[(a+i)%n]=1}else{f=n-f;for(let i=0;i<=f;i++)p.cov[((a-i)%n+n)%n]=1}
  // auto-skip hidden neighbours
  for(const s of [b]){let j=(s+1)%n,g=0;while(!p.vis[j]&&g++<n){p.cov[j]=1;j=(j+1)%n}j=((s-1)%n+n)%n;g=0;while(!p.vis[j]&&g++<n){p.cov[j]=1;j=((j-1)%n+n)%n}}}
-function traceAt(o,x,y,radS){stopHint();
- if(o.p&&!o.p.tdone){const j=nearestIn(o.p,x,y,radS,o.j);if(j>=0){coverRange(o.p,o.j,j);o.j=j}else o.p=null}
- if(!o.p||o.p.tdone){const h=nearestAny(x,y,radS);if(!h)return;o.p=h.p;o.j=h.j;o.p.cov[h.j]=1;if(!o.p.tcol||coverage(o.p)<.02)o.p.tcol=color.v}
+const SEG=24;
+function traceAt(o,x,y,radS,travel){stopHint();const n0=o.p?o.p.pts.length:0;
+ if(o.p&&!o.p.tdone){const j=nearestIn(o.p,x,y,radS,o.j);if(j>=0){const n=o.p.pts.length;let f=((j-o.j)%n+n)%n,dir=1;if(f>n/2){f=n-f;dir=-1}
+   const allow=Math.ceil((travel||0)/TSTEP)+1,stepN=Math.min(f,allow),nj=((o.j+dir*stepN)%n+n)%n;if(stepN>0){coverRange(o.p,o.j,nj);o.j=nj}}else o.p=null}
+ if(!o.p||o.p.tdone){const h=nearestAny(x,y,radS);if(!h)return;o.p=h.p;o.j=h.j;const n=o.p.pts.length,w=Math.round(SEG/TSTEP);for(let i=-w;i<=w;i++)if(o.p.vis[((h.j+i)%n+n)%n])o.p.cov[((h.j+i)%n+n)%n]=1;
+  if(!o.p.tcol||coverage(o.p)<.02)o.p.tcol=color.v}
  const p=o.p;tp=p;refreshGuides();drawT(p);
  if(coverage(p)>=TDONE){completePart(p,false);o.p=null;saveTrace();if(parts.every(q=>q.tdone))finishAll(false)}}
 // ---- idle hint: glowing dot + finger slides along an untraced stretch ----
@@ -338,18 +341,17 @@ const act={};
 pic.addEventListener("pointerdown",e=>{$("#menu").style.display="none";try{pic.setPointerCapture(e.pointerId)}catch(_){}
  const q=toSvg(e);sparkle(e.clientX,e.clientY);
  if(mode=="trace"){const o={t:1,last:q,p:null,j:0};act[e.pointerId]=o;ringAt(e,true);traceAt(o,q[0],q[1],85*q[2]);return}
- const p=partAt(q[0],q[1]);if(!p)return;const o={p,c:color.v,pts:[q],t0:Date.now(),moved:0,maxd:0};act[e.pointerId]=o});
+ const p=partAt(q[0],q[1]);if(!p)return;const o={p,c:color.v,pts:[q],t0:Date.now(),moved:0,maxd:0};o.el=addStroke(p,o.c,o.pts);o.rec={c:o.c,d:o.pts};p.strokes.push(o.rec);act[e.pointerId]=o;
+ if(!p.done&&mark(p,[q])>=DONE){fillPart(p,o.c,false);checkAllColor()}});
 pic.addEventListener("pointermove",e=>{const o=act[e.pointerId];if(!o)return;const q=toSvg(e);sparkle(e.clientX,e.clientY);
- if(o.t){ringAt(e,true);const l=o.last,steps=Math.max(1,Math.ceil(Math.hypot(q[0]-l[0],q[1]-l[1])/8));for(let i=1;i<=steps;i++)traceAt(o,l[0]+(q[0]-l[0])*i/steps,l[1]+(q[1]-l[1])*i/steps,85*q[2]);o.last=q;return}
+ if(o.t){ringAt(e,true);const l=o.last,steps=Math.max(1,Math.ceil(Math.hypot(q[0]-l[0],q[1]-l[1])/8));const sl=Math.hypot(q[0]-l[0],q[1]-l[1])/steps;for(let i=1;i<=steps;i++)traceAt(o,l[0]+(q[0]-l[0])*i/steps,l[1]+(q[1]-l[1])*i/steps,85*q[2],sl);o.last=q;return}
  const l=o.pts[o.pts.length-1];const dd=Math.hypot(q[0]-l[0],q[1]-l[1]);if(dd<2)return;o.moved+=dd;
- if(!o.el&&o.moved>14){o.el=addStroke(o.p,o.c,o.pts);o.rec={c:o.c,d:o.pts};o.p.strokes.push(o.rec)}
- o.maxd=Math.max(o.maxd,Math.hypot(q[0]-o.pts[0][0],q[1]-o.pts[0][1]));o.pts.push(q);if(o.el){o.el.setAttribute("d","M"+o.pts.map(v=>v[0]+" "+v[1]).join("L"));
+  o.maxd=Math.max(o.maxd,Math.hypot(q[0]-o.pts[0][0],q[1]-o.pts[0][1]));o.pts.push(q);if(o.el){o.el.setAttribute("d","M"+o.pts.map(v=>v[0]+" "+v[1]).join("L"));
   const seg=[],n=Math.ceil(dd/8);for(let i=1;i<=n;i++)seg.push([l[0]+(q[0]-l[0])*i/n,l[1]+(q[1]-l[1])*i/n]);
   if(!o.p.done&&mark(o.p,seg.concat(o.pts.length<4?o.pts:[]))>=DONE){fillPart(o.p,o.c,false);checkAllColor()}}});
 const up=e=>{const o=act[e.pointerId];if(!o)return;delete act[e.pointerId];
  if(o.t){ringAt(e,false);saveTrace();idleHint();return}
- const isTap=!o.el||(Date.now()-o.t0<350&&o.maxd<60)||o.maxd<40;
- if(isTap){if(o.el){o.el.remove();o.p.strokes.splice(o.p.strokes.indexOf(o.rec),1)}fillPart(o.p,o.c,false);checkAllColor()}  // tap = whole-region fill
+
  saveColor()};
 pic.addEventListener("pointerup",up);pic.addEventListener("pointercancel",up);
 let celebrated={};
