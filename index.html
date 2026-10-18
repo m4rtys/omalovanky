@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Colouring">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792355067"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792358431"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -58,6 +58,14 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
  .pg{width:min(78px,22vh);height:min(78px,22vh)}.th{font-size:22px;width:auto}
  #pal{display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:2vh;padding:8px;overflow-y:auto;overflow-x:hidden;touch-action:pan-y}.psep{grid-column:1/3;height:3px;margin:2px 0}.c{width:16vh;height:16vh;border-width:4px}
  #word{font-size:7vh}#word.big{font-size:13vh}}
+.nav{position:absolute;inset:0;top:0;left:0;right:0;bottom:0;z-index:15;background:#fbf7ef;display:flex;flex-direction:column;padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left);transition:opacity .4s}
+.nav.hide{opacity:0;pointer-events:none}.navh{display:flex;align-items:center;gap:14px;padding:10px 14px;font-size:clamp(26px,5vmin,42px);font-weight:bold;flex:0 0 auto}
+.nb{width:64px;height:64px;border-radius:22px;background:#fff;box-shadow:0 4px 0 #e7dccb;font-size:36px;color:#8a7c6c;display:flex;align-items:center;justify-content:center}
+.navg{flex:1;overflow-y:auto;touch-action:pan-y;display:grid;grid-template-columns:repeat(auto-fill,minmax(min(42vw,190px),1fr));gap:14px;padding:6px 14px 20px;align-content:start}
+.cat,.lpic{position:relative;background:#fff;border-radius:26px;box-shadow:0 5px 0 #e7dccb,0 8px 18px #0001;padding:8px;display:flex;flex-direction:column;align-items:center;transition:transform .2s}
+.cat:active,.lpic:active,.bk:active{transform:scale(.95)}.cat svg,.lpic svg{width:100%;aspect-ratio:10/9;height:auto;pointer-events:none}.cat b{font-size:clamp(18px,3.4vmin,26px);margin-top:2px}
+.lv{font-size:18px;letter-spacing:3px;color:#e8a04a;line-height:1}.lv i{font-style:normal;color:#e7dccb}.pg .lv{position:absolute;bottom:2px;left:0;right:0;font-size:11px;letter-spacing:1px}.pg{position:relative}
+.bk{flex:0 0 auto;width:min(70px,15vw);height:min(70px,15vw);border-radius:22px;background:#fff;box-shadow:0 4px 0 #e7dccb;font-size:34px;color:#8a7c6c}
 #lock{position:absolute;inset:0;top:0;left:0;right:0;bottom:0;z-index:50;background:#fbf7ef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
 #lock.hide{display:none}#lock label{font-size:40px;font-weight:bold}
 #pw{font-size:34px;padding:14px 20px;border-radius:24px;border:4px solid #e2d7c6;width:min(80vw,360px);text-align:center;background:#fff;color:#5a5048;outline:none;-webkit-user-select:text;user-select:text}
@@ -73,6 +81,8 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
  <button class="big" id="mTrace" aria-label="Trace"><svg viewBox="0 0 100 100"><polygon points="50,12 61,38 89,39 67,57 75,85 50,69 25,85 33,57 11,39 39,38" fill="none" stroke="#c9bfb2" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 9"/><path d="M50 12L61 38L89 39" fill="none" stroke="#e8c766" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(35 82 30)"><rect x="76" y="6" width="12" height="40" rx="3" fill="#8fbbe0" stroke="#4a403a" stroke-width="3"/><path d="M76 46l6 12l6-12z" fill="#f6dcc8" stroke="#4a403a" stroke-width="3" stroke-linejoin="round"/></g></svg></button>
  <button class="big" id="mColor" aria-label="Colour"><svg viewBox="0 0 100 100"><circle cx="34" cy="62" r="20" fill="#e88a84"/><circle cx="58" cy="70" r="16" fill="#9fcf98"/><circle cx="52" cy="44" r="15" fill="#f4dc7d"/><g transform="rotate(40 70 30)"><rect x="64" y="2" width="12" height="42" rx="5" fill="#b8957a" stroke="#4a403a" stroke-width="3"/><path d="M62 44h16v8q0 12-8 18q-8-6-8-18z" fill="#8fbbe0" stroke="#4a403a" stroke-width="3" stroke-linejoin="round"/></g></svg></button>
 </div>
+<div id="cats" class="nav hide"><div class="navh"><button class="nb" id="catHome" aria-label="Home">&#x2302;</button><span></span></div><div class="navg" id="catGrid"></div></div>
+<div id="lvl" class="nav hide"><div class="navh"><button class="nb" id="lvBack" aria-label="Back">&#x2190;</button><span id="lvTitle"></span></div><div class="navg" id="lvGrid"></div></div>
 <div id="app">
  <div id="side"></div>
  <div id="stage"><div id="word"></div>
@@ -147,7 +157,6 @@ const A=[
 // ---------- original characters (themes only evoked) ----------
 const PINK="#f6b8c6",PINK2="#ee9bb0",SKIN="#f8dfcc",SKIN2="#b9805e";
 // transform an absolute-only path (M L Q C Z) : x'=tx+s*x , y'=ty+s*y (mirror with s<0 on x via sx)
-function T(d,tx,ty,s,sx){sx=sx||s;let i=0;return d.replace(/-?\d+(\.\d+)?/g,v=>{const n=parseFloat(v);const r=(i++%2===0)?tx+sx*n:ty+s*n;return r.toFixed(1)})}
 // side-profile piglet, local coords ~ (0..300, 0..380), facing right
 function pig(tx,ty,s,cloth,shoes,boy){const t=d=>T(d,tx,ty,s);const P=[
  [t("M92 300L106 300L106 352L92 352Z"),PINK],[t("M150 300L164 300L164 352L150 352Z"),PINK],
@@ -230,12 +239,181 @@ const NEW=[
   ["M206 124Q210 76 238 104Q252 64 272 102Q296 76 300 126Z","#e0574f"],[E(250,180,72,64),"#e2a35f"],["M226 194L274 194L250 236Z","#f4dc7d"],[E(250,244,11,16),"#e0574f"]],
  d:()=>`<circle cx="220" cy="168" r="22" fill="#fff" stroke="${INK}" stroke-width="3"/><circle cx="280" cy="168" r="22" fill="#fff" stroke="${INK}" stroke-width="3"/>`+dot(226,172,8)+dot(274,164,8)+blush(196,206)+blush(304,206)}
 ];
+// ===================== v11 picture library =====================
+// robust path transform (abs+rel M L H V Q T C S A Z): x'=tx+sx*x, y'=ty+s*y
+function T(d,tx,ty,s,sx){sx=sx===undefined?s:sx;const tok=d.match(/[A-Za-z]|-?\d*\.?\d+(?:e-?\d+)?/g)||[];const N={M:2,L:2,T:2,Q:4,S:4,C:6,H:1,V:1,A:7,Z:0};
+ let out=[],i=0,cmd=null;const f=v=>(+v).toFixed(1).replace(/\.0$/,"");
+ while(i<tok.length){if(/[A-Za-z]/.test(tok[i])){cmd=tok[i++];out.push(cmd);if(cmd.toUpperCase()==="Z")continue}
+  const U=cmd.toUpperCase(),rel=cmd!==U,n=N[U],a=tok.slice(i,i+n).map(Number);i+=n;
+  const X=v=>rel?sx*v:tx+sx*v,Y=v=>rel?s*v:ty+s*v;
+  if(U==="H")out.push(f(X(a[0])));else if(U==="V")out.push(f(Y(a[0])));
+  else if(U==="A")out.push(f(a[0]*Math.abs(sx)),f(a[1]*Math.abs(s)),a[2],a[3],(sx*s<0?1-a[4]:a[4]),f(X(a[5])),f(Y(a[6])));
+  else for(let k=0;k<n;k+=2)out.push(f(X(a[k])),f(Y(a[k+1])))}
+ return out.join(" ")}
+const place=(pic,tx,ty,s,mir)=>{const sx=mir?-s:s;return {p:pic.p.map(([d,c])=>[T(d,tx,ty,s,sx),c]),d:()=>`<g transform="translate(${tx} ${ty}) scale(${sx} ${s})">${pic.d()}</g>`}};
+const combine=(...xs)=>({p:[].concat(...xs.map(x=>x.p)),d:()=>xs.map(x=>x.d?x.d():"").join("")});
+const P_=(p,d)=>({p,d:d||(()=>"")});
+const closedEye=(x,y,w)=>ln(`M${x-w} ${y}Q${x} ${y+w*.9} ${x+w} ${y}`,INK,4);
+// ---------- props ----------
+const GREEN="#9fcf98",GREEN2="#7fb878",LGREEN="#b5dca8",BROWN="#b8957a",DBROWN="#9a7a62",YEL="#f4dc7d",ORA="#f2b27a",RED="#e88a84",BLUE="#8fbbe0",SKY="#cfe3f5",PURP="#b9a2d6",PNK="#f2b8cf",GREY="#c4cfdb",WHITE="#fff";
+function sun(x,y,r){const pts=[];for(let i=0;i<24;i++){const a=i*Math.PI/12,R=i%2?r*1.18:r*1.5;pts.push([x+R*Math.cos(a),y+R*Math.sin(a)])}
+ return P_([[POLY(pts),"#f6c66b"],[E(x,y,r),YEL]],()=>eye(x-r*.35,y-r*.05,r/50)+eye(x+r*.35,y-r*.05,r/50)+smile(x,y+r*.35,r*.16))}
+const cloud=(x,y,s)=>P_([[`M${x-62*s} ${y+22*s}Q${x-84*s} ${y-8*s} ${x-48*s} ${y-14*s}Q${x-40*s} ${y-52*s} ${x} ${y-42*s}Q${x+34*s} ${y-60*s} ${x+52*s} ${y-16*s}Q${x+88*s} ${y-12*s} ${x+66*s} ${y+22*s}Z`,WHITE]]);
+const hill=(y,c)=>P_([[`M0 ${y}Q125 ${y-34} 250 ${y}T500 ${y}L500 450L0 450Z`,c||LGREEN]]);
+const sea=(y,c)=>P_([[`M0 ${y}Q62 ${y-22} 125 ${y}T250 ${y}T375 ${y}T500 ${y}L500 450L0 450Z`,c||BLUE]]);
+const sand=y=>P_([[`M0 ${y}Q250 ${y-28} 500 ${y}L500 450L0 450Z`,"#f3dfb3"]]);
+function flower(x,y,s,c){const P=[[`M${x-4*s} ${y}L${x+4*s} ${y}L${x+4*s} ${y+70*s}L${x-4*s} ${y+70*s}Z`,GREEN2],[`M${x+3*s} ${y+44*s}Q${x+30*s} ${y+22*s} ${x+38*s} ${y+40*s}Q${x+24*s} ${y+58*s} ${x+3*s} ${y+54*s}Z`,GREEN]];
+ for(let i=0;i<5;i++){const a=i*Math.PI*2/5-Math.PI/2;P.push([E(x+17*s*Math.cos(a),y+17*s*Math.sin(a),13*s),c])}P.push([E(x,y,10*s),YEL]);return P_(P)}
+function tree(x,y,s){return P_([[`M${x-14*s} ${y}L${x+14*s} ${y}L${x+20*s} ${y+130*s}L${x-20*s} ${y+130*s}Z`,BROWN],[E(x-42*s,y+8*s,42*s,36*s),GREEN2],[E(x+42*s,y+8*s,42*s,36*s),GREEN2],[E(x,y-34*s,58*s,50*s),GREEN]])}
+function leaf(cx,cy,ang,len,w){const tx=cx+len*Math.cos(ang),ty=cy+len*Math.sin(ang),mx=(cx+tx)/2,my=(cy+ty)/2,px=-Math.sin(ang),py=Math.cos(ang);
+ return `M${cx.toFixed(1)} ${cy.toFixed(1)}Q${(mx+px*w).toFixed(1)} ${(my+py*w).toFixed(1)} ${tx.toFixed(1)} ${ty.toFixed(1)}Q${(mx-px*w*.35).toFixed(1)} ${(my-py*w*.35).toFixed(1)} ${cx.toFixed(1)} ${cy.toFixed(1)}Z`}
+function palm(x,y,s){const tx=x+18*s,ty=y-190*s,P=[[`M${x-12*s} ${y}Q${x+6*s} ${y-90*s} ${tx-12*s} ${ty}L${tx+12*s} ${ty}Q${x+28*s} ${y-90*s} ${x+14*s} ${y}Z`,"#c9a27e"]];
+ [-2.9,-2.3,-1.6,-0.9,-0.25].forEach(a=>P.push([leaf(tx,ty,a,95*s,-30*s),GREEN2]));P.push([E(tx-8*s,ty+14*s,11*s),BROWN],[E(tx+12*s,ty+16*s,11*s),BROWN]);return P_(P)}
+const ball=(x,y,r,c1,c2)=>P_([[E(x,y,r),c1||RED],[`M${x-r} ${y}Q${x} ${y-r*.55} ${x+r} ${y}Q${x} ${y+r*.55} ${x-r} ${y}Z`,c2||WHITE]]);
+const bone=(x,y,s)=>P_([[E(x-38*s,y-10*s,13*s),WHITE],[E(x-38*s,y+10*s,13*s),WHITE],[E(x+38*s,y-10*s,13*s),WHITE],[E(x+38*s,y+10*s,13*s),WHITE],[RR(x-40*s,y-10*s,80*s,20*s,6*s),WHITE]]);
+const moon=(x,y,r)=>P_([[`M${x} ${y-r}A${r} ${r} 0 1 0 ${x} ${y+r}A${r*.72} ${r} 0 1 1 ${x} ${y-r}Z`,YEL]]);
+function star5(x,y,r,c){const pts=[];for(let i=0;i<10;i++){const a=i*Math.PI/5-Math.PI/2,R=i%2?r*.45:r;pts.push([x+R*Math.cos(a),y+R*Math.sin(a)])}return [POLY(pts),c||YEL]}
+const seaweed=(x,y,h,c)=>P_([[`M${x} ${y}Q${x-22} ${y-h/3} ${x} ${y-h*.66}Q${x+18} ${y-h} ${x+6} ${y-h}Q${x+30} ${y-h*.66} ${x+12} ${y-h/3}Q${x-2} ${y-h*.15} ${x+18} ${y}Z`,c||GREEN2]]);
+const bubbles=(pts)=>()=>`<g fill="none" stroke="#a8c8e4" stroke-width="4">${pts.map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}"/>`).join("")}</g>`;
+function castle(x,y,s,wall,roof){wall=wall||"#e6dccd";roof=roof||RED;const t=d=>T(d,x,y,s);return P_([
+ [t("M-120 -120L120 -120L120 0L-120 0Z"),wall],[t("M-150 -170L-90 -170L-90 0L-150 0Z"),wall],[t("M90 -170L150 -170L150 0L90 0Z"),wall],[t("M-40 -210L40 -210L40 -120L-40 -120Z"),wall],
+ [t("M-160 -170L-120 -250L-80 -170Z"),roof],[t("M80 -170L120 -250L160 -170Z"),roof],[t("M-50 -210L0 -300L50 -210Z"),roof],
+ [t("M-30 0L-30 -50Q0 -82 30 -50L30 0Z"),BROWN],[t("M-130 -120L-110 -120L-110 -90L-130 -90Z"),"#8fbbe0"],[t("M110 -120L130 -120L130 -90L110 -90Z"),"#8fbbe0"],[t("M-12 -180L12 -180L12 -150L-12 -150Z"),"#8fbbe0"]])}
+function scallop(cx,cy,R,n,bump){let d="";for(let i=0;i<n;i++){const a0=i*2*Math.PI/n,a1=(i+1)*2*Math.PI/n,am=(a0+a1)/2,x0=cx+R*Math.cos(a0),y0=cy+R*Math.sin(a0),x1=cx+R*Math.cos(a1),y1=cy+R*Math.sin(a1),
+ xm=cx+(R+bump)*Math.cos(am),ym=cy+(R+bump)*Math.sin(am);d+=(i?"":"M"+x0.toFixed(1)+" "+y0.toFixed(1))+"Q"+xm.toFixed(1)+" "+ym.toFixed(1)+" "+x1.toFixed(1)+" "+y1.toFixed(1)}return d+"Z"}
+const faceStd=(x1,x2,y,s)=>eye(x1,y,s)+eye(x2,y,s)+blush(x1-26*s,y+34*s)+blush(x2+26*s,y+34*s)+smile((x1+x2)/2,y+38*s,9*s);
+// ---------- lookup old pictures ----------
+const OLD={};A.concat(NEW).forEach(a=>OLD[a.n]=a);
+// ===================== DINOSAURS =====================
+const babyDino=P_([[ "M196 206L212 166L232 198L250 160L268 196L288 166L304 206Q250 190 196 206Z",ORA],[E(250,290,120,104),GREEN],[E(250,326,70,54),YEL],[E(194,392,36,20),GREEN],[E(306,392,36,20),GREEN]],
+ ()=>eye(208,262,1.15)+eye(292,262,1.15)+blush(180,300)+blush(320,300)+smile(250,302,11));
+const stego=P_([
+ ...[[140,250,56],[185,230,70],[230,222,78],[275,226,70],[320,242,56]].map(([cx,by,h])=>[`M${cx-24} ${by+18}L${cx} ${by-h}L${cx+24} ${by+18}Z`,ORA]),
+ ["M30 300L20 272L44 296Z",YEL],["M54 306L52 278L70 303Z",YEL],["M104 320Q42 336 18 298Q56 310 98 288Z",GREEN],
+ [RR(128,320,38,72,16),GREEN2],[RR(300,318,38,74,16),GREEN2],
+ ["M90 330Q96 222 230 214Q352 210 382 292Q392 334 362 348L130 348Q96 348 90 330Z",GREEN],[E(240,332,95,22),YEL],
+ [RR(178,326,38,72,16),GREEN],[RR(344,322,36,70,16),GREEN],["M356 300Q376 252 420 252Q462 256 464 284Q464 314 426 318Q388 320 356 300Z",GREEN]],
+ ()=>eye(424,278,.75)+blush(446,300)+smile(426,302,7)+dot(200,280,7,GREEN2)+dot(260,268,6,GREEN2)+dot(310,290,7,GREEN2));
+const trice=P_([["M110 300Q44 322 24 290Q60 300 104 272Z",GREEN],[RR(120,330,40,70,16),GREEN2],[RR(250,330,40,70,16),GREEN2],[E(215,300,125,82),GREEN],[E(218,320,80,40),YEL],
+ [RR(165,334,40,70,16),GREEN],[RR(295,334,40,70,16),GREEN],[scallop(352,236,70,11,14),ORA],[E(352,236,52),"#f7c99a"],
+ ["M308 262Q318 206 378 210Q438 214 444 262Q448 302 400 310Q338 316 308 262Z",GREEN],["M352 214L338 146L376 208Z","#fff6e0"],["M394 214L404 146L420 214Z","#fff6e0"],["M432 254L470 236L444 272Z","#fff6e0"]],
+ ()=>eye(382,252,.8)+blush(410,282)+smile(400,288,7)+dot(312,232,5,"#fff")+dot(392,232,5,"#fff"));
+const trex=P_([["M168 334Q76 366 24 330Q86 318 156 284Z",GREEN],[E(262,366,36,42),GREEN2],["M236 396L300 396Q312 422 290 424L236 424Z",GREEN2],[E(220,292,86,96),GREEN],[E(236,312,50,66),YEL],
+ [E(188,362,42,46),GREEN],["M150 398L222 398Q234 424 212 426L150 426Z",GREEN],["M282 252Q312 248 318 270Q304 276 290 264Z",GREEN],["M266 272Q296 270 300 290Q286 294 274 284Z",GREEN],
+ ["M290 196L388 188Q388 218 342 222Q300 224 290 196Z","#cfe8c8"],["M218 182Q212 100 300 94Q382 90 402 140Q412 176 382 190L300 200Q240 216 218 182Z",GREEN]],
+ ()=>eye(334,136,.95)+blush(360,170)+dot(388,128,4)+`<path d="M310 196l6 10l6-10M332 194l6 10l6-10M354 192l6 10l6-10" fill="#fff" stroke="${INK}" stroke-width="2.5" stroke-linejoin="round"/>`+ln("M300 200Q340 214 384 196",INK,3.5));
+const brachio=combine(sun(80,80,34),palm(440,420,1),P_([["M100 314Q32 336 14 298Q60 302 104 288Z",GREEN],[RR(110,330,34,84,14),GREEN2],[RR(250,330,34,84,14),GREEN2],
+ ["M244 290Q292 170 322 84L364 96Q340 182 296 306Z",GREEN],[E(200,320,112,70),GREEN],[E(206,336,70,30),YEL],[RR(150,336,34,84,14),GREEN],[RR(286,334,34,84,14),GREEN],[E(362,84,44,30),GREEN]],
+ ()=>eye(372,78,.65)+blush(390,96)+smile(380,96,6)+dot(170,300,8,GREEN2)+dot(230,292,7,GREEN2)+dot(300,220,6,GREEN2)+dot(318,170,5,GREEN2)));
+const ptero=combine(cloud(90,90,.8),cloud(420,370,.7),P_([["M214 214Q120 136 24 168Q98 196 128 252Q172 240 214 262Z",PURP],["M286 214Q380 136 476 168Q402 196 372 252Q328 240 286 262Z",PURP],
+ [E(250,240,44,72),"#c9b6e4"],[E(250,262,26,44),YEL],[E(228,316,12,16),ORA],[E(272,316,12,16),ORA],["M262 108L214 76L262 100Z",ORA],["M246 164Q226 122 258 106Q300 100 334 128L302 142Q282 168 246 164Z","#c9b6e4"]],
+ ()=>eye(270,128,.65)+blush(256,150)+ln("M296 136L326 128")));
+// ===================== CATS =====================
+const kittyFace=P_([["M150 196L160 82Q166 64 182 76L240 132Z",ORA],["M350 196L340 82Q334 64 318 76L260 132Z",ORA],[E(250,236,132,112),ORA]],
+ ()=>eye(200,226,1.3)+eye(300,226,1.3)+blush(166,272)+blush(334,272)+`<path d="M240 254h20l-10 11z" fill="#e88a9a"/>`+smile(250,270,10)+ln("M130 250l-50-8M130 270l-48 10M370 250l50-8M370 270l48 10"));
+const sleepCat=P_([["M80 384Q80 330 250 330Q420 330 420 384Q420 426 250 426Q80 426 80 384Z",PURP],["M368 330Q446 330 426 382Q386 404 300 394Q364 380 368 330Z",GREY],[E(262,318,120,60),GREY],
+ [E(205,356,30,14),"#fff"],["M126 278L128 226L164 258Z",GREY],["M188 254L216 220L224 270Z",GREY],[E(172,302,64,54),GREY]],
+ ()=>closedEye(150,302,11)+closedEye(194,302,11)+blush(140,326)+blush(206,326)+`<path d="M166 318h12l-6 7z" fill="#e88a9a"/>`+ln("M300 300q14-10 28 0M326 286q14-10 28 0","#9aa6b4",4)+
+ `<text x="250" y="210" font-size="42" font-family="Comic Sans MS,sans-serif" fill="#b9a2d6">z</text><text x="285" y="178" font-size="32" font-family="Comic Sans MS,sans-serif" fill="#b9a2d6">z</text>`);
+const yarn=(x,y,r,c)=>P_([[E(x,y,r),c]],()=>ln(`M${x-r*.7} ${y-r*.5}Q${x} ${y-r*.1} ${x+r*.6} ${y-r*.7}M${x-r*.9} ${y+r*.1}Q${x} ${y+r*.3} ${x+r*.9} ${y-r*.1}M${x-r*.5} ${y+r*.75}Q${x+r*.1} ${y+r*.3} ${x+r*.7} ${y+r*.6}`,"#fff",4));
+const catYarn=combine(P_([["M30 420Q30 380 250 380Q470 380 470 420L470 450L30 450Z","#e2d1f0"]]),place(OLD["kočička"],-30,40,.82),yarn(400,356,48,PNK),P_([],()=>ln("M360 384Q320 420 260 410",PNK,4)));
+const catBox=combine(P_([["M118 280L74 222L236 228L250 280Z","#d9b48c"],["M382 280L426 222L264 228L250 280Z","#d9b48c"],["M180 150L186 82Q190 70 202 78L236 118Z",GREY],["M320 150L314 82Q310 70 298 78L264 118Z",GREY],
+ [E(250,196,92,78),GREY],["M118 280L382 280L382 424L118 424Z","#c9a27e"],[E(206,282,28,18),"#fff"],[E(294,282,28,18),"#fff"],
+ [E(410,120,26,18),PNK],[E(410,152,22,14),PNK],[E(452,120,26,18),PNK],[E(452,152,22,14),PNK],[RR(426,110,10,54,5),PURP]]),
+ P_([],()=>eye(214,190)+eye(286,190)+blush(184,224)+blush(316,224)+`<path d="M242 212h16l-8 9z" fill="#e88a9a"/>`+smile(250,224,9)+ln("M160 205l-36-6M340 205l36-6")+ln("M200 360h100",DBROWN,4)));
+// ===================== DOGS =====================
+const dogFace=P_([[E(250,230,120,108),"#e6c9a8"],[E(250,286,58,40),"#fff"],["M140 160Q90 172 94 262Q98 312 136 298Q166 258 172 178Z","#a87f5f"],["M360 160Q410 172 406 262Q402 312 364 298Q334 258 328 178Z","#a87f5f"]],
+ ()=>eye(204,220,1.2)+eye(296,220,1.2)+blush(170,262)+blush(330,262)+`<ellipse cx="250" cy="270" rx="18" ry="12" fill="${INK}"/>`+smile(250,288,10)+`<path d="M243 298q7 18 14 0z" fill="#ef8f9c"/>`);
+const dachs=P_([["M114 262Q74 242 70 210Q92 226 118 246Z",BROWN],[RR(130,300,30,52,12),DBROWN],[RR(300,300,30,52,12),DBROWN],["M112 280Q112 230 172 230L330 230Q382 230 382 280Q382 322 330 322L172 322Q112 322 112 280Z",BROWN],
+ [RR(168,302,30,52,12),BROWN],[RR(338,302,30,52,12),BROWN],[E(392,222,50,44),BROWN],[E(436,244,32,22),"#e6c9a8"],["M372 200Q344 212 348 270Q370 284 384 250Z",DBROWN]],
+ ()=>eye(400,212,.8)+blush(410,240)+dot(466,238,9)+smile(446,258,6)+ln("M360 276Q300 292 240 276",DBROWN,3));
+const kennel=P_([["M330 250L470 250L470 404L330 404Z",RED],["M314 262L400 182L486 262Z",BROWN],["M372 404L372 334Q400 300 428 334L428 404Z","#6b625b"]]);
+const dogBone=combine(hill(410),kennel,place(OLD["pejsek"],-20,60,.78),bone(170,418,.9));
+const poodle=P_([[E(380,240,26),PNK],["M332 276Q372 240 382 214L392 222Q384 260 346 298Z",WHITE],[E(250,320,90,62),WHITE],[E(250,322,70,46),PNK],
+ [E(196,392,26),PNK],[E(304,392,26),PNK],[RR(186,330,20,62,8),WHITE],[RR(294,330,20,62,8),WHITE],
+ [E(250,92,40,34),PNK],[E(178,194,40,56),PNK],[E(322,194,40,56),PNK],[E(250,180,78,72),WHITE],[E(250,214,36,26),WHITE]],
+ ()=>eye(222,176)+eye(278,176)+blush(196,208)+blush(304,208)+`<ellipse cx="250" cy="204" rx="12" ry="8" fill="${INK}"/>`+smile(250,222,8)+`<path d="M232 128l18 12l18-12v24l-18-12l-18 12z" fill="#e88a9a" stroke="${INK}" stroke-width="3" stroke-linejoin="round"/>`);
+// ===================== SEA =====================
+const fishEasy=P_([["M336 225L446 140Q464 136 460 160L436 225L460 290Q464 314 446 310Z",ORA],[E(230,225,146,104),YEL],["M196 150Q236 98 296 140Z",ORA]],
+ ()=>eye(150,206,1.4)+blush(160,256)+smile(108,244,9)+bubbles([[60,110,14],[84,64,9],[52,32,6]])());
+const whale=P_([["M384 252Q430 214 470 188Q484 252 432 292Z",BLUE],["M60 280Q60 168 222 164Q370 166 400 262Q412 330 300 344L200 346Q60 344 60 280Z",BLUE],["M80 300Q200 344 342 316Q294 346 200 346Q100 342 80 300Z",SKY],
+ [E(240,320,36,14),"#7aa8d6"],["M186 160Q166 112 136 100Q178 110 192 138Q208 104 250 98Q214 116 202 160Z","#cfe8f8"]].concat(sea(400,"#6f9fcb").p),
+ ()=>eye(130,240,1.1)+blush(132,280)+smile(100,282,10)+ln("M130 330Q200 340 270 332","#fff",4));
+const octo=P_([...[160,192,224,256,288,320].map(x=>[`M${x-12} 250Q${x-38} 322 ${x-14} 384Q${x} 410 ${x+14} 386Q${x+2} 336 ${x+22} 262Z`,PURP]),[E(250,190,104,96),"#c9b6e4"]],
+ ()=>eye(208,192,1.2)+eye(292,192,1.2)+blush(180,232)+blush(320,232)+smile(250,236,10)+dot(220,126,9,"#e6dcf5")+dot(270,112,7,"#e6dcf5")+dot(300,140,6,"#e6dcf5")+bubbles([[420,80,14],[446,40,9]])());
+const turtle=combine(sand(420),seaweed(40,430,150),seaweed(450,430,120,GREEN),P_([[E(150,330,34,20),GREEN],[E(370,330,34,20),GREEN],[E(452,272,42,36),GREEN],
+ ["M112 300Q122 168 260 162Q398 168 408 300Z",GREEN2],["M100 300L420 300Q422 322 400 324L120 324Q98 322 100 300Z","#e6c98a"],
+ [POLY([[260,190],[300,212],[300,254],[260,276],[220,254],[220,212]]),GREEN],[POLY([[176,236],[210,252],[204,292],[160,296],[146,264]]),GREEN],[POLY([[344,236],[310,252],[316,292],[360,296],[374,264]]),GREEN]],
+ ()=>eye(462,262,.75)+blush(476,286)+smile(466,290,6)+bubbles([[440,180,12],[456,140,8],[180,100,10]])()));
+// ===================== SAFARI =====================
+const eleFace=P_([[E(130,210,98,110),"#c4cfdb"],[E(370,210,98,110),"#c4cfdb"],[E(250,214,120,108),"#aab8c8"],["M222 280Q210 380 254 400Q298 408 302 370Q276 376 272 340L280 282Z","#aab8c8"]],
+ ()=>eye(204,202,1.2)+eye(296,202,1.2)+blush(170,252)+blush(330,252)+ln("M260 330q9-5 16 0M262 352q8-5 15 0"));
+const hippo=P_([[RR(120,330,40,74,16),"#9a8fb0"],[RR(320,330,40,74,16),"#9a8fb0"],[E(230,316,140,84),"#b3a8c9"],[RR(160,334,40,74,16),"#b3a8c9"],[RR(280,334,40,74,16),"#b3a8c9"],
+ [E(332,196,16,14),"#9a8fb0"],[E(390,190,16,14),"#9a8fb0"],["M300 230Q312 190 370 192Q432 196 446 240Q470 250 470 286Q468 318 420 320L330 316Q296 296 300 230Z","#b3a8c9"]],
+ ()=>eye(350,220,.8)+eye(398,214,.8)+dot(440,268,6)+dot(458,268,6)+blush(360,268)+smile(420,298,9));
+const giraffe=P_([["M150 300Q120 320 112 360L120 362Q132 330 156 316Z",ORA],[RR(170,320,26,100,10),YEL],[RR(290,320,26,100,10),YEL],[E(240,300,92,52),YEL],[RR(205,322,26,100,10),YEL],[RR(255,322,26,100,10),YEL],
+ ["M272 280Q300 170 312 98L350 104Q342 182 318 300Z",YEL],["M318 70L314 44L326 44L328 72Z",ORA],["M346 72L346 44L358 44L354 74Z",ORA],[E(300,92,16,10),YEL],
+ [E(340,100,40,34),YEL],[E(366,114,22,16),"#f7e6b0"],
+ [E(200,292,16,12),ORA],[E(250,280,14,11),ORA],[E(286,306,13,10),ORA],[E(318,226,10,8),ORA],[E(326,170,9,8),ORA]],
+ ()=>eye(338,92,.65)+blush(320,112)+dot(370,110,3)+dot(380,112,3)+smile(366,124,5));
+const lion=P_([["M330 330Q410 320 420 260Q436 252 438 270Q432 336 344 356Z",YEL],[E(434,256,14),ORA],[E(250,346,92,64),YEL],[E(205,410,30,16),YEL],[E(295,410,30,16),YEL],
+ [scallop(250,190,102,14,20),ORA],[E(170,124,20),YEL],[E(330,124,20),YEL],[E(250,196,84,78),YEL],[E(250,236,38,26),"#fff2cf"]],
+ ()=>eye(216,186)+eye(284,186)+blush(186,222)+blush(314,222)+`<path d="M240 222h20l-10 11z" fill="#c9803f"/>`+smile(250,238,9));
+// ===================== BIRDS =====================
+const chick=P_([[E(250,300,110,96),YEL],[E(250,170,74,68),YEL],["M232 186L268 186L250 214Z",ORA],["M300 270Q350 280 346 330Q312 336 296 300Z","#f2d26a"]],
+ ()=>eye(224,160,1)+eye(276,160,1)+blush(204,190)+blush(296,190)+ln("M220 396v26M280 396v26M206 422h28M266 422h28",ORA,6)+ln("M240 104q10-24 22-4q8-20 18 0",ORA,4));
+const owlBranch=combine(moon(420,70,40),P_([star5(60,60,16),star5(120,110,10),star5(330,40,10)]),P_([["M0 360L500 340L500 362L0 382Z",BROWN],[leaf(60,370,-2.4,60,-16),GREEN],[leaf(440,350,-0.6,60,18),GREEN]]),place(OLD["sova"],120,10,.6));
+const duck=P_([["M0 370Q125 350 250 370T500 370L500 450L0 450Z",BLUE],["M120 300Q120 232 220 240L300 246Q290 170 340 150Q400 140 410 190Q412 226 370 240Q420 252 420 300Q410 372 270 372Q130 372 120 300Z",YEL],
+ ["M404 182L456 194Q452 212 404 212Z",ORA],["M176 284Q250 252 300 292Q262 332 190 322Z","#f2d26a"]],()=>eye(368,180,.85)+blush(380,206)+ln("M60 390q20-8 40 0M380 400q20-8 40 0","#fff",4));
+const parrot=P_([["M210 340L190 440L216 440L232 340Z",BLUE],["M236 340L236 444L262 444L258 340Z",YEL],["M260 336L290 430L312 422L280 334Z",GREEN],
+ [E(250,270,78,96),RED],[E(250,300,44,60),"#f7c99a"],["M190 230Q150 290 186 360Q222 320 218 250Z",BLUE],[E(256,150,62,58),RED],["M296 140Q344 140 340 186Q326 176 300 178Z","#f6f0e6"],
+ ["M60 370L440 352L440 372L60 390Z",BROWN],[E(230,368,12,8),ORA],[E(266,366,12,8),ORA]],()=>`<circle cx="262" cy="140" r="18" fill="#fff"/>`+eye(264,142,.75)+blush(240,172));
+// ===================== BUNNIES =====================
+const bunnyFace=P_([[E(196,110,34,90),"#ece3da"],[E(304,110,34,90),"#ece3da"],[E(196,118,16,60),PNK],[E(304,118,16,60),PNK],[E(250,270,130,110),"#ece3da"]],
+ ()=>eye(206,262,1.3)+eye(294,262,1.3)+blush(166,306)+blush(334,306)+`<path d="M241 288h18l-9 10z" fill="#e88a9a"/>`+smile(250,302,9));
+const hopBunny=P_([[E(126,282,26),WHITE],["M150 352Q132 386 200 386L262 386Q264 362 210 350Z","#ece3da"],[E(240,300,112,74),"#ece3da"],[E(320,370,24,14),"#ece3da"],
+ ["M322 196Q284 92 316 70Q344 92 348 190Z","#ece3da"],["M356 196Q352 84 388 74Q404 104 376 200Z","#ece3da"],["M326 184Q304 112 318 92Q334 110 338 180Z",PNK],[E(356,236,64,54),"#ece3da"]],
+ ()=>eye(374,226,.85)+blush(392,256)+`<path d="M408 238h12l-6 7z" fill="#e88a9a"/>`+smile(404,252,6));
+const carrot=(x,y,s,ang)=>{const t=d=>T(d,x,y,s);return P_([[t("M-12 -98Q-34 -140 -6 -150Q2 -126 -2 -100Z"),GREEN],[t("M10 -98Q30 -144 4 -152Q-2 -126 2 -100Z"),GREEN2],[t("M-30 -100Q0 -112 30 -100L4 40Q0 48 -4 40Z"),ORA]],
+ ()=>`<g transform="translate(${x} ${y}) scale(${s})">${ln("M-16 -60h12M6 -30h12M-10 0h10",DBROWN,3)}</g>`)};
+const bunnyCarrot=combine(hill(400),place(OLD["zajíček"],-30,40,.84),carrot(410,330,1));
+const bunnyGarden=combine(sun(420,70,40),hill(370),place(OLD["zajíček"],80,90,.68),flower(70,320,1,PNK),flower(420,330,1,PURP));
+// ===================== DRAGONS =====================
+const babyDragon=P_([["M196 170L190 120L222 152Z",YEL],["M304 170L310 120L278 152Z",YEL],[E(250,230,100,86),RED],["M140 300L170 270L200 300L230 268L260 300L290 268L320 300L350 270L360 300Q360 424 250 424Q140 424 140 300Z","#fff6e0"]],
+ ()=>eye(212,222,1.15)+eye(288,222,1.15)+blush(180,260)+blush(320,260)+smile(250,262,10)+dot(236,246,3)+dot(264,246,3)+dot(200,350,9,"#f2dcc0")+dot(300,380,7,"#f2dcc0"));
+const flyDragon=combine(cloud(80,380,.8),cloud(430,90,.7),P_([["M220 220Q140 120 40 140Q70 160 70 190Q100 180 110 210Q140 200 150 240Q190 230 220 260Z",PURP],["M280 220Q360 120 460 140Q430 160 430 190Q400 180 390 210Q360 200 350 240Q310 230 280 260Z",PURP],
+ ["M236 330Q200 400 140 410L118 396L136 384Q190 376 216 320Z",RED],[POLY([[118,396],[96,412],[108,382]]),YEL],[E(250,260,58,82),RED],[E(250,282,34,52),YEL],[E(222,344,14,18),RED],[E(278,344,14,18),RED],
+ ["M222 168L214 128L240 156Z",YEL],["M278 168L286 128L260 156Z",YEL],[E(250,180,58,50),RED]]),P_([],()=>eye(228,176,.85)+eye(272,176,.85)+blush(210,200)+blush(290,200)+smile(250,202,7)));
+const dragonCastle=combine(cloud(380,60,.7),hill(420),castle(340,410,.85,"#e6dccd",PURP),place(OLD["drak"],-50,190,.52));
+// ===================== PIGGIES / PUPPIES / ICE / ISLAND extras =====================
+const piggyFace=P_(pig(60,60,1.4,RED,RED).slice(7).map(x=>x),()=>pigFace(60,60,1.4));
+const piggyFamily=combine(hill(400),place(OLD["prasátko"],-10,70,.7),place(OLD["bráška"],245,110,.62));
+const pupFace=P_(puppy(BLUEP).slice(5),puppyFace(BLUEP));
+const pupsPlay=combine(hill(400),place(OLD["modrý pejsek"],-20,90,.62),place(OLD["sestřička"],210,90,.62),ball(250,404,30,YEL,RED));
+function flakeSimple(cx,cy,R){const pts=[];for(let i=0;i<12;i++){const a=i*Math.PI/6-Math.PI/2,r=i%2?R*.42:R;pts.push([cx+r*Math.cos(a),cy+r*Math.sin(a)])}return P_([[POLY(pts),SKY],[E(cx,cy,R*.3),"#e2eefa"]],()=>eye(cx-18,cy-4,.7)+eye(cx+18,cy-4,.7)+smile(cx,cy+16,6))}
+const iceCastle=combine(P_([["M0 380Q250 350 500 380L500 450L0 450Z","#eef5fc"]]),castle(320,400,.95,"#d8ecfa","#a8d0f0"),place(OLD["sněhulák"],-20,170,.55),P_([],()=>`<g fill="none" stroke="#a8d0f0" stroke-width="4" stroke-linecap="round"><path d="M60 60v30M47 67l26 16M73 67l-26 16"/><path d="M200 40v24M190 46l20 12M210 46l-20 12"/><path d="M460 200v24M450 206l20 12M470 206l-20 12"/></g>`));
+const hibiscus=P_([...[0,1,2,3,4].map(i=>{const a=i*Math.PI*2/5-Math.PI/2;return [E(250+80*Math.cos(a),225+80*Math.sin(a),70),PNK]}),[E(250,225,46),RED],[E(250,225,16),YEL]]);
+const island=combine(sun(90,80,40),sea(330),P_([["M120 360Q250 280 400 360Z","#f3dfb3"]]),palm(250,330,.9),cloud(400,90,.7),P_([["M380 400L470 400L455 420L395 420Z",RED],["M420 400L420 352L450 396Z",WHITE]]));
+// ===================== categories =====================
+const CATS=[
+ ["dinosaurs",[[babyDino,"baby dino",1],[OLD["dinosaurus"],"dinosaur",1],[stego,"stegosaurus",2],[trice,"triceratops",2],[trex,"t rex",3],[brachio,"long neck",3],[ptero,"pterodactyl",3]]],
+ ["cats",[[kittyFace,"kitty",1],[OLD["kočička"],"cat",2],[sleepCat,"sleepy cat",2],[catYarn,"cat with yarn",3],[catBox,"cat in a box",3]]],
+ ["dogs",[[dogFace,"puppy",1],[OLD["pejsek"],"dog",2],[dachs,"dachshund",2],[poodle,"poodle",3],[dogBone,"dog with a bone",3]]],
+ ["sea",[[fishEasy,"fish",1],[OLD["rybička"],"goldfish",2],[whale,"whale",2],[octo,"octopus",2],[turtle,"turtle",3]]],
+ ["safari",[[eleFace,"elephant",1],[OLD["slon"],"baby elephant",2],[hippo,"hippo",2],[lion,"lion",3],[giraffe,"giraffe",3]]],
+ ["birds",[[chick,"chick",1],[duck,"duck",1],[OLD["sova"],"owl",2],[parrot,"parrot",3],[owlBranch,"owl at night",3]]],
+ ["bunnies",[[bunnyFace,"bunny",1],[OLD["zajíček"],"little bunny",2],[hopBunny,"hopping bunny",2],[bunnyCarrot,"bunny with a carrot",3],[bunnyGarden,"bunny in the garden",3]]],
+ ["dragons",[[babyDragon,"baby dragon",1],[OLD["drak"],"dragon",2],[flyDragon,"flying dragon",3],[dragonCastle,"dragon castle",3]]],
+ ["piggies",[[piggyFace,"piggy face",1],[OLD["prasátko"],"piggy",2],[OLD["bráška"],"little brother",2],[OLD["louže"],"muddy puddle",3],[piggyFamily,"piggy family",3]]],
+ ["puppies",[[pupFace,"puppy face",1],[OLD["modrý pejsek"],"blue puppy",2],[OLD["sestřička"],"sister",2],[pupsPlay,"puppies playing",3]]],
+ ["ice",[[flakeSimple(250,225,170),"snowflake",1],[OLD["sněhulák"],"snowman",2],[OLD["princezna"],"princess",2],[OLD["vločka"],"ice crystal",3],[iceCastle,"ice castle",3]]],
+ ["island",[[hibiscus,"flower",1],[OLD["vlna"],"wave",2],[OLD["holčička"],"girl",2],[OLD["kánoe"],"canoe",3],[OLD["kohoutek"],"rooster",3],[island,"island",3]]]];
+const PICS=[];const CATLIST=[];
+CATS.forEach(([cn,list],ci)=>{const idx=[];list.forEach(([pic,n,l])=>{idx.push(PICS.length);PICS.push({n,p:pic.p,d:pic.d,lvl:l,cat:ci})});CATLIST.push({n:cn,idx,thumb:idx[Math.min(1,idx.length-1)]})});
 // ---------- data ----------
-A.forEach(a=>a.t="\u{1F43E}");
-const PICS=A.concat(NEW);
 const EN={"kočička":"cat","pejsek":"dog","rybička":"fish","slon":"elephant","sova":"owl","zajíček":"bunny","dinosaurus":"dinosaur","drak":"dragon","prasátko":"piggy","bráška":"little brother","louže":"puddle",
  "modrý pejsek":"blue puppy","sestřička":"sister","princezna":"princess","sněhulák":"snowman","vločka":"snowflake","holčička":"girl","kánoe":"canoe","vlna":"wave","kohoutek":"rooster"};
-PICS.forEach(a=>{a.n=EN[a.n]||a.n});
+
 const PRAISE_B=["Well done!","Great job!","You are great!","Awesome!","Amazing!","Beautiful!"];
 const pick=a=>a[Math.floor(Math.random()*a.length)];
 const article=n=>(/^[aeiou]/i.test(n)?"an ":"a ")+n;
@@ -245,11 +423,11 @@ const COLORS=[["red","#e88a84"],["orange","#f2b27a"],["yellow","#f4dc7d"],["gree
  ["rainbow","#f2a9a0","rainbow"],["unicorn","#f6c6e0","unicorn"],["pink glitter","#f0a9c8","glitter"],["purple glitter","#c3a6e6","glitter"],["silver glitter","#cfd6dc","glitter"],
  ["gold glitter","#e8c766","glitter"],["blue glitter","#9cc6ec","glitter"],["stars","#fbe9a8","stars"],["confetti","#fff7ec","confetti"]];
 const $=s=>document.querySelector(s),SVGNS="http://www.w3.org/2000/svg",pic=$("#pic"),word=$("#word"),stage=$("#stage"),dotEl=$("#dot"),hand=$("#hand");
-let mode="color",cur=0,color=COLORS[0],state={};try{state=JSON.parse(LS.om6||"{}")}catch(e){}
+let mode="color",cur=0,color=COLORS[0],state={};try{state=JSON.parse(LS.om11||"{}")}catch(e){}
 state.c=state.c||{};state.t=state.t||{};
 const voice=$("#voice"),spk=$("#spk");voice.checked=LS.om5v!=="0";spk.checked=LS.om5s!=="0";
 voice.onchange=()=>{LS.om5v=voice.checked?1:0};spk.onchange=()=>{LS.om5s=spk.checked?1:0};
-function persist(){try{LS.om6=JSON.stringify(state)}catch(e){}}
+function persist(){try{LS.om11=JSON.stringify(state)}catch(e){}}
 function glit(base,w){const c=document.createElement("canvas");c.width=c.height=w;const g=c.getContext("2d");g.fillStyle=base;g.fillRect(0,0,w,w);
  for(let i=0;i<w*1.2;i++){g.fillStyle=Math.random()<.6?"rgba(255,255,255,.8)":"rgba(255,255,255,.35)";g.beginPath();g.arc(Math.random()*w,Math.random()*w,Math.random()*1.2+.3,0,7);g.fill()}return c.toDataURL()}
 const RAINBOW=["#f2a9a0","#f6c58e","#f4e19a","#a9dba0","#9cc8ec","#b9a8e4","#eeb0d6"],UNICORN=["#f8c8dc","#e6c9f2","#c9d9f7","#c6efe4","#fbe6c4","#f8c8dc"];
@@ -292,11 +470,23 @@ window.staticSVG=staticSVG;window.PICS=PICS;
 // ---------- UI ----------
 COLORS.forEach((c,i)=>{const b=document.createElement("button");b.className="c"+(i?"":" on");b.style.background=c.prev;b.setAttribute("aria-label",c[0]);if(i==8){const sep=document.createElement("div");sep.className="psep";$("#pal").append(sep)}
  b.onpointerdown=()=>{color=c;document.querySelectorAll(".c").forEach(x=>x.classList.toggle("on",x==b));say(c[0],c[1]);if(mode=="trace")tint()};$("#pal").append(b)});
-let lastTh="";PICS.forEach((a,i)=>{if(a.t!=lastTh){lastTh=a.t;const t=document.createElement("div");t.className="th";t.textContent=a.t;$("#side").append(t)}
- const b=document.createElement("button");b.className="pg";b.setAttribute("aria-label",a.n);b.innerHTML=staticSVG(a,false);b.onclick=()=>{load(i);say(a.n)};$("#side").append(b)});
-function startMode(m){mode=m;$("#start").classList.add("hide");document.body.classList.toggle("tmode",m=="trace");pic.classList.toggle("tmode",m=="trace");fit();load(cur);}
+const CATN={dinosaurs:"Dinosaurs",cats:"Cats",dogs:"Dogs",sea:"Sea",safari:"Safari",birds:"Birds",bunnies:"Bunnies",dragons:"Dragons",piggies:"Piggies",puppies:"Puppies",ice:"Ice",island:"Island"};
+const dots=l=>`<span class="lv">${"●".repeat(l)}<i>${"●".repeat(3-l)}</i></span>`;
+let curCat=0;
+function buildCats(){const g=$("#catGrid");g.innerHTML="";CATLIST.forEach((c,ci)=>{const b=document.createElement("button");b.className="cat";b.setAttribute("aria-label",CATN[c.n]);
+ b.innerHTML=staticSVG(PICS[c.thumb],true)+`<b>${CATN[c.n]}</b>`;b.onclick=()=>openCat(ci);g.append(b)})}
+function openCat(ci){curCat=ci;const c=CATLIST[ci],g=$("#lvGrid");g.innerHTML="";$("#lvTitle").textContent=CATN[c.n];
+ c.idx.forEach(i=>{const a=PICS[i],b=document.createElement("button");b.className="lpic";b.setAttribute("aria-label",a.n);b.innerHTML=staticSVG(a,false)+dots(a.lvl);
+  b.onclick=()=>{hideNav();fillSide();load(i)};g.append(b)});$("#cats").classList.add("hide");$("#lvl").classList.remove("hide")}
+function hideNav(){$("#cats").classList.add("hide");$("#lvl").classList.add("hide")}
+function showCats(){$("#lvl").classList.add("hide");$("#cats").classList.remove("hide");hand.classList.remove("show")}
+function fillSide(){const s=$("#side");s.innerHTML="";const bk=document.createElement("button");bk.className="bk";bk.id="sideBack";bk.setAttribute("aria-label","Back");bk.innerHTML="&#x2190;";bk.onclick=()=>openCat(curCat);s.append(bk);
+ CATLIST[curCat].idx.forEach(i=>{const a=PICS[i],b=document.createElement("button");b.className="pg";b.setAttribute("aria-label",a.n);b.innerHTML=staticSVG(a,false)+dots(a.lvl);b.onclick=()=>load(i);s.append(b)})}
+$("#lvBack").onclick=showCats;$("#catHome").onclick=()=>{hideNav();$("#start").classList.remove("hide")};
+buildCats();
+function startMode(m){mode=m;$("#start").classList.add("hide");document.body.classList.toggle("tmode",m=="trace");pic.classList.toggle("tmode",m=="trace");fit();fillSide();load(cur);showCats()}
 $("#mTrace").onclick=()=>startMode("trace");$("#mColor").onclick=()=>startMode("color");
-$("#home").onclick=()=>{$("#start").classList.remove("hide");hand.classList.remove("show")};
+$("#home").onclick=showCats;
 // ---------- build picture ----------
 let parts=[];const BR=42,DONE=.85,GRID=7;
 function load(i){cur=i;const a=PICS[i];document.querySelectorAll(".pg").forEach(x=>x.classList.toggle("on",x.getAttribute("aria-label")==a.n));
@@ -420,7 +610,7 @@ $("#close").onclick=()=>{$("#menu").style.display="none"};
 // ---------- layout / iOS ----------
 function fit(){const r=stage.getBoundingClientRect(),w=Math.max(50,r.width-16),h=Math.max(50,r.height-16),k=Math.min(w/500,h/450),el=$("#wrap");el.style.width=(500*k)+"px";el.style.height=(450*k)+"px";if(tp)placeDot()}
 window.addEventListener("resize",fit);window.addEventListener("orientationchange",()=>setTimeout(fit,300));
-document.addEventListener("touchmove",e=>{if(!e.target.closest||!e.target.closest("#side")&&!e.target.closest("#pal"))e.preventDefault()},{passive:false});
+document.addEventListener("touchmove",e=>{if(!e.target.closest||!e.target.closest("#side")&&!e.target.closest("#pal")&&!e.target.closest(".navg"))e.preventDefault()},{passive:false});
 document.addEventListener("gesturestart",e=>e.preventDefault());document.addEventListener("dblclick",e=>e.preventDefault());
 document.getElementById("mus").onclick=()=>setMusic(!musicOn());document.getElementById("musc").onchange=e=>setMusic(e.target.checked);document.getElementById("mus").classList.toggle("off",!musicOn());document.getElementById("musc").checked=musicOn();
 fit();load(0);
