@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Omalovánky">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Omalovánky</title><link rel="manifest" href="manifest.webmanifest"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Omalovánky</title><link rel="manifest" href="manifest.webmanifest?v=1792352652"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -22,13 +22,14 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 #stage{flex:1;position:relative;display:flex;align-items:center;justify-content:center;min-height:0;padding:8px}
 #wrap{position:relative;width:500px;height:450px}
 #pic{position:absolute;inset:0;width:100%;height:100%;top:0;left:0}
-.base{fill:#fff}.fillc{opacity:0;transition:opacity 1.2s ease}.fillc.on{opacity:1}
+.base{fill:#fff}.fillc{opacity:0;transition:opacity .3s ease-out}.tmode .fillc{transition:opacity 1.2s ease}.fillc.on{opacity:1}
 .ol{fill:none;stroke:#4a403a;stroke-width:5;stroke-linejoin:round;stroke-linecap:round;pointer-events:none}
 .st{fill:none;stroke-width:42;stroke-linecap:round;stroke-linejoin:round;opacity:.92;pointer-events:none}
 .paint,.deco,.tl,.gd{pointer-events:none}
-.gd{fill:none;stroke:#cdc3b6;stroke-width:8;stroke-linecap:round;stroke-dasharray:0.1 16}
-.part.cur .gd{stroke:#b3a796}
-.tl{fill:none;stroke-width:14;stroke-linecap:round;stroke-linejoin:round}
+.gd{fill:none;stroke:#a89a88;stroke-width:11;stroke-linecap:round;stroke-dasharray:0.1 18;animation:march 2.4s linear infinite}
+@keyframes march{to{stroke-dashoffset:-36}}
+.part.cur .gd{stroke:#7d6f60;stroke-width:13;filter:drop-shadow(0 0 6px #f4dc7d)}
+.tl{fill:none;stroke-width:17;stroke-linecap:round;stroke-linejoin:round}
 .tmode .ol{opacity:0;transition:opacity .8s}.tmode .part.tdone .ol{opacity:1}
 #dot{pointer-events:none;transition:opacity .4s}
 #dot circle{animation:pulse 2.4s ease-in-out infinite;transform-box:fill-box;transform-origin:center}
@@ -61,6 +62,9 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 #pw{font-size:34px;padding:14px 20px;border-radius:24px;border:4px solid #e2d7c6;width:min(80vw,360px);text-align:center;background:#fff;color:#5a5048;outline:none;-webkit-user-select:text;user-select:text}
 #pwgo{font-size:40px;width:96px;height:80px;border-radius:24px;background:#9fcf98;color:#fff;box-shadow:0 5px 0 #7fb878}
 #lock.bad #pw{border-color:#e88a84}
+#fring{position:absolute;width:96px;height:96px;margin:-48px 0 0 -48px;border-radius:50%;border:5px solid #fff;box-shadow:0 0 0 3px #e8c76699,inset 0 0 18px #f4dc7d88;pointer-events:none;z-index:4;opacity:0;transform:scale(.6);transition:opacity .25s,transform .25s}
+#fring.on{opacity:.85;transform:scale(1)}
+#hand{font-size:58px}
 </style></head><body>
 <div id="lock"><svg width="120" height="110" viewBox="0 0 500 450"><circle cx="250" cy="225" r="150" fill="#f6b8c6" stroke="#4a403a" stroke-width="14"/><circle cx="200" cy="200" r="20" fill="#4a403a"/><circle cx="300" cy="200" r="20" fill="#4a403a"/><path d="M200 270q50 40 100 0" fill="none" stroke="#4a403a" stroke-width="14" stroke-linecap="round"/></svg>
  <label for="pw">Heslo</label><input id="pw" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off"><button id="pwgo" aria-label="Otevřít">&#x2192;</button></div>
@@ -71,7 +75,7 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 <div id="app">
  <div id="side"></div>
  <div id="stage"><div id="word"></div>
-  <div id="wrap"><svg id="pic" viewBox="0 0 500 450"><defs id="defs"></defs><g id="parts"></g><g id="decoL" class="deco"></g><g id="dot"><circle r="13" fill="#e8c766" stroke="#fff" stroke-width="4"/></g></svg></div>
+  <div id="wrap"><svg id="pic" viewBox="0 0 500 450"><defs id="defs"></defs><g id="parts"></g><g id="decoL" class="deco"></g><g id="dot"><circle r="26" fill="#f4dc7d" opacity=".35"/><circle r="15" fill="#e8c766" stroke="#fff" stroke-width="5"/></g></svg></div>
   <div id="hand">&#x1F446;</div>
   <button class="corner" id="home" aria-label="Domů">⌂</button>
   <button class="corner" id="gear" aria-label="Pro rodiče (podržte)">⚙︎</button><div id="ring"></div>
@@ -280,54 +284,72 @@ function fillPart(p,c,quiet){p.done=true;p.fc=c;const f=p.grp.querySelector(".fi
  if(quiet){f.setAttribute("fill",c);f.classList.add("on");return}
  // soft cross-fade: duplicate old fill layer, fade new one in
  const nf=f.cloneNode();nf.classList.remove("on");nf.setAttribute("fill",c);f.after(nf);requestAnimationFrame(()=>requestAnimationFrame(()=>nf.classList.add("on")));
- setTimeout(()=>{f.remove()},1300)}
-// ---------- TRACING ----------
-const TSTEP=2;let tq=[],ti=0,tp=null;
-function initTrace(){parts.forEach(p=>{const tl=p.grp.querySelector(".tl");tl.style.display="";const L=p.grp.querySelector(".gd").getTotalLength();p.L=L;
-  const n=Math.max(10,Math.ceil(L/TSTEP)),pts=[],vis=[];for(let j=0;j<=n;j++){const q=p.grp.querySelector(".gd").getPointAtLength(j*L/n);pts.push([q.x,q.y]);vis.push(!p.hidden(q.x,q.y))}
-  p.pts=pts;p.vis=vis;p.visLen=vis.filter(Boolean).length*L/n;p.prog=0;p.tdone=false;tl.setAttribute("stroke-dasharray",`0 ${L+10}`);tl.style.visibility="hidden"});
- // order: front parts first, skip tiny/hidden parts (auto complete)
+ setTimeout(()=>{f.remove()},450)}
+// ---------- TRACING (start anywhere, extend both ways) ----------
+const TSTEP=2,TDONE=.9;let tq=[],tp=null,hintAnim=null;
+function initTrace(){parts.forEach(p=>{const tl=p.grp.querySelector(".tl"),gd=p.grp.querySelector(".gd");tl.style.display="";const L=gd.getTotalLength();p.L=L;
+  const n=Math.max(10,Math.ceil(L/TSTEP)),pts=[],vis=[];for(let j=0;j<n;j++){const q=gd.getPointAtLength(j*L/n);pts.push([q.x,q.y]);vis.push(!p.hidden(q.x,q.y))}
+  p.pts=pts;p.vis=vis;p.nv=vis.filter(Boolean).length;p.cov=new Array(n).fill(0);p.tdone=false;p.tcol=null;tl.setAttribute("d","")});
  tq=parts.slice().reverse();const st=state.t[cur]||{};
- tq.forEach(p=>{if(p.visLen<45)completePart(p,true);else if(st[p.k]===1)completePart(p,true);else if(st[p.k]){p.prog=st[p.k];draw(p)}});
- if(st.all)finishAll(true);
- tint();nextPart()}
-function tint(){parts.forEach(p=>{if(!p.tdone||p.tcol==null){p.grp.querySelector(".tl").setAttribute("stroke",color.v)}})}
-function nextPart(){tp=tq.find(p=>!p.tdone)||null;parts.forEach(p=>p.grp.classList.toggle("cur",p===tp));
- if(!tp){dotEl.style.opacity=0;hand.classList.remove("show");if(!state.t[cur]||!state.t[cur].all)finishAll(false);return}
- // start at first visible sample at/after progress
- while(tp.prog<tp.pts.length-1&&!tp.vis[tp.prog])tp.prog++;draw(tp);placeDot();idleHint()}
-function placeDot(){if(!tp)return;const q=tp.pts[Math.min(tp.prog,tp.pts.length-1)];dotEl.setAttribute("transform",`translate(${q[0]} ${q[1]})`);dotEl.style.opacity=1;
- const r=pic.getBoundingClientRect(),s=stage.getBoundingClientRect();hand.style.left=(r.left-s.left+q[0]*r.width/500+6)+"px";hand.style.top=(r.top-s.top+q[1]*r.height/450+6)+"px"}
-let ht;function idleHint(){hand.classList.remove("show");clearTimeout(ht);ht=setTimeout(()=>{if(mode=="trace"&&tp){placeDot();hand.classList.add("show")}},2500)}
-function draw(p){const tl=p.grp.querySelector(".tl"),len=p.L*Math.min(1,p.prog/(p.pts.length-1));tl.setAttribute("stroke-dasharray",`${len.toFixed(2)} ${p.L+10}`);tl.style.visibility=len>0.5?"visible":"hidden";if(p===tp)placeDot()}
-function completePart(p,quiet){p.prog=p.pts.length-1;p.tdone=true;p.tcol=p.grp.querySelector(".tl").getAttribute("stroke")||color.v;draw(p);p.grp.classList.add("tdone");p.grp.querySelector(".gd").style.opacity=0;
- if(!quiet){const q=p.pts[p.pts.length-1],r=pic.getBoundingClientRect();for(let i=0;i<4;i++)setTimeout(()=>sparkle(r.left+q[0]*r.width/500,r.top+q[1]*r.height/450,true),i*160)}}
-function saveTrace(){const o={};parts.forEach(p=>{o[p.k]=p.tdone?1:p.prog});o.all=parts.every(p=>p.tdone)&&state.t[cur]&&state.t[cur].all;state.t[cur]=o;persist()}
-function finishAll(quiet){state.t[cur]=state.t[cur]||{};state.t[cur].all=1;persist();
+ parts.forEach(p=>{const s=st[p.k];if(p.nv*TSTEP<45||s===1)completePart(p,true);else if(typeof s==="string"){for(let j=0;j<s.length&&j<p.cov.length;j++)p.cov[j]=s[j]==="1"?1:0;p.tcol=st["c"+p.k]||null;drawT(p)}});
+ if(st.all)finishAll(true);dotEl.style.opacity=0;refreshGuides();idleHint()}
+function tint(){}
+function refreshGuides(){parts.forEach(p=>p.grp.classList.toggle("cur",p===tp&&!p.tdone))}
+function drawT(p){const tl=p.grp.querySelector(".tl"),n=p.pts.length;let d="";
+ if(p.tdone)d=p.grp.querySelector(".gd").getAttribute("d");
+ else{let j0=-1;for(let j=0;j<=n;j++){const c=j<n&&p.cov[j];if(c&&j0<0)j0=j;if(!c&&j0>=0){d+="M"+p.pts.slice(j0,j).concat(j<n?[p.pts[j]]:[]).map(q=>q[0].toFixed(1)+" "+q[1].toFixed(1)).join("L");j0=-1}}
+  if(p.cov[0]&&p.cov[n-1]&&d)d+="M"+p.pts[n-1][0].toFixed(1)+" "+p.pts[n-1][1].toFixed(1)+"L"+p.pts[0][0].toFixed(1)+" "+p.pts[0][1].toFixed(1)}
+ tl.setAttribute("d",d);tl.setAttribute("stroke",p.tcol||color.v);tl.style.visibility=d?"visible":"hidden"}
+function coverage(p){let c=0;for(let j=0;j<p.cov.length;j++)if(p.cov[j]&&p.vis[j])c++;return p.nv?c/p.nv:1}
+function completePart(p,quiet){p.tdone=true;p.cov.fill(1);if(!p.tcol)p.tcol=color.v;drawT(p);p.grp.classList.add("tdone");p.grp.querySelector(".gd").style.opacity=0;
+ if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<5;i++){const q=p.pts[Math.floor(Math.random()*p.pts.length)];setTimeout(()=>sparkle(r.left+q[0]*r.width/500,r.top+q[1]*r.height/450,true),i*140)}}}
+function saveTrace(){const o={};parts.forEach(p=>{o[p.k]=p.tdone?1:p.cov.join("");if(p.tcol)o["c"+p.k]=p.tcol});o.all=state.t[cur]&&state.t[cur].all?1:0;state.t[cur]=o;persist()}
+function finishAll(quiet){state.t[cur]=state.t[cur]||{};state.t[cur].all=1;persist();stopHint();
  parts.forEach((p,i)=>{const f=p.grp.querySelector(".fillc");f.setAttribute("fill",p.dc);if(quiet)f.classList.add("on");else setTimeout(()=>f.classList.add("on"),300+i*120)});
  if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<14;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),400+i*220);setTimeout(()=>say(PICS[cur].n),900)}}
-function traceMove(x,y,radS){const p=tp;if(!p)return;const n=p.pts.length-1;const win=Math.ceil(radS*1.6/TSTEP);let best=-1,bd=radS*radS;
- for(let j=p.prog;j<=Math.min(n,p.prog+win);j++){const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<=bd){bd=d;best=j}}
- if(best>p.prog){p.prog=best;while(p.prog<n&&!p.vis[p.prog+1])p.prog++;draw(p);hand.classList.remove("show");idleHint()}
- if(p.prog>=n-1||(p.prog/n>.97)){completePart(p,false);saveTrace();nextPart()}}
+// nearest visible sample over all untraced parts (front-most wins ties)
+function nearestAny(x,y,R){let best=null,bd=R*R;for(let k=parts.length-1;k>=0;k--){const p=parts[k];if(p.tdone)continue;
+ for(let j=0;j<p.pts.length;j++){if(!p.vis[j])continue;const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<bd-1){bd=d;best={p,j}}}}return best}
+function nearestIn(p,x,y,R,from){const n=p.pts.length,W=Math.ceil(R*2.2/TSTEP);let best=-1,bd=R*R;
+ for(let o=-W;o<=W;o++){const j=((from+o)%n+n)%n;const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=j}}return best}
+function coverRange(p,a,b){const n=p.pts.length;let f=((b-a)%n+n)%n;if(f<=n/2){for(let i=0;i<=f;i++)p.cov[(a+i)%n]=1}else{f=n-f;for(let i=0;i<=f;i++)p.cov[((a-i)%n+n)%n]=1}
+ // auto-skip hidden neighbours
+ for(const s of [b]){let j=(s+1)%n,g=0;while(!p.vis[j]&&g++<n){p.cov[j]=1;j=(j+1)%n}j=((s-1)%n+n)%n;g=0;while(!p.vis[j]&&g++<n){p.cov[j]=1;j=((j-1)%n+n)%n}}}
+function traceAt(o,x,y,radS){stopHint();
+ if(o.p&&!o.p.tdone){const j=nearestIn(o.p,x,y,radS,o.j);if(j>=0){coverRange(o.p,o.j,j);o.j=j}else o.p=null}
+ if(!o.p||o.p.tdone){const h=nearestAny(x,y,radS);if(!h)return;o.p=h.p;o.j=h.j;o.p.cov[h.j]=1;if(!o.p.tcol||coverage(o.p)<.02)o.p.tcol=color.v}
+ const p=o.p;tp=p;refreshGuides();drawT(p);
+ if(coverage(p)>=TDONE){completePart(p,false);o.p=null;saveTrace();if(parts.every(q=>q.tdone))finishAll(false)}}
+// ---- idle hint: glowing dot + finger slides along an untraced stretch ----
+let hintT;function stopHint(){clearTimeout(hintT);if(hintAnim)cancelAnimationFrame(hintAnim);hintAnim=null;dotEl.style.opacity=0;hand.classList.remove("show");hintT=setTimeout(runHint,2000)}
+function idleHint(){stopHint()}
+function runHint(){if(mode!="trace"||$("#start").className.indexOf("hide")<0)return;const p=tq.find(q=>!q.tdone);if(!p)return;const n=p.pts.length;
+ let s=-1;for(let j=0;j<n;j++)if(!p.cov[j]&&p.vis[j]&&(p.cov[(j-1+n)%n]||!p.vis[(j-1+n)%n])){s=j;break}if(s<0)s=p.vis.indexOf(true);
+ tp=p;refreshGuides();const len=Math.min(70,n-1),t0=performance.now(),D=2600;
+ const step=t=>{const u=Math.min(1,(t-t0)/D),e=u<.5?2*u*u:1-Math.pow(-2*u+2,2)/2,j=(s+Math.round(e*len))%n,q=p.pts[j];
+  dotEl.setAttribute("transform",`translate(${q[0]} ${q[1]})`);dotEl.style.opacity=u>.92?(1-u)*12:1;
+  const r=pic.getBoundingClientRect(),sr=stage.getBoundingClientRect();hand.style.left=(r.left-sr.left+q[0]*r.width/500+4)+"px";hand.style.top=(r.top-sr.top+q[1]*r.height/450+4)+"px";hand.classList.add("show");
+  if(u<1)hintAnim=requestAnimationFrame(step);else{hand.classList.remove("show");hintT=setTimeout(runHint,1200)}};hintAnim=requestAnimationFrame(step)}
+function placeDot(){}
 // ---------- input ----------
 function toSvg(e){const r=pic.getBoundingClientRect();return[Math.round((e.clientX-r.left)*500/r.width),Math.round((e.clientY-r.top)*450/r.height),500/r.width]}
 function partAt(x,y){const pt=pic.createSVGPoint();pt.x=x;pt.y=y;for(let k=parts.length-1;k>=0;k--)if(parts[k].grp.querySelector(".base").isPointInFill(pt))return parts[k];return null}
 const act={};
 pic.addEventListener("pointerdown",e=>{$("#menu").style.display="none";try{pic.setPointerCapture(e.pointerId)}catch(_){}
  const q=toSvg(e);sparkle(e.clientX,e.clientY);
- if(mode=="trace"){act[e.pointerId]={t:1,last:q};traceMove(q[0],q[1],60*q[2]);return}
- const p=partAt(q[0],q[1]);if(!p)return;const o={p,c:color.v,pts:[q],t0:Date.now(),moved:0};act[e.pointerId]=o});
+ if(mode=="trace"){const o={t:1,last:q,p:null,j:0};act[e.pointerId]=o;ringAt(e,true);traceAt(o,q[0],q[1],85*q[2]);return}
+ const p=partAt(q[0],q[1]);if(!p)return;const o={p,c:color.v,pts:[q],t0:Date.now(),moved:0,maxd:0};act[e.pointerId]=o});
 pic.addEventListener("pointermove",e=>{const o=act[e.pointerId];if(!o)return;const q=toSvg(e);sparkle(e.clientX,e.clientY);
- if(o.t){const l=o.last,steps=Math.max(1,Math.ceil(Math.hypot(q[0]-l[0],q[1]-l[1])/10));for(let i=1;i<=steps;i++)traceMove(l[0]+(q[0]-l[0])*i/steps,l[1]+(q[1]-l[1])*i/steps,60*q[2]);o.last=q;return}
+ if(o.t){ringAt(e,true);const l=o.last,steps=Math.max(1,Math.ceil(Math.hypot(q[0]-l[0],q[1]-l[1])/8));for(let i=1;i<=steps;i++)traceAt(o,l[0]+(q[0]-l[0])*i/steps,l[1]+(q[1]-l[1])*i/steps,85*q[2]);o.last=q;return}
  const l=o.pts[o.pts.length-1];const dd=Math.hypot(q[0]-l[0],q[1]-l[1]);if(dd<2)return;o.moved+=dd;
- if(!o.el&&o.moved>10){o.el=addStroke(o.p,o.c,o.pts);o.rec={c:o.c,d:o.pts};o.p.strokes.push(o.rec)}
- o.pts.push(q);if(o.el){o.el.setAttribute("d","M"+o.pts.map(v=>v[0]+" "+v[1]).join("L"));
+ if(!o.el&&o.moved>14){o.el=addStroke(o.p,o.c,o.pts);o.rec={c:o.c,d:o.pts};o.p.strokes.push(o.rec)}
+ o.maxd=Math.max(o.maxd,Math.hypot(q[0]-o.pts[0][0],q[1]-o.pts[0][1]));o.pts.push(q);if(o.el){o.el.setAttribute("d","M"+o.pts.map(v=>v[0]+" "+v[1]).join("L"));
   const seg=[],n=Math.ceil(dd/8);for(let i=1;i<=n;i++)seg.push([l[0]+(q[0]-l[0])*i/n,l[1]+(q[1]-l[1])*i/n]);
   if(!o.p.done&&mark(o.p,seg.concat(o.pts.length<4?o.pts:[]))>=DONE){fillPart(o.p,o.c,false);checkAllColor()}}});
 const up=e=>{const o=act[e.pointerId];if(!o)return;delete act[e.pointerId];
- if(o.t){saveTrace();return}
- if(!o.el){fillPart(o.p,o.c,false);checkAllColor()}  // tap = soft fill
+ if(o.t){ringAt(e,false);saveTrace();idleHint();return}
+ const isTap=!o.el||(Date.now()-o.t0<350&&o.maxd<60)||o.maxd<40;
+ if(isTap){if(o.el){o.el.remove();o.p.strokes.splice(o.p.strokes.indexOf(o.rec),1)}fillPart(o.p,o.c,false);checkAllColor()}  // tap = whole-region fill
  saveColor()};
 pic.addEventListener("pointerup",up);pic.addEventListener("pointercancel",up);
 let celebrated={};
@@ -336,6 +358,7 @@ function checkAllColor(){if(parts.every(p=>p.done)&&!celebrated[cur]){celebrated
 let lastSp=0;function sparkle(x,y,force){if(!spk.checked)return;const now=performance.now();if(!force&&now-lastSp<90)return;lastSp=now;const r=stage.getBoundingClientRect();
  const d=document.createElement("div");d.className="sp";d.style.left=(x-r.left+(Math.random()-.5)*36)+"px";d.style.top=(y-r.top+(Math.random()-.5)*36)+"px";stage.append(d);setTimeout(()=>d.remove(),1700)}
 // ---------- parent menu ----------
+let ringEl=null;function ringAt(e,on){if(!ringEl){ringEl=document.createElement('div');ringEl.id='fring';stage.append(ringEl)}const sr=stage.getBoundingClientRect();ringEl.style.left=(e.clientX-sr.left)+'px';ringEl.style.top=(e.clientY-sr.top)+'px';ringEl.classList.toggle('on',on)}
 let gt;const gb=$("#gear"),ring=$("#ring");
 gb.onpointerdown=()=>{ring.classList.remove("go");void ring.offsetWidth;ring.classList.add("go");gt=setTimeout(()=>{$("#menu").style.display="block"},1500)};
 gb.onpointerup=gb.onpointerleave=gb.onpointercancel=()=>{clearTimeout(gt);ring.classList.remove("go")};gb.oncontextmenu=e=>e.preventDefault();
