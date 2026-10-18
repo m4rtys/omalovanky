@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Colouring">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792354487"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792355067"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -37,10 +37,11 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 #hand{position:absolute;font-size:46px;pointer-events:none;z-index:4;opacity:0;transition:opacity .6s;margin:-6px 0 0 -14px}
 #hand.show{opacity:.9;animation:nudge 1.8s ease-in-out infinite}
 @keyframes nudge{0%,100%{transform:translate(0,0)}50%{transform:translate(14px,10px)}}
-#pal{display:flex;gap:1.2vw;padding:10px;justify-content:center;background:#f3ece0;flex:0 0 auto}
-.c{flex:0 0 auto;width:min(8.2vw,84px);height:min(8.2vw,84px);border-radius:50%;border:5px solid #fff;box-shadow:0 2px 5px #0002;transition:transform .25s;background-size:cover}
+#pal{display:flex;gap:12px;padding:10px 14px;background:#f3ece0;flex:0 0 auto;overflow-x:auto;touch-action:pan-x;scrollbar-width:none;align-items:center}#pal::-webkit-scrollbar{display:none}
+.psep{flex:0 0 3px;align-self:stretch;margin:6px 4px;background:#e2d7c6;border-radius:2px}
+.c{flex:0 0 auto;width:min(15vw,84px);height:min(15vw,84px);border-radius:50%;border:5px solid #fff;box-shadow:0 2px 5px #0002;transition:transform .25s;background-size:cover}
 .c.on{transform:scale(1.15);border-color:#5a5048}
-@media (max-width:640px) and (orientation:portrait){#pal{display:grid;grid-template-columns:repeat(5,1fr);justify-items:center;gap:8px}.c{width:15vw;height:15vw}}
+
 #word{position:absolute;top:6px;max-width:96%;text-align:center;left:50%;transform:translateX(-50%);font-size:clamp(24px,4.5vw,40px);font-weight:bold;opacity:0;transition:opacity .6s;pointer-events:none;z-index:5;white-space:nowrap;text-shadow:0 3px 0 #fff,0 -3px 0 #fff,3px 0 0 #fff,-3px 0 0 #fff}
 #word.show{opacity:.85}#word.big{font-size:clamp(44px,10vw,96px)}#word.big.show{opacity:1}
 .corner{position:absolute;top:6px;width:38px;height:38px;font-size:22px;color:#cfc3b2;z-index:6;display:flex;align-items:center;justify-content:center}
@@ -55,7 +56,7 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 @media (orientation:landscape) and (max-height:600px){
  #app{flex-direction:row}#side{flex-direction:column;overflow-x:hidden;overflow-y:auto;touch-action:pan-y;padding:8px;gap:8px}
  .pg{width:min(78px,22vh);height:min(78px,22vh)}.th{font-size:22px;width:auto}
- #pal{display:grid;grid-template-columns:1fr 1fr;align-content:center;gap:2vh;padding:8px}.c{width:16vh;height:16vh;border-width:4px}
+ #pal{display:grid;grid-template-columns:1fr 1fr;align-content:start;gap:2vh;padding:8px;overflow-y:auto;overflow-x:hidden;touch-action:pan-y}.psep{grid-column:1/3;height:3px;margin:2px 0}.c{width:16vh;height:16vh;border-width:4px}
  #word{font-size:7vh}#word.big{font-size:13vh}}
 #lock{position:absolute;inset:0;top:0;left:0;right:0;bottom:0;z-index:50;background:#fbf7ef;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:18px}
 #lock.hide{display:none}#lock label{font-size:40px;font-weight:bold}
@@ -240,16 +241,32 @@ const pick=a=>a[Math.floor(Math.random()*a.length)];
 const article=n=>(/^[aeiou]/i.test(n)?"an ":"a ")+n;
 function praiseSmall(){}
 function praiseBig(){const i=Math.floor(Math.random()*PRAISE_B.length),n=PICS[cur].n;say(PRAISE_B[i],"#e8a04a",true,3400);playClips(["p"+i,"n-"+n.replace(/ /g,"-")])}
-const COLORS=[["red","#e88a84"],["orange","#f2b27a"],["yellow","#f4dc7d"],["green","#9fcf98"],["blue","#8fbbe0"],["purple","#b9a2d6"],["pink","#f2b8cf"],["brown","#b8957a"],["gold glitter","#e8c766",1],["blue glitter","#9cc6ec",1]];
+const COLORS=[["red","#e88a84"],["orange","#f2b27a"],["yellow","#f4dc7d"],["green","#9fcf98"],["blue","#8fbbe0"],["purple","#b9a2d6"],["pink","#f2b8cf"],["brown","#b8957a"],
+ ["rainbow","#f2a9a0","rainbow"],["unicorn","#f6c6e0","unicorn"],["pink glitter","#f0a9c8","glitter"],["purple glitter","#c3a6e6","glitter"],["silver glitter","#cfd6dc","glitter"],
+ ["gold glitter","#e8c766","glitter"],["blue glitter","#9cc6ec","glitter"],["stars","#fbe9a8","stars"],["confetti","#fff7ec","confetti"]];
 const $=s=>document.querySelector(s),SVGNS="http://www.w3.org/2000/svg",pic=$("#pic"),word=$("#word"),stage=$("#stage"),dotEl=$("#dot"),hand=$("#hand");
-let mode="color",cur=0,color=COLORS[0],state={};try{state=JSON.parse(LS.om5||"{}")}catch(e){}
+let mode="color",cur=0,color=COLORS[0],state={};try{state=JSON.parse(LS.om6||"{}")}catch(e){}
 state.c=state.c||{};state.t=state.t||{};
 const voice=$("#voice"),spk=$("#spk");voice.checked=LS.om5v!=="0";spk.checked=LS.om5s!=="0";
 voice.onchange=()=>{LS.om5v=voice.checked?1:0};spk.onchange=()=>{LS.om5s=spk.checked?1:0};
-function persist(){try{LS.om5=JSON.stringify(state)}catch(e){}}
+function persist(){try{LS.om6=JSON.stringify(state)}catch(e){}}
 function glit(base,w){const c=document.createElement("canvas");c.width=c.height=w;const g=c.getContext("2d");g.fillStyle=base;g.fillRect(0,0,w,w);
  for(let i=0;i<w*1.2;i++){g.fillStyle=Math.random()<.6?"rgba(255,255,255,.8)":"rgba(255,255,255,.35)";g.beginPath();g.arc(Math.random()*w,Math.random()*w,Math.random()*1.2+.3,0,7);g.fill()}return c.toDataURL()}
-COLORS.forEach((c,i)=>{c.v=c[1];if(c[2]){c.url=glit(c[1],40);$("#defs").insertAdjacentHTML("beforeend",`<pattern id="g${i}" patternUnits="userSpaceOnUse" width="24" height="24"><rect width="24" height="24" fill="${c[1]}"/><image class="shim" href="${c.url}" width="24" height="24"/></pattern>`);c.v=`url(#g${i})`}});
+const RAINBOW=["#f2a9a0","#f6c58e","#f4e19a","#a9dba0","#9cc8ec","#b9a8e4","#eeb0d6"],UNICORN=["#f8c8dc","#e6c9f2","#c9d9f7","#c6efe4","#fbe6c4","#f8c8dc"];
+function patImg(kind,base,w){const c=document.createElement("canvas");c.width=c.height=w;const g=c.getContext("2d");g.fillStyle=base;g.fillRect(0,0,w,w);
+ if(kind==="glitter"){for(let i=0;i<w*1.2;i++){g.fillStyle=Math.random()<.6?"rgba(255,255,255,.8)":"rgba(255,255,255,.35)";g.beginPath();g.arc(Math.random()*w,Math.random()*w,Math.random()*1.2+.3,0,7);g.fill()}}
+ if(kind==="stars"){const star=(x,y,r,col)=>{g.fillStyle=col;g.beginPath();for(let k=0;k<10;k++){const a=k*Math.PI/5-Math.PI/2,rr=k%2?r*.45:r;g.lineTo(x+rr*Math.cos(a),y+rr*Math.sin(a))}g.closePath();g.fill()};
+  const n=Math.max(3,Math.round(w/14));for(let i=0;i<n;i++)star(Math.random()*w,Math.random()*w,w/12+Math.random()*w/14,["#e8b94a","#f2a6c8","#9cc6ec","#ffffff"][i%4])}
+ if(kind==="confetti"){const cols=["#e88a84","#f4dc7d","#9fcf98","#8fbbe0","#b9a2d6","#f2b8cf","#f2b27a"];for(let i=0;i<w/3;i++){g.fillStyle=cols[i%cols.length];g.save();g.translate(Math.random()*w,Math.random()*w);g.rotate(Math.random()*3);g.fillRect(-w/40,-w/20,w/20,w/10);g.restore()}}
+ return c.toDataURL()}
+const DEFS=$("#defs");
+DEFS.insertAdjacentHTML("beforeend",`<linearGradient id="gRainbow" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="110" y2="30" spreadMethod="reflect">${RAINBOW.map((c,i)=>`<stop offset="${i/(RAINBOW.length-1)}" stop-color="${c}"/>`).join("")}</linearGradient>
+<linearGradient id="gUnicorn" gradientUnits="userSpaceOnUse" x1="0" y1="0" x2="140" y2="-100" spreadMethod="reflect">${UNICORN.map((c,i)=>`<stop offset="${i/(UNICORN.length-1)}" stop-color="${c}"/>`).join("")}</linearGradient>`);
+COLORS.forEach((c,i)=>{c.v=c[1];const k=c[2];c.prev=c[1];
+ if(k==="glitter"||k==="stars"||k==="confetti"){const big=k==="glitter"?40:72,sz=k==="glitter"?24:40;c.url=patImg(k,c[1],big);
+  DEFS.insertAdjacentHTML("beforeend",`<pattern id="g${i}" patternUnits="userSpaceOnUse" width="${sz}" height="${sz}"><rect width="${sz}" height="${sz}" fill="${c[1]}"/><image ${k==="glitter"?'class="shim"':''} href="${c.url}" width="${sz}" height="${sz}"/></pattern>`);c.v=`url(#g${i})`;c.prev=`url(${c.url})`}
+ if(k==="rainbow"){c.v="url(#gRainbow)";c.prev=`linear-gradient(135deg,${RAINBOW.join(",")})`}
+ if(k==="unicorn"){c.v="url(#gUnicorn)";c.prev=`linear-gradient(135deg,${UNICORN.join(",")})`}});
 let wt;function say(t,col,big,dur){word.textContent=t;word.style.color=col||"#8a7d70";word.classList.toggle("big",!!big);word.classList.add("show");clearTimeout(wt);wt=setTimeout(()=>word.classList.remove("show"),dur||1500)}
 // ---------- audio (Web Audio; unlocked on first touch for iOS) ----------
 const LOOP=62.6086875;let AC=null,musicBuf=null,musicSrc=null,musicGain=null;const clips={};
@@ -273,7 +290,7 @@ function playClips(names){if(!AC||!voice.checked)return;Promise.all(names.map(n=
 function staticSVG(a,colored){return `<svg viewBox="0 0 500 450" xmlns="${SVGNS}">${a.p.map(([d,c])=>`<path d="${d}" fill="${colored?c:"#fff"}" stroke="${INK}" stroke-width="${colored?5:8}" stroke-linejoin="round"/>`).join("")}${a.d()}</svg>`}
 window.staticSVG=staticSVG;window.PICS=PICS;
 // ---------- UI ----------
-COLORS.forEach((c,i)=>{const b=document.createElement("button");b.className="c"+(i?"":" on");b.style.background=c[2]?`url(${c.url})`:c[1];b.setAttribute("aria-label",c[0]);
+COLORS.forEach((c,i)=>{const b=document.createElement("button");b.className="c"+(i?"":" on");b.style.background=c.prev;b.setAttribute("aria-label",c[0]);if(i==8){const sep=document.createElement("div");sep.className="psep";$("#pal").append(sep)}
  b.onpointerdown=()=>{color=c;document.querySelectorAll(".c").forEach(x=>x.classList.toggle("on",x==b));say(c[0],c[1]);if(mode=="trace")tint()};$("#pal").append(b)});
 let lastTh="";PICS.forEach((a,i)=>{if(a.t!=lastTh){lastTh=a.t;const t=document.createElement("div");t.className="th";t.textContent=a.t;$("#side").append(t)}
  const b=document.createElement("button");b.className="pg";b.setAttribute("aria-label",a.n);b.innerHTML=staticSVG(a,false);b.onclick=()=>{load(i);say(a.n)};$("#side").append(b)});
@@ -310,44 +327,53 @@ function fillPart(p,c,quiet){p.done=true;p.fc=c;const f=p.grp.querySelector(".fi
  // soft cross-fade: duplicate old fill layer, fade new one in
  const nf=f.cloneNode();nf.classList.remove("on");nf.setAttribute("fill",c);f.after(nf);requestAnimationFrame(()=>requestAnimationFrame(()=>nf.classList.add("on")));
  setTimeout(()=>{f.remove()},450)}
-// ---------- TRACING (start anywhere, extend both ways) ----------
-const TSTEP=2,TDONE=.9;let tq=[],tp=null,hintAnim=null;
-function initTrace(){parts.forEach(p=>{const tl=p.grp.querySelector(".tl"),gd=p.grp.querySelector(".gd");tl.style.display="";const L=gd.getTotalLength();p.L=L;
+// ---------- TRACING (start anywhere, both ways, colour layers for re-tracing) ----------
+const TSTEP=2,TDONE=.9,SEG=24;let tq=[],tp=null,hintAnim=null;
+const wrapI=(j,n)=>((j%n)+n)%n;
+function initTrace(){const st=state.t[cur]||{};
+ parts.forEach(p=>{const tl=p.grp.querySelector(".tl"),gd=p.grp.querySelector(".gd");tl.style.display="none";const L=gd.getTotalLength();p.L=L;
   const n=Math.max(10,Math.ceil(L/TSTEP)),pts=[],vis=[];for(let j=0;j<n;j++){const q=gd.getPointAtLength(j*L/n);pts.push([q.x,q.y]);vis.push(!p.hidden(q.x,q.y))}
-  p.pts=pts;p.vis=vis;p.nv=vis.filter(Boolean).length;p.cov=new Array(n).fill(0);p.tdone=false;p.tcol=null;tl.setAttribute("d","")});
- tq=parts.slice().reverse();const st=state.t[cur]||{};
- parts.forEach(p=>{const s=st[p.k];if(p.nv*TSTEP<45||s===1)completePart(p,true);else if(typeof s==="string"){for(let j=0;j<s.length&&j<p.cov.length;j++)p.cov[j]=s[j]==="1"?1:0;p.tcol=st["c"+p.k]||null;drawT(p)}});
+  p.pts=pts;p.vis=vis;p.nv=vis.filter(Boolean).length;p.cov=new Array(n).fill(0);p.tdone=false;p.layers=[];
+  p.grp.querySelectorAll(".tlx").forEach(e=>e.remove());
+  const s0=st[p.k];if(s0&&s0.l){s0.l.forEach(([c,cs])=>{const Ly=newLayer(p,c);for(let j=0;j<cs.length&&j<n;j++)if(cs[j]==="1"){Ly.cov[j]=1;p.cov[j]=1}drawLayer(p,Ly)});if(s0.d){p.tdone=true;p.grp.classList.add("tdone");p.grp.querySelector(".gd").style.opacity=0}}});
+ tq=parts.slice().reverse();
+ parts.forEach(p=>{if(!p.tdone&&p.nv*TSTEP<45)completePart(p,true,newLayer(p,color.v))});
  if(st.all)finishAll(true);dotEl.style.opacity=0;refreshGuides();idleHint()}
 function tint(){}
+function newLayer(p,c){const e=p.grp.querySelector(".tl").cloneNode();e.classList.add("tlx");e.style.display="";e.setAttribute("d","");e.setAttribute("stroke",c);
+ p.grp.insertBefore(e,p.grp.querySelector(".gd"));const Ly={c,cov:new Array(p.pts.length).fill(0),el:e};p.layers.push(Ly);
+ if(p.layers.length>8){const old=p.layers.shift();old.el.remove()}return Ly}
+function drawLayer(p,Ly){const n=p.pts.length;let d="";
+ if(Ly.cov.every(Boolean))d=p.grp.querySelector(".gd").getAttribute("d");
+ else{let j0=-1;for(let j=0;j<=n;j++){const c=j<n&&Ly.cov[j];if(c&&j0<0)j0=j;if(!c&&j0>=0){d+="M"+p.pts.slice(j0,j).concat(j<n?[p.pts[j]]:[]).map(q=>q[0].toFixed(1)+" "+q[1].toFixed(1)).join("L");j0=-1}}
+  if(Ly.cov[0]&&Ly.cov[n-1]&&d)d+="M"+p.pts[n-1][0].toFixed(1)+" "+p.pts[n-1][1].toFixed(1)+"L"+p.pts[0][0].toFixed(1)+" "+p.pts[0][1].toFixed(1)}
+ Ly.el.setAttribute("d",d);Ly.el.style.visibility=d?"visible":"hidden"}
 function refreshGuides(){parts.forEach(p=>p.grp.classList.toggle("cur",p===tp&&!p.tdone))}
-function drawT(p){const tl=p.grp.querySelector(".tl"),n=p.pts.length;let d="";
- if(p.tdone)d=p.grp.querySelector(".gd").getAttribute("d");
- else{let j0=-1;for(let j=0;j<=n;j++){const c=j<n&&p.cov[j];if(c&&j0<0)j0=j;if(!c&&j0>=0){d+="M"+p.pts.slice(j0,j).concat(j<n?[p.pts[j]]:[]).map(q=>q[0].toFixed(1)+" "+q[1].toFixed(1)).join("L");j0=-1}}
-  if(p.cov[0]&&p.cov[n-1]&&d)d+="M"+p.pts[n-1][0].toFixed(1)+" "+p.pts[n-1][1].toFixed(1)+"L"+p.pts[0][0].toFixed(1)+" "+p.pts[0][1].toFixed(1)}
- tl.setAttribute("d",d);tl.setAttribute("stroke",p.tcol||color.v);tl.style.visibility=d?"visible":"hidden"}
-function coverage(p){let c=0;for(let j=0;j<p.cov.length;j++)if(p.cov[j]&&p.vis[j])c++;return p.nv?c/p.nv:1}
-function completePart(p,quiet){p.tdone=true;p.cov.fill(1);if(!p.tcol)p.tcol=color.v;drawT(p);p.grp.classList.add("tdone");p.grp.querySelector(".gd").style.opacity=0;
- if(!quiet){if(!parts.every(q=>q.tdone))praiseSmall();const r=pic.getBoundingClientRect();for(let i=0;i<5;i++){const q=p.pts[Math.floor(Math.random()*p.pts.length)];setTimeout(()=>sparkle(r.left+q[0]*r.width/500,r.top+q[1]*r.height/450,true),i*140)}}}
-function saveTrace(){const o={};parts.forEach(p=>{o[p.k]=p.tdone?1:p.cov.join("");if(p.tcol)o["c"+p.k]=p.tcol});o.all=state.t[cur]&&state.t[cur].all?1:0;state.t[cur]=o;persist()}
+function covOf(arr,p){let c=0;for(let j=0;j<arr.length;j++)if(arr[j]&&p.vis[j])c++;return p.nv?c/p.nv:1}
+function coverage(p){return covOf(p.cov,p)}
+function completePart(p,quiet,Ly){Ly=Ly||p.layers[p.layers.length-1];if(Ly){Ly.cov.fill(1);drawLayer(p,Ly)}p.cov.fill(1);
+ const first=!p.tdone;p.tdone=true;p.grp.classList.add("tdone");p.grp.querySelector(".gd").style.opacity=0;
+ if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<5;i++){const q=p.pts[Math.floor(Math.random()*p.pts.length)];setTimeout(()=>sparkle(r.left+q[0]*r.width/500,r.top+q[1]*r.height/450,true),i*140)}}return first}
+function saveTrace(){const o={};parts.forEach(p=>{o[p.k]={d:p.tdone?1:0,l:p.layers.map(L=>[L.c,L.cov.join("")])}});o.all=state.t[cur]&&state.t[cur].all?1:0;state.t[cur]=o;persist()}
 function finishAll(quiet){state.t[cur]=state.t[cur]||{};state.t[cur].all=1;persist();stopHint();
  parts.forEach((p,i)=>{const f=p.grp.querySelector(".fillc");f.setAttribute("fill",p.dc);if(quiet)f.classList.add("on");else setTimeout(()=>f.classList.add("on"),300+i*120)});
  if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<14;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),400+i*220);setTimeout(praiseBig,900)}}
-// nearest visible sample over all untraced parts (front-most wins ties)
-function nearestAny(x,y,R){let best=null,bd=R*R;for(let k=parts.length-1;k>=0;k--){const p=parts[k];if(p.tdone)continue;
- for(let j=0;j<p.pts.length;j++){if(!p.vis[j])continue;const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<bd-1){bd=d;best={p,j}}}}return best}
+function nearestAny(x,y,R){let best=null,bd=R*R;for(let k=parts.length-1;k>=0;k--){const p=parts[k];
+ for(let j=0;j<p.pts.length;j++){if(!p.vis[j])continue;const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy+(p.tdone?60:0);if(d<bd-1){bd=d;best={p,j}}}}return best}
 function nearestIn(p,x,y,R,from){const n=p.pts.length,W=Math.ceil(R*2.2/TSTEP);let best=-1,bd=R*R;
- for(let o=-W;o<=W;o++){const j=((from+o)%n+n)%n;const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=j}}return best}
-function coverRange(p,a,b){const n=p.pts.length;let f=((b-a)%n+n)%n;if(f<=n/2){for(let i=0;i<=f;i++)p.cov[(a+i)%n]=1}else{f=n-f;for(let i=0;i<=f;i++)p.cov[((a-i)%n+n)%n]=1}
- // auto-skip hidden neighbours
- for(const s of [b]){let j=(s+1)%n,g=0;while(!p.vis[j]&&g++<n){p.cov[j]=1;j=(j+1)%n}j=((s-1)%n+n)%n;g=0;while(!p.vis[j]&&g++<n){p.cov[j]=1;j=((j-1)%n+n)%n}}}
-const SEG=24;
-function traceAt(o,x,y,radS,travel){stopHint();const n0=o.p?o.p.pts.length:0;
- if(o.p&&!o.p.tdone){const j=nearestIn(o.p,x,y,radS,o.j);if(j>=0){const n=o.p.pts.length;let f=((j-o.j)%n+n)%n,dir=1;if(f>n/2){f=n-f;dir=-1}
-   const allow=Math.ceil((travel||0)/TSTEP)+1,stepN=Math.min(f,allow),nj=((o.j+dir*stepN)%n+n)%n;if(stepN>0){coverRange(o.p,o.j,nj);o.j=nj}}else o.p=null}
- if(!o.p||o.p.tdone){const h=nearestAny(x,y,radS);if(!h)return;o.p=h.p;o.j=h.j;const n=o.p.pts.length,w=Math.round(SEG/TSTEP);for(let i=-w;i<=w;i++)if(o.p.vis[((h.j+i)%n+n)%n])o.p.cov[((h.j+i)%n+n)%n]=1;
-  if(!o.p.tcol||coverage(o.p)<.02)o.p.tcol=color.v}
- const p=o.p;tp=p;refreshGuides();drawT(p);
- if(coverage(p)>=TDONE){completePart(p,false);o.p=null;saveTrace();if(parts.every(q=>q.tdone))finishAll(false)}}
+ for(let o=-W;o<=W;o++){const j=wrapI(from+o,n);const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<bd){bd=d;best=j}}return best}
+function setCov(p,Ly,j){Ly.cov[j]=1;p.cov[j]=1}
+function coverRange(p,Ly,a,b){const n=p.pts.length;let f=wrapI(b-a,n),dir=1;if(f>n/2){f=n-f;dir=-1}for(let i=0;i<=f;i++)setCov(p,Ly,wrapI(a+dir*i,n));
+ let j=wrapI(b+1,n),g=0;while(!p.vis[j]&&g++<n){setCov(p,Ly,j);j=wrapI(j+1,n)}j=wrapI(b-1,n);g=0;while(!p.vis[j]&&g++<n){setCov(p,Ly,j);j=wrapI(j-1,n)}}
+function traceAt(o,x,y,radS,travel){stopHint();
+ if(o.p){const p=o.p,j=nearestIn(p,x,y,radS,o.j);if(j>=0){const n=p.pts.length;let f=wrapI(j-o.j,n),dir=1;if(f>n/2){f=n-f;dir=-1}
+   const allow=Math.ceil((travel||0)/TSTEP)+1,stepN=Math.min(f,allow),nj=wrapI(o.j+dir*stepN,n);if(stepN>0){coverRange(p,o.L,o.j,nj);o.j=nj}}else o.p=null}
+ if(!o.p){const h=nearestAny(x,y,radS);if(!h)return;const p=h.p,n=p.pts.length;o.p=p;o.j=h.j;
+  const top=p.layers[p.layers.length-1];o.L=(top&&top.c===color.v)?top:newLayer(p,color.v);
+  const w=Math.round(SEG/TSTEP);for(let i=-w;i<=w;i++){const jj=wrapI(h.j+i,n);if(p.vis[jj])setCov(p,o.L,jj)}}
+ const p=o.p;tp=p;refreshGuides();drawLayer(p,o.L);
+ if(!p.tdone&&coverage(p)>=TDONE){completePart(p,false,o.L);o.p=null;saveTrace();if(parts.every(q=>q.tdone))finishAll(false)}
+ else if(p.tdone&&o.L&&covOf(o.L.cov,p)>=TDONE&&!o.L.cov.every(Boolean)){completePart(p,false,o.L);o.p=null;saveTrace()}}
 // ---- idle hint: glowing dot + finger slides along an untraced stretch ----
 let hintT;function stopHint(){clearTimeout(hintT);if(hintAnim)cancelAnimationFrame(hintAnim);hintAnim=null;dotEl.style.opacity=0;hand.classList.remove("show");hintT=setTimeout(runHint,2000)}
 function idleHint(){stopHint()}
@@ -379,8 +405,8 @@ const up=e=>{const o=act[e.pointerId];if(!o)return;delete act[e.pointerId];
 
  saveColor()};
 pic.addEventListener("pointerup",up);pic.addEventListener("pointercancel",up);
-let celebrated={};
-function checkAllColor(){if(parts.every(p=>p.done)&&!celebrated[cur]){celebrated[cur]=1;const r=pic.getBoundingClientRect();
+state.cd=state.cd||{};let celebrated=state.cd;
+function checkAllColor(){if(parts.every(p=>p.done)&&!celebrated[cur]){celebrated[cur]=1;persist();const r=pic.getBoundingClientRect();
  for(let i=0;i<12;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),i*220);setTimeout(praiseBig,900)}}
 let lastSp=0;function sparkle(x,y,force){if(!spk.checked)return;const now=performance.now();if(!force&&now-lastSp<90)return;lastSp=now;const r=stage.getBoundingClientRect();
  const d=document.createElement("div");d.className="sp";d.style.left=(x-r.left+(Math.random()-.5)*36)+"px";d.style.top=(y-r.top+(Math.random()-.5)*36)+"px";stage.append(d);setTimeout(()=>d.remove(),1700)}
@@ -394,7 +420,7 @@ $("#close").onclick=()=>{$("#menu").style.display="none"};
 // ---------- layout / iOS ----------
 function fit(){const r=stage.getBoundingClientRect(),w=Math.max(50,r.width-16),h=Math.max(50,r.height-16),k=Math.min(w/500,h/450),el=$("#wrap");el.style.width=(500*k)+"px";el.style.height=(450*k)+"px";if(tp)placeDot()}
 window.addEventListener("resize",fit);window.addEventListener("orientationchange",()=>setTimeout(fit,300));
-document.addEventListener("touchmove",e=>{if(!e.target.closest||!e.target.closest("#side"))e.preventDefault()},{passive:false});
+document.addEventListener("touchmove",e=>{if(!e.target.closest||!e.target.closest("#side")&&!e.target.closest("#pal"))e.preventDefault()},{passive:false});
 document.addEventListener("gesturestart",e=>e.preventDefault());document.addEventListener("dblclick",e=>e.preventDefault());
 document.getElementById("mus").onclick=()=>setMusic(!musicOn());document.getElementById("musc").onchange=e=>setMusic(e.target.checked);document.getElementById("mus").classList.toggle("off",!musicOn());document.getElementById("musc").checked=musicOn();
 fit();load(0);
