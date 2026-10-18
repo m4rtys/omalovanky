@@ -1,8 +1,8 @@
-<!DOCTYPE html><html lang="cs"><head><meta charset="utf-8">
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no,viewport-fit=cover">
 <meta name="apple-mobile-web-app-capable" content="yes"><meta name="mobile-web-app-capable" content="yes">
-<meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Omalovánky">
-<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Omalovánky</title><link rel="manifest" href="manifest.webmanifest?v=1792353650"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
+<meta name="apple-mobile-web-app-status-bar-style" content="default"><meta name="apple-mobile-web-app-title" content="Colouring">
+<meta name="theme-color" content="#f3ece0"><meta name="format-detection" content="telephone=no"><title>Colouring</title><link rel="manifest" href="manifest.webmanifest?v=1792353755"><link rel="apple-touch-icon" href="icon-192.png"><link rel="icon" href="icon-192.png">
 <style>
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
 html,body{margin:0;height:100%;overscroll-behavior:none;-webkit-text-size-adjust:100%;background:#fbf7ef;font-family:"Comic Sans MS","Baloo 2",system-ui,sans-serif;color:#5a5048;overflow:hidden;touch-action:none}
@@ -41,7 +41,7 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 .c{flex:0 0 auto;width:min(8.2vw,84px);height:min(8.2vw,84px);border-radius:50%;border:5px solid #fff;box-shadow:0 2px 5px #0002;transition:transform .25s;background-size:cover}
 .c.on{transform:scale(1.15);border-color:#5a5048}
 @media (max-width:640px) and (orientation:portrait){#pal{display:grid;grid-template-columns:repeat(5,1fr);justify-items:center;gap:8px}.c{width:15vw;height:15vw}}
-#word{position:absolute;top:6px;left:50%;transform:translateX(-50%);font-size:clamp(40px,9vw,88px);font-weight:bold;opacity:0;transition:opacity .6s;pointer-events:none;z-index:5;white-space:nowrap;text-shadow:0 3px 0 #fff,0 -3px 0 #fff,3px 0 0 #fff,-3px 0 0 #fff}
+#word{position:absolute;top:6px;max-width:96%;text-align:center;left:50%;transform:translateX(-50%);font-size:clamp(40px,9vw,88px);font-weight:bold;opacity:0;transition:opacity .6s;pointer-events:none;z-index:5;white-space:nowrap;text-shadow:0 3px 0 #fff,0 -3px 0 #fff,3px 0 0 #fff,-3px 0 0 #fff}
 #word.show{opacity:1}
 .corner{position:absolute;top:6px;width:38px;height:38px;font-size:22px;color:#cfc3b2;z-index:6;display:flex;align-items:center;justify-content:center}
 #home{left:6px}#gear{right:6px}
@@ -67,22 +67,22 @@ button{-webkit-appearance:none;appearance:none;font:inherit;color:inherit;cursor
 #hand{font-size:58px}
 </style></head><body>
 <div id="lock"><svg width="120" height="110" viewBox="0 0 500 450"><circle cx="250" cy="225" r="150" fill="#f6b8c6" stroke="#4a403a" stroke-width="14"/><circle cx="200" cy="200" r="20" fill="#4a403a"/><circle cx="300" cy="200" r="20" fill="#4a403a"/><path d="M200 270q50 40 100 0" fill="none" stroke="#4a403a" stroke-width="14" stroke-linecap="round"/></svg>
- <label for="pw">Heslo</label><input id="pw" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off"><button id="pwgo" aria-label="Otevřít">&#x2192;</button></div>
+ <label for="pw">Password</label><input id="pw" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off"><button id="pwgo" aria-label="Open">&#x2192;</button></div>
 <div id="start">
- <button class="big" id="mTrace" aria-label="Obtahování"><svg viewBox="0 0 100 100"><polygon points="50,12 61,38 89,39 67,57 75,85 50,69 25,85 33,57 11,39 39,38" fill="none" stroke="#c9bfb2" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 9"/><path d="M50 12L61 38L89 39" fill="none" stroke="#e8c766" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(35 82 30)"><rect x="76" y="6" width="12" height="40" rx="3" fill="#8fbbe0" stroke="#4a403a" stroke-width="3"/><path d="M76 46l6 12l6-12z" fill="#f6dcc8" stroke="#4a403a" stroke-width="3" stroke-linejoin="round"/></g></svg></button>
- <button class="big" id="mColor" aria-label="Vybarvování"><svg viewBox="0 0 100 100"><circle cx="34" cy="62" r="20" fill="#e88a84"/><circle cx="58" cy="70" r="16" fill="#9fcf98"/><circle cx="52" cy="44" r="15" fill="#f4dc7d"/><g transform="rotate(40 70 30)"><rect x="64" y="2" width="12" height="42" rx="5" fill="#b8957a" stroke="#4a403a" stroke-width="3"/><path d="M62 44h16v8q0 12-8 18q-8-6-8-18z" fill="#8fbbe0" stroke="#4a403a" stroke-width="3" stroke-linejoin="round"/></g></svg></button>
+ <button class="big" id="mTrace" aria-label="Trace"><svg viewBox="0 0 100 100"><polygon points="50,12 61,38 89,39 67,57 75,85 50,69 25,85 33,57 11,39 39,38" fill="none" stroke="#c9bfb2" stroke-width="5" stroke-linecap="round" stroke-dasharray="0.1 9"/><path d="M50 12L61 38L89 39" fill="none" stroke="#e8c766" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/><g transform="rotate(35 82 30)"><rect x="76" y="6" width="12" height="40" rx="3" fill="#8fbbe0" stroke="#4a403a" stroke-width="3"/><path d="M76 46l6 12l6-12z" fill="#f6dcc8" stroke="#4a403a" stroke-width="3" stroke-linejoin="round"/></g></svg></button>
+ <button class="big" id="mColor" aria-label="Colour"><svg viewBox="0 0 100 100"><circle cx="34" cy="62" r="20" fill="#e88a84"/><circle cx="58" cy="70" r="16" fill="#9fcf98"/><circle cx="52" cy="44" r="15" fill="#f4dc7d"/><g transform="rotate(40 70 30)"><rect x="64" y="2" width="12" height="42" rx="5" fill="#b8957a" stroke="#4a403a" stroke-width="3"/><path d="M62 44h16v8q0 12-8 18q-8-6-8-18z" fill="#8fbbe0" stroke="#4a403a" stroke-width="3" stroke-linejoin="round"/></g></svg></button>
 </div>
 <div id="app">
  <div id="side"></div>
  <div id="stage"><div id="word"></div>
   <div id="wrap"><svg id="pic" viewBox="0 0 500 450"><defs id="defs"></defs><g id="parts"></g><g id="decoL" class="deco"></g><g id="dot"><circle r="26" fill="#f4dc7d" opacity=".35"/><circle r="15" fill="#e8c766" stroke="#fff" stroke-width="5"/></g></svg></div>
   <div id="hand">&#x1F446;</div>
-  <button class="corner" id="home" aria-label="Domů">⌂</button>
-  <button class="corner" id="gear" aria-label="Pro rodiče (podržte)">⚙︎</button><div id="ring"></div>
-  <div id="menu"><b>Pro rodiče</b>
-   <label><input type="checkbox" id="voice"> Hlas</label>
-   <label><input type="checkbox" id="spk"> Jiskřičky</label>
-   <button id="clear">Vymazat obrázek</button><button id="close">Zavřít</button></div>
+  <button class="corner" id="home" aria-label="Home">⌂</button>
+  <button class="corner" id="gear" aria-label="For parents (hold)">⚙︎</button><div id="ring"></div>
+  <div id="menu"><b>For parents</b>
+   <label><input type="checkbox" id="voice"> Voice</label>
+   <label><input type="checkbox" id="spk"> Sparkles</label>
+   <button id="clear">Clear picture</button><button id="close">Close</button></div>
  </div>
  <div id="pal"></div>
 </div>
@@ -232,7 +232,15 @@ const NEW=[
 // ---------- data ----------
 A.forEach(a=>a.t="\u{1F43E}");
 const PICS=A.concat(NEW);
-const COLORS=[["červená","#e88a84"],["oranžová","#f2b27a"],["žlutá","#f4dc7d"],["zelená","#9fcf98"],["modrá","#8fbbe0"],["fialová","#b9a2d6"],["růžová","#f2b8cf"],["hnědá","#b8957a"],["zlatá","#e8c766",1],["třpytivá modrá","#9cc6ec",1]];
+const EN={"kočička":"cat","pejsek":"dog","rybička":"fish","slon":"elephant","sova":"owl","zajíček":"bunny","dinosaurus":"dinosaur","drak":"dragon","prasátko":"piggy","bráška":"little brother","louže":"puddle",
+ "modrý pejsek":"blue puppy","sestřička":"sister","princezna":"princess","sněhulák":"snowman","vločka":"snowflake","holčička":"girl","kánoe":"canoe","vlna":"wave","kohoutek":"rooster"};
+PICS.forEach(a=>{a.n=EN[a.n]||a.n});
+const PRAISE_S=["Good!","Well done!","Nice!","Yes!"],PRAISE_B=["Great job!","You are great!","Awesome!","Amazing!","Beautiful!"];
+const pick=a=>a[Math.floor(Math.random()*a.length)];
+const article=n=>(/^[aeiou]/i.test(n)?"an ":"a ")+n;
+function praiseSmall(){say(pick(PRAISE_S))}
+function praiseBig(){const p=pick(PRAISE_B),n=PICS[cur].n;say(p,null,p+" It's "+article(n)+"!",3200)}
+const COLORS=[["red","#e88a84"],["orange","#f2b27a"],["yellow","#f4dc7d"],["green","#9fcf98"],["blue","#8fbbe0"],["purple","#b9a2d6"],["pink","#f2b8cf"],["brown","#b8957a"],["gold glitter","#e8c766",1],["blue glitter","#9cc6ec",1]];
 const $=s=>document.querySelector(s),SVGNS="http://www.w3.org/2000/svg",pic=$("#pic"),word=$("#word"),stage=$("#stage"),dotEl=$("#dot"),hand=$("#hand");
 let mode="color",cur=0,color=COLORS[0],state={};try{state=JSON.parse(LS.om5||"{}")}catch(e){}
 state.c=state.c||{};state.t=state.t||{};
@@ -242,9 +250,9 @@ function persist(){try{LS.om5=JSON.stringify(state)}catch(e){}}
 function glit(base,w){const c=document.createElement("canvas");c.width=c.height=w;const g=c.getContext("2d");g.fillStyle=base;g.fillRect(0,0,w,w);
  for(let i=0;i<w*1.2;i++){g.fillStyle=Math.random()<.6?"rgba(255,255,255,.8)":"rgba(255,255,255,.35)";g.beginPath();g.arc(Math.random()*w,Math.random()*w,Math.random()*1.2+.3,0,7);g.fill()}return c.toDataURL()}
 COLORS.forEach((c,i)=>{c.v=c[1];if(c[2]){c.url=glit(c[1],40);$("#defs").insertAdjacentHTML("beforeend",`<pattern id="g${i}" patternUnits="userSpaceOnUse" width="24" height="24"><rect width="24" height="24" fill="${c[1]}"/><image class="shim" href="${c.url}" width="24" height="24"/></pattern>`);c.v=`url(#g${i})`}});
-let wt;function say(t,col){word.textContent=t;word.style.color=col||"#8a7d70";word.classList.add("show");clearTimeout(wt);wt=setTimeout(()=>word.classList.remove("show"),1600);
- try{if(voice.checked&&window.speechSynthesis){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang="cs-CZ";u.rate=.8;u.pitch=1.1;u.volume=.4;
- const v=speechSynthesis.getVoices().find(v=>v.lang&&v.lang.indexOf("cs")===0);if(v)u.voice=v;speechSynthesis.speak(u)}}catch(e){}}
+let wt;function say(t,col,spoken,dur){word.textContent=t;word.style.color=col||"#8a7d70";word.classList.add("show");clearTimeout(wt);wt=setTimeout(()=>word.classList.remove("show"),dur||1600);
+ try{if(voice.checked&&window.speechSynthesis){speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(spoken||t);u.lang="en-US";u.rate=.75;u.pitch=1.1;u.volume=.45;
+ const vs=speechSynthesis.getVoices(),v=vs.find(v=>v.lang==="en-US"&&/Samantha|Google US|Female/i.test(v.name))||vs.find(v=>v.lang&&v.lang.indexOf("en-US")===0)||vs.find(v=>v.lang&&v.lang.indexOf("en")===0);if(v)u.voice=v;speechSynthesis.speak(u)}}catch(e){}}
 function staticSVG(a,colored){return `<svg viewBox="0 0 500 450" xmlns="${SVGNS}">${a.p.map(([d,c])=>`<path d="${d}" fill="${colored?c:"#fff"}" stroke="${INK}" stroke-width="${colored?5:8}" stroke-linejoin="round"/>`).join("")}${a.d()}</svg>`}
 window.staticSVG=staticSVG;window.PICS=PICS;
 // ---------- UI ----------
@@ -252,7 +260,7 @@ COLORS.forEach((c,i)=>{const b=document.createElement("button");b.className="c"+
  b.onpointerdown=()=>{color=c;document.querySelectorAll(".c").forEach(x=>x.classList.toggle("on",x==b));say(c[0],c[1]);if(mode=="trace")tint()};$("#pal").append(b)});
 let lastTh="";PICS.forEach((a,i)=>{if(a.t!=lastTh){lastTh=a.t;const t=document.createElement("div");t.className="th";t.textContent=a.t;$("#side").append(t)}
  const b=document.createElement("button");b.className="pg";b.setAttribute("aria-label",a.n);b.innerHTML=staticSVG(a,false);b.onclick=()=>{load(i);say(a.n)};$("#side").append(b)});
-function startMode(m){mode=m;$("#start").classList.add("hide");document.body.classList.toggle("tmode",m=="trace");pic.classList.toggle("tmode",m=="trace");fit();load(cur);say(m=="trace"?"obtahování":"vybarvování")}
+function startMode(m){mode=m;$("#start").classList.add("hide");document.body.classList.toggle("tmode",m=="trace");pic.classList.toggle("tmode",m=="trace");fit();load(cur);say(m=="trace"?"Trace!":"Colour!")}
 $("#mTrace").onclick=()=>startMode("trace");$("#mColor").onclick=()=>startMode("color");
 $("#home").onclick=()=>{$("#start").classList.remove("hide");hand.classList.remove("show")};
 // ---------- build picture ----------
@@ -302,11 +310,11 @@ function drawT(p){const tl=p.grp.querySelector(".tl"),n=p.pts.length;let d="";
  tl.setAttribute("d",d);tl.setAttribute("stroke",p.tcol||color.v);tl.style.visibility=d?"visible":"hidden"}
 function coverage(p){let c=0;for(let j=0;j<p.cov.length;j++)if(p.cov[j]&&p.vis[j])c++;return p.nv?c/p.nv:1}
 function completePart(p,quiet){p.tdone=true;p.cov.fill(1);if(!p.tcol)p.tcol=color.v;drawT(p);p.grp.classList.add("tdone");p.grp.querySelector(".gd").style.opacity=0;
- if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<5;i++){const q=p.pts[Math.floor(Math.random()*p.pts.length)];setTimeout(()=>sparkle(r.left+q[0]*r.width/500,r.top+q[1]*r.height/450,true),i*140)}}}
+ if(!quiet){if(!parts.every(q=>q.tdone))praiseSmall();const r=pic.getBoundingClientRect();for(let i=0;i<5;i++){const q=p.pts[Math.floor(Math.random()*p.pts.length)];setTimeout(()=>sparkle(r.left+q[0]*r.width/500,r.top+q[1]*r.height/450,true),i*140)}}}
 function saveTrace(){const o={};parts.forEach(p=>{o[p.k]=p.tdone?1:p.cov.join("");if(p.tcol)o["c"+p.k]=p.tcol});o.all=state.t[cur]&&state.t[cur].all?1:0;state.t[cur]=o;persist()}
 function finishAll(quiet){state.t[cur]=state.t[cur]||{};state.t[cur].all=1;persist();stopHint();
  parts.forEach((p,i)=>{const f=p.grp.querySelector(".fillc");f.setAttribute("fill",p.dc);if(quiet)f.classList.add("on");else setTimeout(()=>f.classList.add("on"),300+i*120)});
- if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<14;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),400+i*220);setTimeout(()=>say(PICS[cur].n),900)}}
+ if(!quiet){const r=pic.getBoundingClientRect();for(let i=0;i<14;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),400+i*220);setTimeout(praiseBig,900)}}
 // nearest visible sample over all untraced parts (front-most wins ties)
 function nearestAny(x,y,R){let best=null,bd=R*R;for(let k=parts.length-1;k>=0;k--){const p=parts[k];if(p.tdone)continue;
  for(let j=0;j<p.pts.length;j++){if(!p.vis[j])continue;const dx=p.pts[j][0]-x,dy=p.pts[j][1]-y,d=dx*dx+dy*dy;if(d<bd-1){bd=d;best={p,j}}}}return best}
@@ -342,13 +350,13 @@ pic.addEventListener("pointerdown",e=>{$("#menu").style.display="none";try{pic.s
  const q=toSvg(e);sparkle(e.clientX,e.clientY);
  if(mode=="trace"){const o={t:1,last:q,p:null,j:0};act[e.pointerId]=o;ringAt(e,true);traceAt(o,q[0],q[1],85*q[2]);return}
  const p=partAt(q[0],q[1]);if(!p)return;const o={p,c:color.v,pts:[q],t0:Date.now(),moved:0,maxd:0};o.el=addStroke(p,o.c,o.pts);o.rec={c:o.c,d:o.pts};p.strokes.push(o.rec);act[e.pointerId]=o;
- if(!p.done&&mark(p,[q])>=DONE){fillPart(p,o.c,false);checkAllColor()}});
+ if(!p.done&&mark(p,[q])>=DONE){fillPart(p,o.c,false);if(!parts.every(x=>x.done))praiseSmall();checkAllColor()}});
 pic.addEventListener("pointermove",e=>{const o=act[e.pointerId];if(!o)return;const q=toSvg(e);sparkle(e.clientX,e.clientY);
  if(o.t){ringAt(e,true);const l=o.last,steps=Math.max(1,Math.ceil(Math.hypot(q[0]-l[0],q[1]-l[1])/8));const sl=Math.hypot(q[0]-l[0],q[1]-l[1])/steps;for(let i=1;i<=steps;i++)traceAt(o,l[0]+(q[0]-l[0])*i/steps,l[1]+(q[1]-l[1])*i/steps,85*q[2],sl);o.last=q;return}
  const l=o.pts[o.pts.length-1];const dd=Math.hypot(q[0]-l[0],q[1]-l[1]);if(dd<2)return;o.moved+=dd;
   o.maxd=Math.max(o.maxd,Math.hypot(q[0]-o.pts[0][0],q[1]-o.pts[0][1]));o.pts.push(q);if(o.el){o.el.setAttribute("d","M"+o.pts.map(v=>v[0]+" "+v[1]).join("L"));
   const seg=[],n=Math.ceil(dd/8);for(let i=1;i<=n;i++)seg.push([l[0]+(q[0]-l[0])*i/n,l[1]+(q[1]-l[1])*i/n]);
-  if(!o.p.done&&mark(o.p,seg.concat(o.pts.length<4?o.pts:[]))>=DONE){fillPart(o.p,o.c,false);checkAllColor()}}});
+  if(!o.p.done&&mark(o.p,seg.concat(o.pts.length<4?o.pts:[]))>=DONE){fillPart(o.p,o.c,false);if(!parts.every(x=>x.done))praiseSmall();checkAllColor()}}});
 const up=e=>{const o=act[e.pointerId];if(!o)return;delete act[e.pointerId];
  if(o.t){ringAt(e,false);saveTrace();idleHint();return}
 
@@ -356,7 +364,7 @@ const up=e=>{const o=act[e.pointerId];if(!o)return;delete act[e.pointerId];
 pic.addEventListener("pointerup",up);pic.addEventListener("pointercancel",up);
 let celebrated={};
 function checkAllColor(){if(parts.every(p=>p.done)&&!celebrated[cur]){celebrated[cur]=1;const r=pic.getBoundingClientRect();
- for(let i=0;i<12;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),i*220);setTimeout(()=>say(PICS[cur].n),900)}}
+ for(let i=0;i<12;i++)setTimeout(()=>sparkle(r.left+r.width*(.15+.7*Math.random()),r.top+r.height*(.1+.8*Math.random()),true),i*220);setTimeout(praiseBig,900)}}
 let lastSp=0;function sparkle(x,y,force){if(!spk.checked)return;const now=performance.now();if(!force&&now-lastSp<90)return;lastSp=now;const r=stage.getBoundingClientRect();
  const d=document.createElement("div");d.className="sp";d.style.left=(x-r.left+(Math.random()-.5)*36)+"px";d.style.top=(y-r.top+(Math.random()-.5)*36)+"px";stage.append(d);setTimeout(()=>d.remove(),1700)}
 // ---------- parent menu ----------
